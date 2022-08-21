@@ -1,0 +1,20 @@
+Tất cả chú ý nhé.
+Chúng ta có 2 nhánh chính.
+Code backend sẽ push lên nhánh back_end_dev
+Code frontend sẽ push lên nhánh front_end_dev
+
+Với mỗi chức năng chúng ta sẽ tạo ticket.
+Với mỗi ticket chúng ta tạo 1 nhánh riêng.
+Vd: Chức năng login (ticket number #113)
+	back_end tạo nhánh: be.log_in.#113 ở local, làm code chức năng login vào, sau đó push lên 1 nhánh mới trên github, sau đó tại pull-request gộp vào nhánh back_end_dev.
+	front_end tương tự có nhánh: fe.log_in.#113, gộp vào front_end_dev.
+Các quy tắc đặt tên nhánh: front_ent.tên_chức_năng.#number_ticket
+			   back_ent.tên_chức_năng.#number_ticket
+Các quy tắc đặt tên commit:  tên_chức_năng.#number_ticket
+                             #number_ticket.fix_comment_1
+			     fix_bug.tên_bug.#number_ticket
+Các quy tắc push, không push -f lên nhánh chính (back_end_dev và front_end_dev)
+Hạn chế push -f và dùng cherry-pick lên các nhánh.
+Cần fix-conflict thì dùng merge, tránh dùng rebase gây đổi hash commit.
+
+Sau đây yêu cầu các team tạo project rồi push lên nhánh tương ứng.
