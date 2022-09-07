@@ -1,18 +1,43 @@
 @import 'normalize.css';
 
+:root {
+    --color-primary: #0e719f;
+    --color-black: #333;
+    --text-color: #fff;
+    --color-red: red;
+
+    --default-header-height: 50px;
+}
+
 html {
     font-size: 62.5%;
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--text-color);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input {
+    outline: none;
+    border: none;
 }
