@@ -1,5 +1,5 @@
 const images = {
-    logo: require('~/assets/shields.svg').default,
+    logo: require('~/assets/medical-team.png'),
 };
 
 export default images;

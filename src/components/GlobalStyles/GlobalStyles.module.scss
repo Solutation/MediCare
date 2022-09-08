@@ -4,9 +4,10 @@
     --color-primary: #0e719f;
     --color-black: #333;
     --text-color: #fff;
-    --color-red: red;
+    --color-white: #fff;
 
-    --default-header-height: 50px;
+    --default-header-height: 60px;
+    --default-header-spacer: 100px;
 }
 
 html {
@@ -40,4 +41,11 @@ button,
 input {
     outline: none;
     border: none;
+}
+
+.container {
+    max-width: 1150px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
 }
