@@ -1,6 +1,7 @@
 $gray-color: #f1f1f2;
 $icon-color: #a6a7ab;
 $separate-color: #d7d7d9;
+$search-default-width: 380px;
 
 .search {
     display: flex;
@@ -13,10 +14,9 @@ $separate-color: #d7d7d9;
     overflow: hidden;
     padding: 5px 8px;
     z-index: 20;
-    width: 320px;
+    width: $search-default-width;
     align-self: center;
     margin-left: 4rem;
-    flex-grow: 0.3;
 
     .search-input {
         height: 100%;
@@ -55,5 +55,15 @@ $separate-color: #d7d7d9;
         right: 0.6rem;
         top: 50%;
         transform: translateY(-50%);
+    }
+}
+.search-result {
+    width: $search-default-width;
+
+    .search-title {
+        padding: 5px 12px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: rgba(22, 24, 35, 0.5);
     }
 }

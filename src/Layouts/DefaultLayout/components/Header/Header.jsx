@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import images from '~/assets';
 import styles from './Header.module.scss';
 import { Search } from '../Search';
+import { Button } from '~/components/Button';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    useEffect(() => {
-        console.log(images);
-    }, []);
-
     return (
         <nav className={cx('navbar', 'navbar-expand-sm', 'wrapper')}>
             <div className={cx('menu-left')}>
@@ -61,6 +60,9 @@ function Header() {
                     </li>
                 </ul>
             </div>
+            <Button secondary leftIcon={<FontAwesomeIcon icon={faUser} />}>
+                Đăng nhập
+            </Button>
         </nav>
     );
 }

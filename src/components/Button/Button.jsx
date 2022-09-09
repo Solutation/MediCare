@@ -9,6 +9,7 @@ function Button({
     to,
     href,
     primary = false,
+    secondary = false,
     outline = false,
     rounded = false,
     disabled = false,
@@ -43,9 +44,23 @@ function Button({
         });
     }
 
+    const classes = cx('wrapper', {
+        [className]: className,
+        primary,
+        secondary,
+        outline,
+        rounded,
+        disabled,
+        small,
+        large,
+        medium,
+    });
+
     return (
-        <Comp {...props}>
+        <Comp className={classes} {...props}>
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             <span className={cx('content')}>{children}</span>
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Comp>
     );
 }
