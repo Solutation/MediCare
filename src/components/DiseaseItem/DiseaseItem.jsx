@@ -6,21 +6,22 @@ import styles from './DiseaseItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-function DiseaseItem() {
+function DiseaseItem({ data }) {
     return (
-        <Link to="" className={cx('wrapper')}>
-            <img src={require('~/assets/waifu.jpg')} className={cx('disease-image')} alt="Anh" />
-            <div className={cx('disease-info')}>
-                <h4 className={cx('disease-name')}>
-                    <span>Bệnh về mắt</span>
-                </h4>
-                <span className={cx('disease-description')}>
-                    Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có
-                    thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần
-                    được ưu tiên.
-                </span>
-            </div>
-        </Link>
+        <>
+            {data.length > 0 &&
+                data.map((info) => (
+                    <Link to="" className={cx('wrapper')} key={info.id}>
+                        <img src={require(`src/assets/${info.image}`)} className={cx('disease-image')} alt="Anh" />
+                        <div className={cx('disease-info')}>
+                            <h4 className={cx('disease-name')}>
+                                <span>{info.title}</span>
+                            </h4>
+                            <span className={cx('disease-description')}>{info.description.slice(0, 70) + '..'}</span>
+                        </div>
+                    </Link>
+                ))}
+        </>
     );
 }
 

@@ -22,12 +22,8 @@ function Header() {
                     HealthyCare
                 </Link>
             </div>
-            <button
-                className={cx('navbar-toggler')}
-                data-toggle="collapse"
-                data-target="#navbarCollapse"
-            >
-                <span className={cx('navbar-toggler-icon')}></span>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon red"></span>
             </button>
             <Search />
             <div id="navbarCollapse" className={cx('collapse', 'navbar-collapse')}>
