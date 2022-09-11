@@ -1,10 +1,11 @@
 @import 'normalize.css';
 
 :root {
-    --color-primary: #0e719f;
+    --color-primary: #38b3d1;
     --color-black: #333;
-    --text-color: #fff;
+    --text-color: #333;
     --color-white: #fff;
+    --color-overlay-primary: rgba(0, 0, 0, 0.7);
 
     --default-header-height: 60px;
     --default-header-spacer: 100px;
@@ -19,7 +20,7 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
-    color: var(--text-color);
+    margin-top: 60px;
 }
 
 * {
@@ -41,11 +42,4 @@ button,
 input {
     outline: none;
     border: none;
-}
-
-.container {
-    max-width: 1150px;
-    width: 100%;
-    display: flex;
-    margin: 0 auto;
 }

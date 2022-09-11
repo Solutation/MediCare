@@ -1,5 +1,6 @@
 const images = {
-    logo: require('~/assets/medical-team.png'),
+    logo: require('~/assets/main-logo.png'),
+    homeMainImage: require('~/assets/medical.jpg'),
 };
 
 export default images;

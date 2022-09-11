@@ -15,7 +15,7 @@ function DiseaseItem({ data }) {
                         <img src={require(`src/assets/${info.image}`)} className={cx('disease-image')} alt="Anh" />
                         <div className={cx('disease-info')}>
                             <h4 className={cx('disease-name')}>
-                                <span>{info.title}</span>
+                                <span className={cx('disease-title')}>{info.title}</span>
                             </h4>
                             <span className={cx('disease-description')}>{info.description.slice(0, 70) + '..'}</span>
                         </div>

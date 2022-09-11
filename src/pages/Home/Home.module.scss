@@ -1,0 +1,38 @@
+$separate-color: #1f4d91;
+$text-color: #224e8f;
+
+.wrapper {
+    background-image: url(../../assets/medical.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: calc(100vh - 70px);
+}
+.container {
+    max-width: 1600px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+
+    .wrapper-item {
+        position: absolute;
+        top: 30%;
+    }
+    .title {
+        font-size: 7rem;
+    }
+    .separate {
+        position: relative;
+        width: 40px;
+        border-bottom: 3px solid $separate-color;
+        left: 46%;
+        padding: 6px 0;
+    }
+    .description {
+        padding: 16px 0;
+        color: $text-color;
+        font-size: 2rem;
+    }
+}
+.primary-text {
+    color: var(--color-primary);
+}
