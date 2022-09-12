@@ -19,10 +19,15 @@ $button-secondary-color: #2d87f3;
         opacity: 0.5;
     }
 }
-.icon {
+.left-icon {
     width: 24px;
     text-align: left;
     margin-right: 4px;
+}
+.right-icon {
+    width: 24px;
+    text-align: right;
+    margin-left: 4px;
 }
 .primary {
     border-color: var(--color-primary);
@@ -48,7 +53,7 @@ $button-secondary-color: #2d87f3;
     color: var(--color-black);
 
     &:hover {
-        background-color: $gray-color;
+        opacity: 0.8;
     }
 }
 .rounded {
@@ -66,4 +71,8 @@ $button-secondary-color: #2d87f3;
 .large {
     min-width: 140px;
     padding: 14px 16px;
+}
+.serviceBtn {
+    position: absolute;
+    bottom: 14px;
 }

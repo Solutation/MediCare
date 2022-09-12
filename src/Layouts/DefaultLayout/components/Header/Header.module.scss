@@ -6,10 +6,8 @@
     background-color: var(--color-white);
     height: var(--default-header-height);
     box-shadow: 1px 1px 2px rgb(0 0 0 / 12%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     color: var(--color-black);
+    z-index: 20;
 }
 .menu-left {
     display: flex;
@@ -50,7 +48,7 @@
     flex-grow: 0.5;
 }
 .container {
-    max-width: 1600px;
+    max-width: 1380px;
     width: 100%;
     display: flex;
     margin: 0 auto;

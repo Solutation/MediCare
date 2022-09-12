@@ -16,10 +16,12 @@ function Button({
     small = false,
     large = false,
     medium = false,
+    serviceBtn = false,
     className,
     children,
     leftIcon,
     rightIcon,
+    style,
     onClick,
     ...passProps
 }) {
@@ -46,6 +48,7 @@ function Button({
 
     const classes = cx('wrapper', {
         [className]: className,
+        style,
         primary,
         secondary,
         outline,
@@ -54,13 +57,14 @@ function Button({
         small,
         large,
         medium,
+        serviceBtn,
     });
 
     return (
         <Comp className={classes} {...props}>
-            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            {leftIcon && <span className={cx('left-icon')}>{leftIcon}</span>}
             <span className={cx('content')}>{children}</span>
-            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
+            {rightIcon && <span className={cx('right-icon')}>{rightIcon}</span>}
         </Comp>
     );
 }
