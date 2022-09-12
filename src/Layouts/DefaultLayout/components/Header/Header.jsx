@@ -14,7 +14,7 @@ const cx = classNames.bind(styles);
 function Header() {
     return (
         <nav className={cx('navbar', 'navbar-expand-md', 'wrapper')}>
-            <div className={cx('container')}>
+            <div className={cx('container', 'd-flex')}>
                 <div className={cx('menu-left')}>
                     <Link to="" className={cx('logo-link')}>
                         <img src={images.logo} alt="Anh" className={cx('logo-image')} />

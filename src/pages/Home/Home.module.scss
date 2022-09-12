@@ -1,19 +1,7 @@
 $separate-color: #1f4d91;
 $text-color: #224e8f;
-$secondary-color: #909090;
+$bg-staff: #f1f1f1;
 
-.primary {
-    color: var(--color-primary);
-}
-.bg-primary {
-    background-color: var(--color-primary);
-}
-.bg-secondary {
-    background-color: $secondary-color;
-}
-.text-secondary {
-    color: var(--color-black);
-}
 .wrapper {
     background-image: url(../../assets/medical.jpg);
     background-size: cover;
@@ -24,17 +12,12 @@ $secondary-color: #909090;
     width: 40px;
     border-bottom: 3px solid $separate-color;
     padding: 6px 0;
-    margin: 0 auto;
 }
-.container {
-    max-width: 1380px;
-    width: 100%;
-    margin: 0 auto;
 
-    .wrapper-item {
-        position: absolute;
-        top: 30%;
-    }
+.wrapper-item {
+    position: absolute;
+    top: 30%;
+
     .title {
         font-size: 7rem;
     }
@@ -44,6 +27,7 @@ $secondary-color: #909090;
         font-size: 2rem;
     }
 }
+
 .service-wrapper {
     height: 300px;
 
@@ -61,11 +45,6 @@ $secondary-color: #909090;
 .about-head-wrapper {
     padding-top: 18rem;
 
-    .separate-about {
-        width: 40px;
-        border-bottom: 3px solid $separate-color;
-        padding: 6px 0;
-    }
     .about-info {
         padding-top: 1.4rem;
         margin-bottom: 0;
@@ -80,17 +59,40 @@ $secondary-color: #909090;
         }
     }
     .about-footer-icon-wrapper {
-        width: 30px;
-        height: 30px;
-        border: 1px solid var(--color-primary);
+        display: flex;
+        width: 460px;
+        height: 140px;
+        border: 2px solid var(--color-primary);
         border-radius: 50%;
-        padding: 4rem;
-        margin: 0 auto;
+        overflow: hidden;
+        align-items: center;
+        margin-right: 2rem;
 
         .about-footer-icon {
-            font-size: 7rem;
+            font-size: 6rem;
+            width: 100%;
             object-fit: contain;
-            position: relative;
         }
     }
+    .about-footer-info {
+        margin-top: 0.6rem;
+        line-height: 2.8rem;
+    }
+}
+.staff-wrapper {
+    margin-top: 20rem;
+
+    .staff-description {
+        padding: 1.2rem 0;
+        font-size: 1.8rem;
+        line-height: 3rem;
+    }
+}
+.bg-staff {
+    background-color: $bg-staff;
+}
+.card-header-image {
+    object-fit: cover;
+    width: 100%;
+    min-height: 300px;
 }

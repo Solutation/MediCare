@@ -2,6 +2,7 @@
 
 :root {
     --color-primary: #38b3d1;
+    --color-secondary: #909090;
     --color-black: #333;
     --text-color: #333;
     --color-white: #fff;
@@ -42,4 +43,19 @@ button,
 input {
     outline: none;
     border: none;
+}
+.container {
+    max-width: 1380px !important;
+}
+.primary {
+    color: var(--color-primary);
+}
+.bg-primary {
+    background-color: var(--color-primary) !important;
+}
+.bg-secondary {
+    background-color: var(--color-secondary) !important;
+}
+.secondary {
+    color: var(--color-black);
 }

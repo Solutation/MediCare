@@ -18,7 +18,7 @@ function Home() {
                         <div className={cx('col-4', 'wrapper-item', 'offset-1', 'text-center')}>
                             <h1 className={cx('d-none', 'd-sm-block', 'title')}>Your health is</h1>
                             <h1 className={cx('d-none', 'd-sm-block', 'title', 'primary')}>our mission</h1>
-                            <div className={cx('separate')}></div>
+                            <div className={cx('separate', 'mx-auto')}></div>
                             <p className={cx('description')}>
                                 Chúng tôi luôn đưa ra các lời khuyên hợp lý từ các chuyên gia tư vấn hàng đầu, giúp cải
                                 thiện sức khỏe của bạn cũng như cung cấp thêm cho bạn các thông tin về những bệnh lý
@@ -33,7 +33,18 @@ function Home() {
             </section>
             <section id="service">
                 <div className={cx('container')}>
-                    <h1 className={cx('service-title', 'text-center', 'mt-5', 'display-4', 'primary')}>Our Service</h1>
+                    <h1
+                        className={cx(
+                            'service-title',
+                            'text-center',
+                            'mt-5',
+                            'display-2',
+                            'primary',
+                            'font-weight-bold',
+                        )}
+                    >
+                        Our Service
+                    </h1>
                     <div className={cx('separate')}></div>
                     <div className={cx('row', 'pt-5')}>
                         <div className={cx('col-md-3', 'col-sm-2')}>
@@ -126,7 +137,7 @@ function Home() {
                         <div className={cx('col-8', 'offset-4')}>
                             <div className={cx('about-head')}>
                                 <h2 className={cx('display-4', 'font-weight-bold')}>About Us</h2>
-                                <div className={cx('separate-about')}></div>
+                                <div className={cx('separate')}></div>
                                 <div className={cx('about-info')}>
                                     <h1 className={cx('primary', 'font-weight-bold', 'about-title')}>Great Passion</h1>
                                     <h1 className={cx('about-title')}>for caring</h1>
@@ -155,35 +166,160 @@ function Home() {
                                 </div>
                             </div>
                             <hr className={cx('mt-5')} />
-                            <div className={cx('about-footer')}>
-                                <div className={cx('container')}>
+                            <div className={cx('about-footer', 'pt-5')}>
+                                <div className={cx('container', 'px-0')}>
                                     <div className={cx('row')}>
-                                        <div className={cx('col-6')}>
+                                        <div className={cx('col-6', 'd-flex', 'align-items-center')}>
                                             <div className={cx('about-footer-icon-wrapper')}>
                                                 <FontAwesomeIcon
                                                     icon={faHeartPulse}
                                                     className={cx('primary', 'about-footer-icon')}
                                                 />
                                             </div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
-                                                atque. Illum quis ipsa inventore odit similique consequatur fugiat, illo
-                                                minima!
-                                            </p>
+                                            <div className={cx('d-flex', 'flex-column', 'mt-1')}>
+                                                <h2 className={cx('font-weight-bold')}>Dedicated</h2>
+                                                <p className={cx('text-muted', 'about-footer-info')}>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+                                                    unde voluptate non officia voluptatum quaerat dignissimos.
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div className={cx('col-6')}>
-                                            <div className={cx('about-footer-icon')}>
+                                        <div className={cx('col-6', 'd-flex', 'align-items-center')}>
+                                            <div className={cx('about-footer-icon-wrapper')}>
                                                 <FontAwesomeIcon
                                                     icon={faBookMedical}
                                                     className={cx('primary', 'about-footer-icon')}
                                                 />
                                             </div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
-                                                atque. Illum quis ipsa inventore odit similique consequatur fugiat, illo
-                                                minima!
-                                            </p>
+                                            <div className={cx('d-flex', 'flex-column')}>
+                                                <h2 className={cx('font-weight-bold')}>Great Service</h2>
+                                                <p className={cx('text-muted', 'about-footer-info')}>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+                                                    unde voluptate non officia voluptatum quaerat dignissimos.
+                                                </p>
+                                            </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="staff" className={cx('staff-wrapper')}>
+                <div className={cx('container')}>
+                    <h1 className={cx('display-2', 'font-weight-bold', 'text-black', 'd-inline-block')}>
+                        Professional
+                    </h1>
+                    <h1 className={cx('display-2', 'primary', 'font-weight-bold', 'd-inline-block', 'ml-4')}>
+                        Consultants
+                    </h1>
+                    <hr />
+                    <p className={cx('staff-description', 'w-50', 'text-muted')}>
+                        Dưới đây là danh sách các chuyên gia tư vấn giàu kinh nghiệm của chúng tôi, luôn hỗ trợ bạn mọi
+                        lúc khi bạn gặp vấn đề về sức khỏe của mình.
+                    </p>
+                    <div className={cx('row')}>
+                        <div className={cx('col-3')}>
+                            <div className={cx('card')}>
+                                <div className={cx('card-body', 'bg-staff', 'p-0')}>
+                                    <img
+                                        src={require('../../assets/doctor1.jpg')}
+                                        alt="Anh"
+                                        className={cx('card-header-image')}
+                                    />
+                                    <div className={cx('p-4')}>
+                                        <h1 className={cx('font-weight-bold')}>Ngọc Phan</h1>
+                                        <div className={cx('separate')}></div>
+                                        <p className={cx('py-4')}>
+                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, maiores.
+                                            Iure eligendi voluptatum neque quia accusamus dolorum.
+                                        </p>
+                                        <Button
+                                            primary
+                                            rounded
+                                            rightIcon={<FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />}
+                                        >
+                                            Liên hệ tư vấn ngay
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={cx('col-3')}>
+                            <div className={cx('card')}>
+                                <div className={cx('card-body', 'bg-staff', 'p-0')}>
+                                    <img
+                                        src={require('../../assets/doctor2.jpg')}
+                                        alt="Anh"
+                                        className={cx('card-header-image')}
+                                    />
+                                    <div className={cx('p-4')}>
+                                        <h1 className={cx('font-weight-bold')}>Đăng Khoa</h1>
+                                        <div className={cx('separate')}></div>
+                                        <p className={cx('py-4')}>
+                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, maiores.
+                                            Iure eligendi voluptatum neque quia accusamus dolorum.
+                                        </p>
+                                        <Button
+                                            primary
+                                            rounded
+                                            rightIcon={<FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />}
+                                        >
+                                            Liên hệ tư vấn ngay
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={cx('col-3')}>
+                            <div className={cx('card')}>
+                                <div className={cx('card-body', 'bg-staff', 'p-0')}>
+                                    <img
+                                        src={require('../../assets/doctor3.jpg')}
+                                        alt="Anh"
+                                        className={cx('card-header-image')}
+                                    />
+                                    <div className={cx('p-4')}>
+                                        <h1 className={cx('font-weight-bold')}>Viết Anh</h1>
+                                        <div className={cx('separate')}></div>
+                                        <p className={cx('py-4')}>
+                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, maiores.
+                                            Iure eligendi voluptatum neque quia accusamus dolorum.
+                                        </p>
+                                        <Button
+                                            primary
+                                            rounded
+                                            rightIcon={<FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />}
+                                        >
+                                            Liên hệ tư vấn ngay
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={cx('col-3')}>
+                            <div className={cx('card')}>
+                                <div className={cx('card-body', 'bg-staff', 'p-0')}>
+                                    <img
+                                        src={require('../../assets/doctor4.jpg')}
+                                        alt="Anh"
+                                        className={cx('card-header-image')}
+                                    />
+                                    <div className={cx('p-4')}>
+                                        <h1 className={cx('font-weight-bold')}>Khương Trí</h1>
+                                        <div className={cx('separate')}></div>
+                                        <p className={cx('py-4')}>
+                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, maiores.
+                                            Iure eligendi voluptatum neque quia accusamus dolorum.
+                                        </p>
+                                        <Button
+                                            primary
+                                            rounded
+                                            rightIcon={<FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />}
+                                        >
+                                            Liên hệ tư vấn ngay
+                                        </Button>
                                     </div>
                                 </div>
                             </div>
