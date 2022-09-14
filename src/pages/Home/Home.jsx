@@ -34,24 +34,15 @@ function Home() {
             </section>
             <section id="service">
                 <div className={cx('container')}>
-                    <h1
-                        className={cx(
-                            'service-title',
-                            'text-center',
-                            'mt-5',
-                            'display-2',
-                            'primary',
-                            'font-weight-bold',
-                        )}
-                    >
-                        Our Service
+                    <h1 className={cx('service-title', 'text-center', 'mt-5', 'display-2', 'primary', 'fw-bold')}>
+                        Tính năng tiêu biểu
                     </h1>
                     <div className={cx('separate', 'mx-auto')}></div>
                     <div className={cx('row', 'pt-5')}>
                         <div className={cx('col-md-3', 'col-sm-2')}>
                             <div className={cx('card', 'service-wrapper')}>
                                 <div className={cx('card-body', 'bg-primary', 'text-white')}>
-                                    <h2 className={cx('card-title', 'font-weight-bold')}>Consultations</h2>
+                                    <h2 className={cx('card-title', 'fw-bold')}>Liên hệ tư vấn</h2>
                                     <p className={cx('card-text', 'py-2')}>
                                         Với đội ngũ chuyên gia tư vấn giàu kinh nghiệm, chúng tôi luôn đưa ra những lời
                                         khuyên, tư vấn hợp lý để giúp cho các bệnh nhân khắc phục các vấn đề về sức khỏe
@@ -71,7 +62,7 @@ function Home() {
                         <div className={cx('col-md-3', 'col-sm-2')}>
                             <div className={cx('card', 'service-wrapper')}>
                                 <div className={cx('card-body', 'bg-secondary', 'text-white')}>
-                                    <h2 className={cx('card-title', 'font-weight-bold')}>Finding Hospital</h2>
+                                    <h2 className={cx('card-title', 'fw-bold')}>Tìm bệnh viện</h2>
                                     <p className={cx('card-text', 'py-2')}>
                                         Bằng cách sử dụng dịch vụ này của chúng tôi, bệnh nhân có thể tìm được tới bệnh
                                         viện gần vị trí mình nhất, giúp tiết kiệm thời gian cho việc điều trị và khám
@@ -91,7 +82,7 @@ function Home() {
                         <div className={cx('col-md-3', 'col-sm-2')}>
                             <div className={cx('card', 'service-wrapper')}>
                                 <div className={cx('card-body', 'bg-primary', 'text-white')}>
-                                    <h2 className={cx('card-title', 'font-weight-bold')}>Disease Information</h2>
+                                    <h2 className={cx('card-title', 'fw-bold')}>Xem tin tức bệnh</h2>
                                     <p className={cx('card-text', 'py-2')}>
                                         Chúng tôi có các bài viết bao gồm rất nhiều loại bệnh theo chuyên mục, giúp bạn
                                         có thể biết được chính xác những thông tin cần thiết về bệnh mà bạn đang mắc
@@ -111,7 +102,7 @@ function Home() {
                         <div className={cx('col-md-3', 'col-sm-2')}>
                             <div className={cx('card', 'service-wrapper')}>
                                 <div className={cx('card-body', 'bg-secondary', 'text-white')}>
-                                    <h2 className={cx('card-title', 'font-weight-bold')}>Community</h2>
+                                    <h2 className={cx('card-title', 'fw-bold')}>Cộng đồng</h2>
                                     <p className={cx('card-text', 'py-2')}>
                                         Tạo một môi trường nơi bạn có thể chia sẻ những vấn đề về sức khỏe bạn gặp phải
                                         cho người khác vào góp ý, từ đó giúp bạn có thêm nhiều thông tin hơn về bệnh của
@@ -137,10 +128,10 @@ function Home() {
                     <div className={cx('row', 'about-head-wrapper')}>
                         <div className={cx('col-8', 'offset-4')}>
                             <div className={cx('about-head')}>
-                                <h2 className={cx('display-4', 'font-weight-bold')}>About Us</h2>
+                                <h2 className={cx('display-4', 'fw-bold')}>About Us</h2>
                                 <div className={cx('separate')}></div>
                                 <div className={cx('about-info')}>
-                                    <h1 className={cx('primary', 'font-weight-bold', 'about-title')}>Great Passion</h1>
+                                    <h1 className={cx('primary', 'fw-bold', 'about-title')}>Great Passion</h1>
                                     <h1 className={cx('about-title')}>for caring</h1>
                                     <p className={cx('py-4', 'about-text')}>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sint provident
@@ -158,9 +149,7 @@ function Home() {
                                     )}
                                 >
                                     <div className={cx('d-flex', 'flex-column', 'px-5')}>
-                                        <h2 className={cx('about-signature-text', 'primary', 'font-weight-bold')}>
-                                            Khuong Tri
-                                        </h2>
+                                        <h2 className={cx('about-signature-text', 'primary', 'fw-bold')}>Khuong Tri</h2>
                                         <cite className={cx('text-muted')}>{`Coder & Member`}</cite>
                                     </div>
                                     <img src={images.aboutSignature} alt="" />
@@ -178,7 +167,7 @@ function Home() {
                                                 />
                                             </div>
                                             <div className={cx('d-flex', 'flex-column', 'mt-1')}>
-                                                <h2 className={cx('font-weight-bold')}>Dedicated</h2>
+                                                <h2 className={cx('fw-bold')}>Dedicated</h2>
                                                 <p className={cx('text-muted', 'about-footer-info')}>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
                                                     unde voluptate non officia voluptatum quaerat dignissimos.
@@ -193,7 +182,7 @@ function Home() {
                                                 />
                                             </div>
                                             <div className={cx('d-flex', 'flex-column')}>
-                                                <h2 className={cx('font-weight-bold')}>Great Service</h2>
+                                                <h2 className={cx('fw-bold')}>Great Service</h2>
                                                 <p className={cx('text-muted', 'about-footer-info')}>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
                                                     unde voluptate non officia voluptatum quaerat dignissimos.
@@ -209,12 +198,8 @@ function Home() {
             </section>
             <section id="staff" className={cx('staff-wrapper')}>
                 <div className={cx('container')}>
-                    <h1 className={cx('display-2', 'font-weight-bold', 'text-black', 'd-inline-block')}>
-                        Professional
-                    </h1>
-                    <h1 className={cx('display-2', 'primary', 'font-weight-bold', 'd-inline-block', 'ml-4')}>
-                        Consultants
-                    </h1>
+                    <h1 className={cx('display-2', 'fw-bold', 'text-black', 'd-inline-block')}>Professional</h1>
+                    <h1 className={cx('display-2', 'primary', 'fw-bold', 'd-inline-block', 'ms-4')}>Consultants</h1>
                     <hr />
                     <p className={cx('staff-description', 'w-50')}>
                         Dưới đây là danh sách các chuyên gia tư vấn giàu kinh nghiệm của chúng tôi, luôn hỗ trợ bạn mọi
@@ -230,7 +215,7 @@ function Home() {
                                         className={cx('card-header-image')}
                                     />
                                     <div className={cx('p-4')}>
-                                        <h1 className={cx('font-weight-bold')}>Ngọc Phan</h1>
+                                        <h1 className={cx('fw-bold')}>Ngọc Phan</h1>
                                         <div className={cx('separate')}></div>
                                         <p className={cx('py-4')}>
                                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, maiores.
@@ -256,7 +241,7 @@ function Home() {
                                         className={cx('card-header-image')}
                                     />
                                     <div className={cx('p-4')}>
-                                        <h1 className={cx('font-weight-bold')}>Đăng Khoa</h1>
+                                        <h1 className={cx('fw-bold')}>Đăng Khoa</h1>
                                         <div className={cx('separate')}></div>
                                         <p className={cx('py-4')}>
                                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, maiores.
@@ -282,7 +267,7 @@ function Home() {
                                         className={cx('card-header-image')}
                                     />
                                     <div className={cx('p-4')}>
-                                        <h1 className={cx('font-weight-bold')}>Viết Anh</h1>
+                                        <h1 className={cx('fw-bold')}>Viết Anh</h1>
                                         <div className={cx('separate')}></div>
                                         <p className={cx('py-4')}>
                                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, maiores.
@@ -308,7 +293,7 @@ function Home() {
                                         className={cx('card-header-image')}
                                     />
                                     <div className={cx('p-4')}>
-                                        <h1 className={cx('font-weight-bold')}>Khương Trí</h1>
+                                        <h1 className={cx('fw-bold')}>Khương Trí</h1>
                                         <div className={cx('separate')}></div>
                                         <p className={cx('py-4')}>
                                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, maiores.
@@ -336,10 +321,8 @@ function Home() {
             </section>
             <section id="disease" className={cx('disease-wrapper')}>
                 <div className={cx('container')}>
-                    <h1 className={cx('display-2', 'font-weight-bold', 'text-black', 'd-inline-block')}>Latest</h1>
-                    <h1 className={cx('display-2', 'primary', 'font-weight-bold', 'd-inline-block', 'ml-4')}>
-                        Medicare news
-                    </h1>
+                    <h1 className={cx('display-2', 'fw-bold', 'text-black', 'd-inline-block')}>Latest</h1>
+                    <h1 className={cx('display-2', 'primary', 'fw-bold', 'd-inline-block', 'ms-4')}>Medicare news</h1>
                     <div className={cx('separate')}></div>
                     <p className={cx('text-info', 'w-50')}>
                         Đọc những tin tức y tế mới nhất để biết thêm thông tin về các loại bệnh hiện nay và cách điều
@@ -359,7 +342,7 @@ function Home() {
                                             <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
                                             <span className={cx('px-3')}>August 8, 2022</span>
                                         </div>
-                                        <h1 className={cx('font-weight-bold', 'py-3')}>
+                                        <h1 className={cx('fw-bold', 'py-3')}>
                                             Bị đau mắt đỏ, cách điều trị như thế nào?
                                         </h1>
                                         <p className={cx('pb-3')}>
@@ -389,7 +372,7 @@ function Home() {
                                             <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
                                             <span className={cx('px-3')}>August 8, 2022</span>
                                         </div>
-                                        <h1 className={cx('font-weight-bold', 'py-3')}>
+                                        <h1 className={cx('fw-bold', 'py-3')}>
                                             Bị đau mắt đỏ, cách điều trị như thế nào?
                                         </h1>
                                         <p className={cx('pb-3')}>
@@ -419,7 +402,7 @@ function Home() {
                                             <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
                                             <span className={cx('px-3')}>August 8, 2022</span>
                                         </div>
-                                        <h1 className={cx('font-weight-bold', 'py-3')}>
+                                        <h1 className={cx('fw-bold', 'py-3')}>
                                             Bị đau mắt đỏ, cách điều trị như thế nào?
                                         </h1>
                                         <p className={cx('pb-3')}>
