@@ -15,6 +15,13 @@ import { ServiceItem } from '~/components/ServiceItem';
 const cx = classNames.bind(styles);
 
 function Header() {
+    const serviceItem = [
+        { id: 1, image: `${require('~/assets/call.png')}`, name: 'Liên hệ tư vấn' },
+        { id: 2, image: `${require('~/assets/hospital.png')}`, name: 'Tìm bệnh viện', separate: true },
+        { id: 3, image: `${require('~/assets/news.png')}`, name: 'Xem tin tức bệnh', separate: true },
+        { id: 4, image: `${require('~/assets/community.png')}`, name: 'Cộng đồng', separate: true },
+    ];
+
     return (
         <nav className={cx('navbar', 'navbar-expand-md', 'wrapper')}>
             <div className={cx('container', 'd-flex')}>
@@ -37,14 +44,14 @@ function Header() {
                         <div className={cx('separate')}></div>
                         <li className={cx('nav-item')}>
                             <Tippy
+                                interactive
+                                delay={[300, 0]}
                                 content={
-                                    <PopperWrapper>
-                                        <ServiceItem />
-                                        <ServiceItem />
-                                        <ServiceItem />
-                                        <ServiceItem />
+                                    <PopperWrapper className={cx('custom-service-popper')}>
+                                        <ServiceItem data={serviceItem} />
                                     </PopperWrapper>
                                 }
+                                trigger="mouseenter"
                             >
                                 <a href="" className={cx('nav-link')}>
                                     Dịch vụ

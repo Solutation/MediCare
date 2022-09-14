@@ -1,19 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './ServiceItem.module.scss';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
-function ServiceItem() {
+function ServiceItem({ data, className }) {
     return (
-        <Link to="" className={cx('wrapper')}>
-            <FontAwesomeIcon icon="fa-solid fa-phone" />
-            <span className={cx('service-info')}>Liên hệ tư vấn</span>
-        </Link>
+        <>
+            {data &&
+                data.map((info) =>
+                    info.separate ? (
+                        <Link to="" key={info.id} className={cx('wrapper', 'separate', { [className]: className })}>
+                            <img src={info.image} alt="" />
+                            <span className={cx('service-info')}>{info.name}</span>
+                        </Link>
+                    ) : (
+                        <Link to="" key={info.id} className={cx('wrapper', { [className]: className })}>
+                            <img src={info.image} alt="" />
+                            <span className={cx('service-info')}>{info.name}</span>
+                        </Link>
+                    ),
+                )}
+        </>
     );
 }
 

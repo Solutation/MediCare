@@ -43,6 +43,9 @@
             text-decoration: none;
         }
     }
+    .custom-service-popper {
+        margin-top: 0.6rem;
+    }
 }
 #navbarCollapse {
     flex-grow: 0.5;
@@ -50,4 +53,16 @@
 .btn-wrapper {
     overflow: hidden;
     margin: auto 0;
+}
+.tippy-box {
+    opacity: 0;
+    animation: fadein ease-in-out 0.4s;
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
