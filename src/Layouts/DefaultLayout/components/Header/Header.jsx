@@ -70,7 +70,7 @@ function Header() {
                         </li>
                         <li className={cx('nav-item')}>
                             <a href="" className={cx('nav-link')}>
-                                Thông tin bác sĩ
+                                Chuyên gia
                             </a>
                         </li>
                     </ul>
