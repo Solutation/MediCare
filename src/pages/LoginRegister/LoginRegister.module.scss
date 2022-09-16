@@ -1,0 +1,14 @@
+.wrapper {
+    position: absolute;
+    background-image: url('../../assets/bgLogin.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+    .form-wrapper {
+        margin-top: 10%;
+    }
+}

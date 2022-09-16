@@ -1,9 +1,9 @@
 import { Home } from '~/pages/Home';
-import Login from '~/pages/Login';
+import { LoginRegister } from '~/pages/LoginRegister';
 
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/login', component: Login, layout: null },
+    { path: '/login', component: LoginRegister },
 ];
 
 const privateRoutes = {};

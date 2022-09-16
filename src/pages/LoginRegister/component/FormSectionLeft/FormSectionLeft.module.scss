@@ -1,0 +1,22 @@
+.wrapper {
+    background: var(--color-primary);
+    border-left: 1px solid transparent;
+    flex: 1;
+    height: var(--section-login-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .title {
+        padding-left: 8rem;
+        margin-top: calc(var(--section-login-height) - 82%);
+    }
+
+    .service-list {
+        padding-left: 8rem;
+
+        .service-name {
+            color: rgba(255, 255, 255, 0.913);
+        }
+    }
+}

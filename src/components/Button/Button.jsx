@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 
 import styles from './Button.module.scss';
 
@@ -10,6 +11,7 @@ function Button({
     href,
     primary = false,
     secondary = false,
+    warning = false,
     outline = false,
     rounded = false,
     disabled = false,
@@ -32,7 +34,7 @@ function Button({
     };
     if (to) {
         props.to = to;
-        Comp = 'Link';
+        Comp = Link;
     } else if (href) {
         props.href = href;
         Comp = 'a';
@@ -51,6 +53,7 @@ function Button({
         style,
         primary,
         secondary,
+        warning,
         outline,
         rounded,
         disabled,

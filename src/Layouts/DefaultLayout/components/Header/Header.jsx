@@ -75,11 +75,14 @@ function Header() {
                         </li>
                     </ul>
                 </div>
-                <div className={cx('btn-wrapper')}>
-                    <Button primary leftIcon={<FontAwesomeIcon icon={faUser} className={cx('custom-button')} />}>
-                        Đăng nhập
-                    </Button>
-                </div>
+
+                <Button
+                    to="/login"
+                    primary
+                    leftIcon={<FontAwesomeIcon icon={faUser} className={cx('custom-button')} />}
+                >
+                    Đăng nhập
+                </Button>
             </div>
         </nav>
     );

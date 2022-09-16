@@ -76,3 +76,12 @@ $button-secondary-color: #2d87f3;
     position: absolute;
     bottom: 14px;
 }
+.warning {
+    border-color: 1px solid transparent;
+    color: var(--color-white);
+    background-color: rgba(33, 90, 206, 0.75);
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
