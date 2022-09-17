@@ -1,0 +1,70 @@
+@import 'normalize.css';
+
+:root {
+    --color-primary: #38b3d1;
+    --color-secondary: #909090;
+    --color-black: #333;
+    --text-color: #333;
+    --color-white: #fff;
+    --color-overlay-primary: rgba(0, 0, 0, 0.7);
+    --color-separate: #1f4d91;
+    --color-icon: #a6a7ab;
+    --color-gray: #f1f1f2;
+
+    --default-header-height: 60px;
+    --default-header-spacer: 100px;
+    --section-login-height: 680px;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    margin-top: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+}
+.container {
+    max-width: 1380px !important;
+}
+.primary {
+    color: var(--color-primary);
+}
+.bg-primary {
+    background-color: var(--color-primary) !important;
+}
+.bg-secondary {
+    background-color: var(--color-secondary) !important;
+}
+.secondary {
+    color: var(--color-black);
+}
+.separate {
+    width: 40px;
+    border-bottom: 3px solid var(--color-separate);
+    padding: 6px 0;
+}
