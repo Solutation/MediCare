@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-black);
+    cursor: pointer;
+    padding: 12px;
+    justify-content: flex-start;
+    width: 220px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        text-decoration: none;
+    }
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
+    .service-image {
+        width: 40px;
+        height: 40px;
+        color: var(--color-icon);
+        object-fit: cover;
+    }
+    .service-info {
+        flex: 1;
+        font-size: 1.6rem;
+        color: var(--color-black);
+        padding: 0 1.4rem;
+        margin-top: 0.2rem;
+        font-weight: bold;
+    }
+}

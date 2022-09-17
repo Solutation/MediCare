@@ -1,0 +1,105 @@
+$text-color: #224e8f;
+$bg-staff: #f1f1f1;
+
+.wrapper {
+    background-image: url(../../assets/medical.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: calc(100vh - 70px);
+}
+
+.wrapper-item {
+    position: absolute;
+    top: 30%;
+
+    .title {
+        font-size: 7rem;
+    }
+    .description {
+        padding: 16px 0;
+        color: $text-color;
+        font-size: 2rem;
+    }
+}
+
+.service-wrapper {
+    height: 300px;
+
+    .card-title {
+        font-size: 2rem;
+    }
+    .card-text {
+        font-size: 1.8rem;
+    }
+}
+.about-image {
+    position: absolute;
+    right: 1px;
+    z-index: -1;
+}
+.about-head-wrapper {
+    padding-top: 18rem;
+
+    .about-info {
+        padding-top: 1.4rem;
+        margin-bottom: 0;
+
+        .about-title {
+            font-size: 7rem;
+            margin-bottom: 0;
+        }
+        .about-text {
+            font-size: 2rem;
+            line-height: 3.4rem;
+        }
+    }
+    .about-footer-icon-wrapper {
+        display: flex;
+        width: 460px;
+        height: 140px;
+        border: 2px solid var(--color-primary);
+        border-radius: 50%;
+        overflow: hidden;
+        align-items: center;
+        margin-right: 2rem;
+
+        .about-footer-icon {
+            font-size: 6rem;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    .about-footer-info {
+        margin-top: 0.6rem;
+        line-height: 2.8rem;
+    }
+}
+.staff-wrapper {
+    margin-top: 20rem;
+
+    .staff-description {
+        padding: 1.2rem 0;
+        font-size: 1.8rem;
+        line-height: 3rem;
+    }
+}
+.bg-staff {
+    background-color: $bg-staff;
+}
+.card-header-image {
+    object-fit: cover;
+    width: 100%;
+    min-height: 300px;
+}
+.consultants-btn {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+.text-info {
+    font-weight: 300;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    padding: 2rem 0;
+}
