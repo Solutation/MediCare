@@ -2,10 +2,10 @@ $text-color: #224e8f;
 $bg-staff: #f1f1f1;
 
 .wrapper {
-    background-image: url(../../assets/medical.jpg);
-    background-size: cover;
+    background-image: url(../../assets/medical.png);
+    background-size: contain;
     background-repeat: no-repeat;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 180px);
 }
 
 .wrapper-item {
@@ -36,6 +36,7 @@ $bg-staff: #f1f1f1;
     position: absolute;
     right: 1px;
     z-index: -1;
+    margin-top: 16rem;
 }
 .about-head-wrapper {
     padding-top: 18rem;
@@ -75,8 +76,6 @@ $bg-staff: #f1f1f1;
     }
 }
 .staff-wrapper {
-    margin-top: 20rem;
-
     .staff-description {
         padding: 1.2rem 0;
         font-size: 1.8rem;

@@ -1,0 +1,24 @@
+.section_wrapper {
+    position: relative;
+    background: var(--bg-form-section-left);
+    border-left: 1px solid transparent;
+    height: var(--section-login-height);
+    display: flex;
+    align-items: center;
+
+    .section_inner_wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 6rem;
+    }
+
+    .service-list {
+        .service-name {
+            color: rgba(255, 255, 255, 0.913);
+        }
+    }
+}

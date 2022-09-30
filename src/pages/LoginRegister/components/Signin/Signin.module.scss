@@ -1,0 +1,65 @@
+$bg-form-login: #dae2fc;
+$default-form-element-width: 96%;
+
+.form_wrapper {
+    background-color: $bg-form-login;
+    height: var(--section-login-height);
+    border-right: 1px solid transparent;
+
+    .form-title {
+        margin-left: 3%;
+        margin-top: 12%;
+    }
+
+    .form_inner_wrapper {
+        margin-left: 3%;
+        margin-top: 11%;
+
+        .form-group {
+            .form-input {
+                width: $default-form-element-width;
+                text-indent: 0.2rem;
+            }
+        }
+        .password-save-wrapper {
+            width: $default-form-element-width;
+
+            .form-check {
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+            .form-forget-password {
+                color: var(--color-default-link);
+                font-weight: bold;
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+        }
+        .form-text-register {
+            color: var(--color-default-link);
+            font-weight: bold;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+}
+.custom-btn {
+    padding: 0.8rem 0;
+    margin-top: 3%;
+    width: $default-form-element-width;
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.slideUp {
+    animation: slideUp 1.2s ease-in-out;
+}

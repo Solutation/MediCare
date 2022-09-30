@@ -1,0 +1,59 @@
+$bg-form-login: #dae2fc;
+$color-forger-password: rgb(78, 78, 250);
+$default-form-element-width: 96%;
+
+.form_wrapper {
+    background-color: $bg-form-login;
+    height: var(--section-login-height);
+    border-right: 1px solid transparent;
+    animation: slideUp 1.2s ease-in-out;
+
+    .form-title {
+        margin-top: 12%;
+        margin-left: 3%;
+    }
+
+    .form_inner_wrapper {
+        margin-left: 1%;
+        margin-top: 8%;
+
+        .form-group {
+            .form-input {
+                padding: 0.6rem 0;
+                text-indent: 1rem;
+                border: 1px solid transparent;
+                border-radius: 1.2rem;
+                overflow: hidden;
+            }
+            .form-input-date {
+                padding: 0.6rem 0;
+                text-indent: 0.6rem;
+                border: 1px solid transparent;
+                border-radius: 1.2rem;
+                padding-right: 0.6rem;
+            }
+        }
+        .form-text-register {
+            color: var(--color-default-link);
+            font-weight: bold;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+}
+.custom-btn {
+    padding: 0.8rem 0;
+    margin-top: 3%;
+    width: 98.6%;
+    margin-left: 0.4%;
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}

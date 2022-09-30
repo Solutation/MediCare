@@ -9,6 +9,7 @@ function App() {
             <Routes>
                 {publicRoutes.map((route, index) => {
                     const Page = route.component;
+                    const propList = { ...route };
                     let Layout = DefaultLayout;
                     if (route.layout === null) {
                         Layout = Fragment;
@@ -21,7 +22,7 @@ function App() {
                             path={route.path}
                             element={
                                 <Layout>
-                                    <Page />
+                                    <Page {...propList} />
                                 </Layout>
                             }
                         />
