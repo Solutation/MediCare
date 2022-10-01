@@ -36,7 +36,8 @@ $bg-staff: #f1f1f1;
     position: absolute;
     right: 1px;
     z-index: -1;
-    margin-top: 16rem;
+    margin-top: 4%;
+    width: 100%;
 }
 .about-head-wrapper {
     padding-top: 18rem;
@@ -101,4 +102,7 @@ $bg-staff: #f1f1f1;
     font-size: 1.8rem;
     line-height: 3rem;
     padding: 2rem 0;
+}
+.disease-wrapper {
+    margin-top: 3%;
 }
