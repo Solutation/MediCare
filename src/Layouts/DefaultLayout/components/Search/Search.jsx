@@ -10,7 +10,7 @@ import { DiseaseItem } from '~/components/DiseaseItem';
 import { useDebounce } from '~/hooks';
 const cx = classNames.bind(styles);
 
-function Search() {
+const Search = () => {
     const [showResult, setShowResult] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
@@ -119,6 +119,6 @@ function Search() {
             </HeadlessTippy>
         </>
     );
-}
+};
 
 export default Search;

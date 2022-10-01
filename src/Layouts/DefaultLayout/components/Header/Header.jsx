@@ -14,19 +14,37 @@ import { ServiceItem } from '~/components/ServiceItem';
 
 const cx = classNames.bind(styles);
 
-function Header() {
+const Header = () => {
     const serviceItem = [
-        { id: 1, image: `${require('~/assets/call.png')}`, name: 'Liên hệ tư vấn' },
-        { id: 2, image: `${require('~/assets/hospital.png')}`, name: 'Tìm bệnh viện', separate: true },
-        { id: 3, image: `${require('~/assets/news.png')}`, name: 'Xem tin tức bệnh', separate: true },
-        { id: 4, image: `${require('~/assets/community.png')}`, name: 'Cộng đồng', separate: true },
+        { id: 1, image: `${require('~/assets/call.png')}`, name: 'Liên hệ tư vấn', to: '/contact' },
+        {
+            id: 2,
+            image: `${require('~/assets/hospital.png')}`,
+            name: 'Tìm bệnh viện',
+            separate: true,
+            to: '',
+        },
+        {
+            id: 3,
+            image: `${require('~/assets/news.png')}`,
+            name: 'Xem tin tức bệnh',
+            separate: true,
+            to: '',
+        },
+        {
+            id: 4,
+            image: `${require('~/assets/community.png')}`,
+            name: 'Cộng đồng',
+            separate: true,
+            to: '',
+        },
     ];
 
     return (
         <nav className={cx('navbar', 'navbar-expand-md', 'wrapper')}>
             <div className={cx('container', 'd-flex')}>
                 <div className={cx('menu-left')}>
-                    <Link to="" className={cx('logo-link')}>
+                    <Link to="/" className={cx('logo-link')}>
                         <img src={images.logo} alt="Anh" className={cx('logo-image')} />
                     </Link>
                 </div>
@@ -76,16 +94,12 @@ function Header() {
                     </ul>
                 </div>
 
-                <Button
-                    to="/login"
-                    primary
-                    leftIcon={<FontAwesomeIcon icon={faUser} className={cx('custom-button')} />}
-                >
+                <Button to="/login" primary leftIcon={<FontAwesomeIcon icon={faUser} />} className={cx('fs-3')}>
                     Đăng nhập
                 </Button>
             </div>
         </nav>
     );
-}
+};
 
 export default Header;

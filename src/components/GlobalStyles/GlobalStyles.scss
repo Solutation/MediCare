@@ -13,10 +13,15 @@
     --color-separate: #1f4d91;
     --color-icon: #a6a7ab;
     --color-gray: #f1f1f2;
+    --color-primary-bold: #238299;
+    --color-primary-light: #2da5c3;
+    --bg-form-section-left: linear-gradient(-90deg, #0a81c6, #0659b1);
+    --color-default-link: #0000ee;
 
-    --default-header-height: 60px;
+    --default-header-height: 80px;
     --default-header-spacer: 100px;
     --section-login-height: 680px;
+    --font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -24,7 +29,7 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;

@@ -6,7 +6,7 @@ import styles from './DiseaseItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-function DiseaseItem({ data }) {
+const DiseaseItem = ({ data }) => {
     return (
         <>
             {data.length > 0 &&
@@ -23,6 +23,6 @@ function DiseaseItem({ data }) {
                 ))}
         </>
     );
-}
+};
 
 export default DiseaseItem;
