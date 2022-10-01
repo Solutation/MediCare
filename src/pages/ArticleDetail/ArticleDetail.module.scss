@@ -1,0 +1,155 @@
+$bg-color: #f0f8fa;
+.wrapper {
+    background-image: url(../../assets/medical1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.wrapper-item {
+    position: relative;
+    padding-top: 100px;
+    .title {
+        font-size: 5rem;
+        font-weight: 600;
+        color: var(--color-white);
+        margin-bottom: 0;
+    }
+
+    .navigator-wrapper {
+        margin: 10px 0 0 0;
+        padding-bottom: 10px;
+        .arrow-icon {
+            margin: 0 10px -1px 10px;
+            font-size: 1.8rem;
+        }
+        .navigator-item {
+            display: inline-block;
+            color: var(--color-white);
+            font-size: 2rem;
+        }
+    }
+}
+.article-content {
+    margin-top: 4rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 3px 10px 22px rgb(42 135 158 / 14%);
+    padding-bottom: 30px;
+    .article-wrapper {
+        margin: 0 30px 0 30px;
+        .article-title {
+            font-size: 3.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            max-width: 100%;
+            margin: 3rem 0 3rem 0;
+        }
+        .article-time {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        .article-image {
+            margin: 20px 0 20px 0;
+            object-fit: cover;
+            max-width: 100%;
+            max-height: 60%;
+        }
+    }
+    .carousel-professor {
+        .professor-card {
+            border-radius: 11px;
+            margin: 30px 30px 30px 30px;
+            background-color: $bg-color;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 30px;
+            -webkit-border-radius: 11px;
+            margin-bottom: -5px;
+            position: relative;
+            .professor-image {
+                width: 150px;
+                border-radius: 100px;
+            }
+            .professor-info {
+                margin: 0px 0 0 10px;
+                height: 18rem;
+                overflow: hidden;
+                display: block;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 4;
+                color: var(--text-color);
+            }
+            .about-professor {
+                font-size: 2.5rem;
+                font-weight: 600;
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+.side-bar {
+    .news-list {
+        border-top: 2px solid var(--color-primary);
+        margin: 4rem 0 0 2rem;
+        .news-wrapper {
+            padding: 0 10px 0 10px;
+            .news {
+                position: relative;
+                padding: 10px 0 0 0;
+                .news-image {
+                    width: 120px;
+                    height: 70px;
+                    border-radius: 10px;
+                }
+                .news-info {
+                    padding: 2px 0 0 10px;
+                    height: 8.2rem;
+                    .news-title {
+                        color: var(--text-color);
+                        overflow: hidden;
+                        display: block;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                    }
+                }
+            }
+        }
+    }
+    .tags {
+        border-top: 2px solid var(--color-primary);
+        margin: 4rem 0 0 2rem;
+    }
+    .tag-list {
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-left: -10px;
+        margin-right: -5px;
+    }
+    .tag-list li {
+        margin-top: 25px;
+        margin-right: 10px;
+        &:hover {
+            opacity: 0.7;
+            text-decoration-color: var(--color-primary);
+        }
+    }
+    .tag-list li a {
+        margin: 0;
+        border: 1px solid #deecef;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        padding: 8px 15px;
+        text-align: center;
+    }
+}
