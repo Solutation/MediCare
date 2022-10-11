@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 
@@ -63,10 +63,6 @@ const Search = () => {
         fetchAPI();
     }, [debounceValue]);
 
-    useEffect(() => {
-        console.log('Loading:' + loading);
-    });
-
     const handleHideResult = () => {
         setShowResult(false);
     };
@@ -121,4 +117,4 @@ const Search = () => {
     );
 };
 
-export default Search;
+export default memo(Search);

@@ -30,7 +30,7 @@ function Button({
     let Comp = 'button';
     const props = {
         onClick,
-        ...passProps,
+        ...passProps
     };
     if (to) {
         props.to = to;
@@ -60,7 +60,7 @@ function Button({
         small,
         large,
         medium,
-        serviceBtn,
+        serviceBtn
     });
 
     return (
@@ -72,4 +72,4 @@ function Button({
     );
 }
 
-export default Button;
+export default React.memo(Button);

@@ -10,8 +10,6 @@ import { SlideProvider } from '~/context/SlideContext';
 const cx = classNames.bind(styles);
 
 const LoginRegister = ({ login }) => {
-    console.log(login);
-
     return (
         <SlideProvider>
             <div className={cx('wrapper')}>
