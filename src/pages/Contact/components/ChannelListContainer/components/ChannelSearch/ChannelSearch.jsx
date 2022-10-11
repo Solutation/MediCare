@@ -35,7 +35,7 @@ const ChannelSearch = () => {
             </button>
             <input
                 type="text"
-                placeHolder="Tìm kiếm"
+                placeholder="Tìm kiếm"
                 className={cx('search_input')}
                 onChange={handleSearch}
                 value={searchValue}

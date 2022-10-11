@@ -9,9 +9,7 @@ import { SlideProvider } from '~/context/SlideContext';
 
 const cx = classNames.bind(styles);
 
-function LoginRegister({ login }) {
-    console.log(login);
-
+const LoginRegister = ({ login }) => {
     return (
         <SlideProvider>
             <div className={cx('wrapper')}>
@@ -24,6 +22,6 @@ function LoginRegister({ login }) {
             </div>
         </SlideProvider>
     );
-}
+};
 
 export default LoginRegister;

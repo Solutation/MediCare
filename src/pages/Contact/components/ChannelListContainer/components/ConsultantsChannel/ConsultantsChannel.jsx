@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './ConsultantsChannel.module.scss';
+import './module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -24,9 +25,7 @@ const ConsultantsChannel = ({ children, error = false, loading, type }) => {
     return (
         <div className={cx('channel_wrapper')}>
             <div className={cx('channel_header')}>
-                <p className={cx('channel_title')}>
-                    {type === 'team' ? 'Danh sách kênh' : 'Tin nhắn trực tiếp'}
-                </p>
+                <p className={cx('channel_title')}>{type === 'team' ? 'Danh sách kênh' : 'Tin nhắn trực tiếp'}</p>
             </div>
             {children}
         </div>

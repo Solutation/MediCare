@@ -1,16 +1,19 @@
 $text-color: #224e8f;
 $bg-staff: #f1f1f1;
+$general-section-height: calc(100vh - 180px);
 
 .wrapper {
     background-image: url(../../assets/medical.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    min-height: calc(100vh - 180px);
+    height: $general-section-height;
+    width: 100%;
+    margin-bottom: 2%;
 }
 
 .wrapper-item {
-    position: absolute;
-    top: 30%;
+    position: relative;
+    margin-top: calc($general-section-height - 39%);
 
     .title {
         font-size: 7rem;
