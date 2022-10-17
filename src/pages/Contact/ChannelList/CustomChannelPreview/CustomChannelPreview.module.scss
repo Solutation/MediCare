@@ -1,0 +1,47 @@
+$bg-preview-wrapper: #d6d6d6;
+$bg-preview-hover: #fbfbfb;
+
+.preview_list_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3rem;
+
+    .preview_list_item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 1.6rem 1rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #bcbcbc;
+        }
+
+        .channel_name {
+            color: var(--color-primary-bold);
+            font-weight: bold;
+            padding: 0 2rem;
+        }
+
+        .preview_avatar {
+            width: 4.4rem;
+            object-fit: contain;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+        }
+        .preview_message {
+            font-size: 1.6rem;
+            color: var(--color-black);
+            height: 1.6rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 1.6rem;
+            padding-left: 1.3rem;
+            margin-top: 0.2rem;
+            font-weight: bold;
+        }
+    }
+}

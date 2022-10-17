@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from '~/Layouts';
 
-function App() {
+const App = () => {
     return (
         <div className="App">
             <Routes>
@@ -31,6 +31,6 @@ function App() {
             </Routes>
         </div>
     );
-}
+};
 
 export default App;

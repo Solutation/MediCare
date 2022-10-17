@@ -21,13 +21,14 @@
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.3.0",
         "react-scripts": "5.0.1",
-        "stream-chat": "^7.1.0",
-        "stream-chat-react": "^10.1.1",
+        "stream-chat": "^7.2.0",
+        "stream-chat-react": "^10.3.0",
         "universal-cookie": "^4.0.4",
+        "util": "^0.12.4",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-app-rewired start",
+        "start": "set PORT=3002 && react-app-rewired start",
         "build": "set GENERATE_SOURCEMAP=false react-app-rewired build",
         "test": "react-app-rewired test",
         "eject": "react-app-rewired eject"
@@ -56,5 +57,10 @@
         "normalize.css": "^8.0.1",
         "react-app-rewired": "^2.2.1",
         "sass": "^1.54.8"
+    },
+    "browser": {
+        "fs": false,
+        "path": false,
+        "os": false
     }
 }

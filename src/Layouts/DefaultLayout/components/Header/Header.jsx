@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +8,7 @@ import images from '~/assets';
 import styles from './Header.module.scss';
 import { Search } from '../Search';
 import { Button } from '~/components/Button';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { ServiceItem } from '~/components/ServiceItem';
 
@@ -22,22 +22,22 @@ const Header = () => {
             image: `${require('~/assets/hospital.png')}`,
             name: 'Tìm bệnh viện',
             separate: true,
-            to: '',
+            to: ''
         },
         {
             id: 3,
             image: `${require('~/assets/news.png')}`,
             name: 'Xem tin tức bệnh',
             separate: true,
-            to: '',
+            to: ''
         },
         {
             id: 4,
             image: `${require('~/assets/community.png')}`,
             name: 'Cộng đồng',
             separate: true,
-            to: '',
-        },
+            to: ''
+        }
     ];
 
     return (
@@ -97,9 +97,10 @@ const Header = () => {
                 <Button to="/login" primary leftIcon={<FontAwesomeIcon icon={faUser} />} className={cx('fs-3')}>
                     Đăng nhập
                 </Button>
+                <FontAwesomeIcon icon={faEllipsisVertical} />
             </div>
         </nav>
     );
 };
 
-export default Header;
+export default memo(Header);

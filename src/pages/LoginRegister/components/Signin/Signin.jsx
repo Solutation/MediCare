@@ -29,7 +29,6 @@ const Signin = () => {
         e.preventDefault();
         try {
             const { data: userData } = await httpRequest.post('/login', formData);
-            console.log(userData);
             cookies.set('chatToken', userData.chatToken);
             cookies.set('userId', userData.userId);
             navigate('/');
@@ -38,7 +37,7 @@ const Signin = () => {
                 data: { message }
             }
         }) {
-            alert(message);
+            //alert(message);
         }
     };
 
