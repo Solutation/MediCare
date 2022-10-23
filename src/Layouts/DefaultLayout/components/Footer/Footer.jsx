@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 const Footer = () => {
     return <div>Footer</div>;
 };
 
-export default Footer;
+export default memo(Footer);

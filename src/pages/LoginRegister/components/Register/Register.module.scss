@@ -9,13 +9,14 @@ $default-form-element-width: 96%;
     animation: slideUp 1.2s ease-in-out;
 
     .form-title {
-        margin-top: 12%;
+        margin-top: 4%;
+        padding: 3rem 0;
         margin-left: 3%;
     }
 
     .form_inner_wrapper {
         margin-left: 1%;
-        margin-top: 8%;
+        margin-top: 1%;
 
         .form-group {
             .form-input {
@@ -48,6 +49,9 @@ $default-form-element-width: 96%;
     margin-top: 3%;
     width: 98.6%;
     margin-left: 0.4%;
+}
+.file_wrapper {
+    border-radius: 1.2rem;
 }
 @keyframes slideUp {
     from {

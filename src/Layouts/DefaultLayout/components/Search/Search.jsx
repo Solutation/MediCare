@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 
@@ -36,7 +36,7 @@ const Search = () => {
                         'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
                         'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
                         'được ưu tiên',
-                    image: 'waifu.jpg',
+                    image: 'waifu.jpg'
                 },
                 {
                     id: 2,
@@ -45,7 +45,7 @@ const Search = () => {
                         'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
                         'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
                         'được ưu tiên',
-                    image: 'waifu.jpg',
+                    image: 'waifu.jpg'
                 },
                 {
                     id: 3,
@@ -54,18 +54,14 @@ const Search = () => {
                         'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
                         'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
                         'được ưu tiên',
-                    image: 'waifu.jpg',
-                },
+                    image: 'waifu.jpg'
+                }
             ];
             setSearchResult(result);
             setLoading(false);
         };
         fetchAPI();
     }, [debounceValue]);
-
-    useEffect(() => {
-        console.log('Loading:' + loading);
-    });
 
     const handleHideResult = () => {
         setShowResult(false);
@@ -121,4 +117,4 @@ const Search = () => {
     );
 };
 
-export default Search;
+export default memo(Search);

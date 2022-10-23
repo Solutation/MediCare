@@ -1,44 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
+import { useTranslation } from 'react-i18next';
 
 import images from '~/assets';
 import styles from './Header.module.scss';
 import { Search } from '../Search';
 import { Button } from '~/components/Button';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { ServiceItem } from '~/components/ServiceItem';
+import { LanguageItem } from './components/LanguageItem';
+import { UserItem } from './components/UserItem';
+import Chibi from '~/assets/chibi.jpg';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
-    const serviceItem = [
-        { id: 1, image: `${require('~/assets/call.png')}`, name: 'Liên hệ tư vấn', to: '/contact' },
-        {
-            id: 2,
-            image: `${require('~/assets/hospital.png')}`,
-            name: 'Tìm bệnh viện',
-            separate: true,
-            to: '',
-        },
-        {
-            id: 3,
-            image: `${require('~/assets/news.png')}`,
-            name: 'Xem tin tức bệnh',
-            separate: true,
-            to: '',
-        },
-        {
-            id: 4,
-            image: `${require('~/assets/community.png')}`,
-            name: 'Cộng đồng',
-            separate: true,
-            to: '',
-        },
-    ];
+    const { t } = useTranslation('header');
 
     return (
         <nav className={cx('navbar', 'navbar-expand-md', 'wrapper')}>
@@ -66,40 +48,71 @@ const Header = () => {
                                 delay={[300, 0]}
                                 content={
                                     <PopperWrapper className={cx('custom-service-popper')}>
-                                        <ServiceItem data={serviceItem} />
+                                        <ServiceItem />
                                     </PopperWrapper>
                                 }
                                 trigger="mouseenter"
                             >
-                                <a href="" className={cx('nav-link')}>
-                                    Dịch vụ
-                                </a>
+                                <Link to="/" className={cx('nav-link')}>
+                                    {t('service')}
+                                </Link>
                             </Tippy>
                         </li>
                         <li className={cx('nav-item')}>
-                            <a href="" className={cx('nav-link')}>
-                                Chuyên mục
-                            </a>
+                            <Link to="/" className={cx('nav-link')}>
+                                {t('category')}
+                            </Link>
                         </li>
                         <li className={cx('nav-item')}>
-                            <a href="" className={cx('nav-link')}>
-                                Công cụ kiểm tra
-                            </a>
+                            <Link to="/" className={cx('nav-link')}>
+                                {t('healthy_tool')}
+                            </Link>
                         </li>
                         <li className={cx('nav-item')}>
-                            <a href="" className={cx('nav-link')}>
-                                Chuyên gia
-                            </a>
+                            <Link to="/" className={cx('nav-link')}>
+                                {t('consultant')}
+                            </Link>
                         </li>
                     </ul>
                 </div>
 
                 <Button to="/login" primary leftIcon={<FontAwesomeIcon icon={faUser} />} className={cx('fs-3')}>
-                    Đăng nhập
+                    {t('login')}
                 </Button>
+                {/* <HeadlessTippy
+                    interactive
+                    render={(attrs) => (
+                        <div className={cx('user_option_wrapper')} {...attrs}>
+                            <PopperWrapper className={cx('user_popper')}>
+                                <UserItem />
+                            </PopperWrapper>
+                        </div>
+                    )}
+                    trigger="click"
+                >
+                    <div className={cx('px-2', 'avatar_wrapper')}>
+                        <img src={Chibi} alt="" className={cx('rounded-circle', 'avatar')} />
+                    </div>
+                </HeadlessTippy> */}
+                <HeadlessTippy
+                    interactive
+                    render={(attrs) => (
+                        <div className={cx('language_tippy_wrapper')} {...attrs}>
+                            <PopperWrapper className={cx('language_popper')}>
+                                <LanguageItem />
+                            </PopperWrapper>
+                        </div>
+                    )}
+                    delay={[0, 200]}
+                    trigger="mouseenter"
+                >
+                    <div className={cx('p-4')}>
+                        <FontAwesomeIcon icon={faEllipsisVertical} className={cx('language_option_icon')} />
+                    </div>
+                </HeadlessTippy>
             </div>
         </nav>
     );
 };
 
-export default Header;
+export default memo(Header);

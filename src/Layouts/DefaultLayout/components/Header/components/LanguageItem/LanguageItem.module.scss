@@ -1,0 +1,48 @@
+.wrapper {
+    width: 100%;
+    border: 2px solid var(--color-gray-icon);
+    border-radius: 1rem;
+
+    .separate {
+        border-bottom: 1px solid rgba(22, 24, 35, 0.12);
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    .language_header-text {
+        text-align: center;
+        color: var(--color-black);
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin: auto 0;
+        padding: 1rem;
+    }
+
+    .language_body {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        box-shadow: var(--box-shadow-default);
+        overflow: hidden;
+
+        .language_item {
+            cursor: pointer;
+            background-color: var(--color-white);
+
+            &:hover {
+                background-color: var(--bg-gray-hover);
+            }
+
+            .locale_icon {
+                color: var(--color-icon);
+                font-size: 1.6rem;
+                padding: 1rem;
+            }
+            .locale_text {
+                color: var(--color-black);
+                font-size: 1.4rem;
+                padding: 1rem;
+            }
+        }
+    }
+}
