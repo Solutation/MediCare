@@ -15,6 +15,8 @@
     --bg-form-section-left: linear-gradient(-90deg, #0a81c6, #0659b1);
     --color-default-link: #0000ee;
     --bg-chat-input: #ecebeb;
+    --bg-gray-hover: #bcbcbc;
+    --box-shadow-default: rgb(0 0 0 / 12%) 0px 2px 12px;
 
     --default-header-height: 80px;
     --default-header-spacer: 100px;
@@ -73,4 +75,16 @@ input {
     width: 40px;
     border-bottom: 3px solid var(--color-separate);
     padding: 6px 0;
+}
+.hide {
+    display: none;
+}
+.disabled {
+    cursor: default !important;
+    opacity: 0.6;
+    color: var(--color-gray);
+
+    &:hover {
+        background-color: var(--color-white) !important;
+    }
 }

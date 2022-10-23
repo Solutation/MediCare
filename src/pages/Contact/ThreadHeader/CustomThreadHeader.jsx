@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Avatar, ChannelStateContext, useChannelStateContext } from 'stream-chat-react';
+import { useChannelStateContext } from 'stream-chat-react';
 import classNames from 'classnames/bind';
 
 import styles from './CustomThreadHeader.module.scss';

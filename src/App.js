@@ -2,6 +2,9 @@ import React, { Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from '~/Layouts';
+import { init as InternationalizeConfig } from '~/config/InternationalizeConfig';
+
+InternationalizeConfig();
 
 const App = () => {
     return (

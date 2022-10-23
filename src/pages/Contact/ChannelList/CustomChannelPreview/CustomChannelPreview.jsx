@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext, memo, useMemo, useCallback } from 'react';
+import React, { useEffect, useState, useContext, useCallback } from 'react';
 import classNames from 'classnames/bind';
-import { useChatContext, useMessageContext } from 'stream-chat-react';
+import { useChatContext } from 'stream-chat-react';
 import { StreamChat } from 'stream-chat';
 import Cookies from 'universal-cookie';
 
@@ -17,7 +17,7 @@ const api_secret = process.env.REACT_APP_STREAM_API_SECRET;
 
 const cookies = new Cookies();
 
-let flag = 0;
+let checkValueSearch = 0;
 
 // eslint-disable-next-line
 const CustomChannelPreview = ({ latestMessage }) => {
@@ -39,6 +39,11 @@ const CustomChannelPreview = ({ latestMessage }) => {
         getChannel();
     }, []);
 
+    const handleSelect = useCallback((channel) => {
+        setActiveChannel(channel);
+        // eslint-disable-next-line
+    }, []);
+
     const ChannelItem = useCallback(
         ({ channel }) => (
             <div className={cx('preview_list_wrapper')} key={channel.data.id}>
@@ -51,17 +56,13 @@ const CustomChannelPreview = ({ latestMessage }) => {
                 </div>
             </div>
         ),
+        // eslint-disable-next-line
         []
     );
 
     const EmptyChannel = useCallback(() => {
         console.log(1);
         return <span className={cx('text-white', 'fs-2', 'p-3', 'fw-bold')}>Không tìm thấy kênh...</span>;
-    }, []);
-
-    const handleSelect = useCallback((channel) => {
-        console.log(2);
-        setActiveChannel(channel);
     }, []);
 
     const GetMessageText = ({ channel }) => {
@@ -75,6 +76,7 @@ const CustomChannelPreview = ({ latestMessage }) => {
     return (
         <>
             {channelList.length >= 1 &&
+                // eslint-disable-next-line
                 channelList.map((channel, index) => {
                     if (channelSearchValue !== '') {
                         if (
@@ -82,12 +84,12 @@ const CustomChannelPreview = ({ latestMessage }) => {
                                 removeVietnameseTones(channelSearchValue).toLowerCase()
                             ) !== -1
                         ) {
-                            flag = 1;
+                            checkValueSearch = 1;
                             return <ChannelItem channel={channel} key={index} />;
                         }
-                        if (index == channelList.length - 1) {
-                            if (flag === 0) return <EmptyChannel key={index} />;
-                            flag = 0;
+                        if (index === channelList.length - 1) {
+                            if (checkValueSearch === 0) return <EmptyChannel key={index} />;
+                            checkValueSearch = 0;
                         }
                     } else {
                         return <ChannelItem channel={channel} key={index} />;

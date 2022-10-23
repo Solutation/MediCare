@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { StreamChat } from 'stream-chat';
 import {
@@ -61,7 +61,6 @@ let flag = 0;
 
 const Contact = () => {
     const [client, setClient] = useState();
-    const [check, setCheck] = useState(false);
 
     useEffect(() => {
         const init = async () => {
@@ -71,7 +70,6 @@ const Contact = () => {
                 const chatClient = StreamChat.getInstance(apiKey);
                 await chatClient.connectUser({ id: user_id }, chatToken);
                 setClient(chatClient);
-                setCheck(!check);
             }
         };
         init();

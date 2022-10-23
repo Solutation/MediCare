@@ -15,7 +15,7 @@ $bg-preview-hover: #fbfbfb;
 
         &:hover {
             cursor: pointer;
-            background-color: #bcbcbc;
+            background-color: var(--bg-gray-hover);
         }
 
         .channel_name {
