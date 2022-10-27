@@ -1,0 +1,30 @@
+.article-content {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 3px 10px 22px rgb(42 135 158 / 14%);
+    padding-bottom: 30px;
+    .article-wrapper {
+        margin: 0 30px 0 30px;
+        .article-title {
+            font-size: 3.2rem;
+            color: var(--text-color);
+            font-weight: 600;
+            max-width: 100%;
+            margin: 3rem 0 3rem 0;
+        }
+        .article-time {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        .article-image {
+            margin: 20px 0 20px 0;
+            object-fit: cover;
+            max-width: 100%;
+            max-height: 60%;
+        }
+    }
+}
