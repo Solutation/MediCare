@@ -1,0 +1,150 @@
+$post-content-color: #6b7c8f;
+
+.wrapper {
+    padding: 1.6rem 2.4rem;
+
+    .sending_wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--color-white);
+        border: 1px solid transparent;
+        border-radius: var(--default-border-radius);
+        box-shadow: 1px 1px 2px var(--box-shadow-default);
+        padding: 0 1.6rem;
+
+        .sending_text {
+            font-size: 1.6rem;
+            color: var(--color-black);
+            font-weight: bold;
+            padding: 1.2rem 0;
+        }
+        .form_wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .sending_input {
+                font-size: 1.6rem;
+                color: var(--color-black);
+                background-color: var(--bg-light);
+                border: 1px solid transparent;
+                border-radius: 4px;
+                padding: 1.4rem;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            .image_inner {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-top: 1.2rem;
+
+                .image_item {
+                    margin-right: 1.2rem;
+                    margin-bottom: 1rem;
+                    background-color: var(--color-overlay-primary);
+
+                    .image_choosen {
+                        width: 6rem;
+                        height: 6rem;
+                        object-fit: contain;
+                    }
+                }
+                .image_close_icon {
+                    position: absolute;
+                    color: var(--color-white);
+                    font-size: 1.6rem;
+                    margin-left: -12px;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+        .upload_icon {
+            color: var(--color-primary);
+            font-size: 2.2rem;
+            padding-right: 0.8rem;
+            cursor: pointer;
+        }
+        .upload_text {
+            font-size: 1.6rem;
+            margin-bottom: 0.2rem;
+            font-weight: bold;
+            color: var(--color-black);
+        }
+    }
+}
+.post_wrapper {
+    min-height: 60rem;
+    background-color: var(--color-white);
+    border: 1px solid transparent;
+    border-radius: var(--default-border-radius);
+    box-shadow: 1px 1px 1px var(--box-shadow-default);
+    margin-bottom: 2.6rem;
+
+    .user_avatar {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        object-fit: contain;
+        margin-right: 1.4rem;
+    }
+    .option_icon {
+        color: var(--color-icon);
+        font-size: 2.6rem;
+        cursor: pointer;
+    }
+    .post_content {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        color: $post-content-color;
+        margin-top: 1.8rem;
+    }
+    .post_image {
+        width: 100%;
+        min-height: 22rem;
+        object-fit: cover;
+    }
+    .addition_text {
+        position: absolute;
+        opacity: 1 !important;
+        color: black !important;
+        margin-left: -11%;
+        margin-top: 5%;
+        font-size: 2.6rem;
+        cursor: pointer;
+    }
+    .action_wrapper {
+        border-top: 1px solid var(--default-border-color);
+        border-bottom: 1px solid var(--default-border-color);
+
+        .action_item {
+            cursor: pointer;
+
+            .action_icon {
+                position: relative;
+                color: var(--color-primary);
+                font-size: 2rem;
+                margin-right: 1rem;
+            }
+            .action_text {
+                color: $post-content-color;
+                font-size: 1.6rem;
+                padding-right: 1.2rem;
+                border-right: 1px solid var(--color-icon);
+            }
+        }
+        .number {
+            color: $post-content-color;
+            font-size: 1.6rem;
+            margin-left: 1.2rem;
+            cursor: default !important;
+        }
+    }
+}

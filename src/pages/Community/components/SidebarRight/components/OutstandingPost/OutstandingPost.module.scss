@@ -1,0 +1,38 @@
+$post-content-color: #6b7c8f;
+
+.wrapper {
+    min-height: 68rem;
+    border: 1px solid transparent;
+    border-radius: var(--default-border-radius);
+    box-shadow: 1px 1px 2px var(--box-shadow-default);
+    background-color: var(--color-white);
+    margin-top: 3rem;
+
+    .section_title {
+        color: var(--color-primary);
+        font-weight: bold;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+    }
+    .avatar {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        object-fit: contain;
+        margin-right: 1.2rem;
+    }
+    .like_count_text {
+        color: blue;
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-right: 0.8rem;
+    }
+    .post_content {
+        font-size: 1.4rem;
+        color: $post-content-color;
+    }
+    .like_icon {
+        color: blue;
+        font-size: 1.4rem;
+    }
+}

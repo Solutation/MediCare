@@ -32,7 +32,7 @@ const Sidebar = () => {
     }, []);
 
     return (
-        <div className={cx('wrapper', 'col-2')}>
+        <div className={cx('wrapper')}>
             <div className={cx('d-flex', 'align-items-center', 'w-100', 'title_wrapper')}>
                 <FontAwesomeIcon icon={faNewspaper} className={cx('title_icon')} />
                 <span className={cx('title_text')}>Chuyên mục</span>

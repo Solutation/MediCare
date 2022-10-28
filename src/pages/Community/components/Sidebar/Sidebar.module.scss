@@ -1,9 +1,11 @@
 .wrapper {
-    height: 93vh;
+    position: fixed;
     background-color: var(--color-white);
     border: 1px solid transparent;
     box-shadow: var(--box-shadow-default);
-    border-radius: 8px;
+    border-radius: var(--default-border-radius);
+    width: 22rem;
+    height: 92vh;
 
     .title_wrapper {
         padding: 1.2rem;

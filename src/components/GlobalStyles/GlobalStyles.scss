@@ -16,10 +16,13 @@
     --color-default-link: #0000ee;
     --bg-chat-input: #ecebeb;
     --bg-gray-hover: #bcbcbc;
+    --bg-light: #f4f7fc;
     --box-shadow-default: rgb(0 0 0 / 12%) 0px 2px 12px;
 
     --default-header-height: 80px;
     --default-header-spacer: 100px;
+    --default-border-radius: 8px;
+    --default-border-color: #eeeeee;
     --section-login-height: 680px;
     --font-family: Arial, Helvetica, sans-serif;
 }
@@ -77,7 +80,7 @@ input {
     padding: 6px 0;
 }
 .hide {
-    display: none;
+    display: none !important;
 }
 .disabled {
     cursor: default !important;
@@ -87,4 +90,8 @@ input {
     &:hover {
         background-color: var(--color-white) !important;
     }
+}
+.overllay {
+    opacity: 0.5;
+    cursor: pointer;
 }

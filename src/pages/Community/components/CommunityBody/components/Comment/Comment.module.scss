@@ -1,0 +1,33 @@
+$post-content-color: #6b7c8f;
+
+.avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-right: 1.2rem;
+}
+.comment_content_wrapper {
+    min-width: 8rem;
+    min-height: 4rem;
+    border: 1px solid transparent;
+    border-radius: 1.2rem;
+    box-shadow: 1px 1px 2px var(--box-shadow-default);
+
+    .comment_content {
+        color: $post-content-color;
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+    }
+}
+.view_more_comment_text {
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
