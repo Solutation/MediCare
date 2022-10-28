@@ -5,7 +5,7 @@ import styles from './FormSectionLeft.module.scss';
 
 const cx = classNames.bind(styles);
 
-function FormSectionLeft() {
+const FormSectionLeft = () => {
     return (
         <div className={cx('section_wrapper', 'col-6')}>
             <div className={cx('section_inner_wrapper')}>
@@ -31,6 +31,6 @@ function FormSectionLeft() {
             </div>
         </div>
     );
-}
+};
 
 export default FormSectionLeft;

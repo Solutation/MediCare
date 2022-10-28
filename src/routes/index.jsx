@@ -5,6 +5,7 @@ import { HeaderOnly } from '~/Layouts/HeaderOnly';
 import { ArticleDetail } from '~/pages/ArticleDetail';
 import { ProfessorDetail } from '~/pages/ProfessorDetail';
 import { ProfessorList } from '~/pages/ProfessorList';
+import { Community } from '~/pages/Community';
 
 const publicRoutes = [
     { path: '/', component: Home },
@@ -14,6 +15,7 @@ const publicRoutes = [
     { path: '/ArticleDetail', component: ArticleDetail, layout: HeaderOnly },
     { path: '/ProfessorDetail', component: ProfessorDetail, layout: HeaderOnly },
     { path: '/ProfessorList', component: ProfessorList, layout: HeaderOnly },
+    { path: '/community', component: Community }
 ];
 
 const privateRoutes = {};

@@ -2,8 +2,11 @@ import React, { Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from '~/Layouts';
+import { init as InternationalizeConfig } from '~/config/InternationalizeConfig';
 
-function App() {
+InternationalizeConfig();
+
+const App = () => {
     return (
         <div className="App">
             <Routes>
@@ -31,6 +34,6 @@ function App() {
             </Routes>
         </div>
     );
-}
+};
 
 export default App;

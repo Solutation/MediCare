@@ -1,0 +1,90 @@
+$bg-contact-color: #e7f8ff;
+
+.str-chat__tooltip:not(.str-chat__tooltip-angular) {
+    font-size: 1.2rem;
+    background-color: var(--color-primary);
+    overflow: hidden;
+    z-index: 20;
+    text-align: center;
+    color: var(--color-white);
+}
+.str-chat__tooltip:not(.str-chat__tooltip-angular)::after {
+    content: unset;
+}
+.str-chat {
+    height: calc(94vh - 1rem);
+    font-family: unset;
+}
+.str-chat__message-simple--me .str-chat__reaction-selector {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-icon);
+    box-shadow: unset;
+}
+.str-chat__textarea textarea {
+    border: 1px solid var(--color-primary);
+    box-shadow: unset;
+
+    &:focus {
+        border-color: var(--color-primary-bold);
+        box-shadow: unset;
+    }
+}
+.str-chat__edit-message-form .str-chat__message-team-form-footer button[type='submit'] {
+    color: var(--color-primary);
+    padding: 0 1rem;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+.str-chat__edit-message-form .str-chat__message-team-form-footer button:hover {
+    opacity: 0.7;
+}
+.str-chat__input-flat .rfu-file-upload-button {
+    top: calc(100% - 46px);
+}
+.str-chat__input-flat-emojiselect {
+    top: calc(100% - 47px);
+}
+.str-chat__input-flat .str-chat__textarea > textarea {
+    border: 2px solid transparent;
+}
+.str-chat__input-flat .str-chat__textarea > textarea:focus {
+    border: 2px solid transparent;
+    box-shadow: none;
+    border-color: var(--color-primary);
+}
+.str-chat__edit-message-form .str-chat__message-team-form-footer button {
+    padding-right: 2rem;
+}
+.str-chat.messaging,
+.str-chat.commerce {
+    background-color: var(--color-white);
+}
+.messaging.str-chat .str-chat__thread {
+    border-radius: unset;
+    border-left: 1px solid var(--color-primary);
+}
+.str-chat__thread.str-chat__thread-container .str-chat__parent-message-li .str-chat__message {
+    padding-right: unset;
+}
+.str-chat__small-message-input-emojiselect,
+.str-chat__small-message-input .rfu-file-upload-button {
+    bottom: 1.6rem;
+}
+.str-chat__small-message-input .rfu-file-upload-button {
+    right: 40px;
+}
+.str-chat__small-message-input textarea {
+    border: 1px solid transparent;
+    height: 44px !important;
+    font-size: 1.4rem;
+
+    &:focus {
+        border-color: var(--color-primary);
+    }
+}
+.str-chat__small-message-input {
+    padding: 0 1.4rem 0 0 !important;
+    width: 100%;
+}

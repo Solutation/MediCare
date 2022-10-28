@@ -13,14 +13,14 @@ const cx = classNames.bind(styles);
 const GeneralSection = () => (
     <section id="homeHeader" className={cx('wrapper')}>
         <div className={cx('container', 'h-100')}>
-            <div className={cx('row')}>
-                <div className={cx('col-4', 'wrapper-item', 'offset-1', 'text-center')}>
+            <div className={cx('row', 'wrapper_inner')}>
+                <div className={cx('col-5', 'wrapper-item', 'offset-1', 'text-center')}>
                     <h1 className={cx('d-none', 'd-sm-block', 'title')}>Your health is</h1>
                     <h1 className={cx('d-none', 'd-sm-block', 'title', 'primary')}>our mission</h1>
                     <div className={cx('separate', 'mx-auto')}></div>
                     <p className={cx('description')}>
                         Chúng tôi luôn đưa ra các lời khuyên hợp lý từ các chuyên gia tư vấn hàng đầu, giúp cải thiện
-                        sức khỏe của bạn cũng như cung cấp thêm cho bạn các thông tin về những bệnh lý thường gặp.
+                        sức khỏe của bạn và cung cấp thêm cho bạn các thông tin về những bệnh lý thường gặp.
                     </p>
                     <Button primary className={cx('w-50', 'mx-auto')}>
                         Liên hệ tư vấn ngay
