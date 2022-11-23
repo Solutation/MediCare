@@ -1,0 +1,32 @@
+.container {
+    padding-bottom: 8rem;
+    .tool-wrapper {
+        .introduction {
+            font-size: 2rem;
+            line-height: 2.4rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            color: var(--color-secondary);
+        }
+        .form-input {
+            max-width: 750px;
+            font-size: 1.8rem;
+            line-height: 1.2rem;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        .custom-btn {
+            border-radius: 6px;
+        }
+    }
+    .tool-img {
+        max-width: 100%;
+        min-height: 470px;
+        margin-left: 10px;
+    }
+}
+.modal-caculator {
+    margin-top: 10%;
+}

@@ -1,9 +1,9 @@
 $star: orange;
 $border: #dedddd;
 .review-wrapper {
-    margin: 20px 0 54px 0;
-    float: left;
     width: 100%;
+    margin: 0px auto;
+    max-width: 1280px;
     .review {
         text-align: center;
         margin-bottom: 50px;
@@ -14,14 +14,10 @@ $border: #dedddd;
         .review-item {
             margin-bottom: 35px;
         }
-        .review-title {
+        .reviewer-name {
             font-size: 1.8rem;
             font-weight: 550;
             margin-bottom: 10px;
-        }
-        .reviewer {
-            font-size: 1.8rem;
-            line-height: 2.4rem;
         }
         .border {
             border-top: 1px solid $border;

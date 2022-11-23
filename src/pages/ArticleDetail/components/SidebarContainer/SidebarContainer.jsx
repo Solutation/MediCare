@@ -3,20 +3,23 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 import styles from './SidebarContainer.module.scss';
 const cx = classNames.bind(styles);
 
 const SidebarContainer = () => {
+    const { t } = useTranslation('article');
+
     return (
         <>
             <div className={cx('news-list', 'd-block')}>
                 <div className={cx('block-heading')}>
-                    <h3 className={cx('primary', 'mt-2', 'sidebar-title')}>Tin Tức Liên Quan</h3>
+                    <h3 className={cx('primary', 'mt-2', 'sidebar-title', 'text-capitalize')}>{t('related-news')}</h3>
                 </div>
                 <div className={cx('news-wrapper')}>
                     <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('../../../../assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
+                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
                         <div className={cx('news-info', 'flex-wrap')}>
                             <div className={cx('news-title')}>
                                 <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
@@ -28,7 +31,7 @@ const SidebarContainer = () => {
                         </div>
                     </Link>
                     <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('../../../../assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
+                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
                         <div className={cx('news-info', 'flex-wrap')}>
                             <div className={cx('news-title')}>
                                 <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
@@ -40,7 +43,7 @@ const SidebarContainer = () => {
                         </div>
                     </Link>
                     <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('../../../../assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
+                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
                         <div className={cx('news-info', 'flex-wrap')}>
                             <div className={cx('news-title')}>
                                 <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
@@ -52,7 +55,7 @@ const SidebarContainer = () => {
                         </div>
                     </Link>
                     <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('../../../../assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
+                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
                         <div className={cx('news-info', 'flex-wrap')}>
                             <div className={cx('news-title')}>
                                 <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
@@ -64,7 +67,7 @@ const SidebarContainer = () => {
                         </div>
                     </Link>
                     <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('../../../../assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
+                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
                         <div className={cx('news-info', 'flex-wrap')}>
                             <div className={cx('news-title')}>
                                 <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
@@ -79,7 +82,7 @@ const SidebarContainer = () => {
             </div>
             <div className={cx('tags', 'd-block')}>
                 <div className={cx('block-heading')}>
-                    <h3 className={cx('primary', 'mt-4', 'sidebar-title')}>Nhãn</h3>
+                    <h3 className={cx('primary', 'mt-4', 'sidebar-title', 'text-capitalize')}>{t('tags')}</h3>
                 </div>
                 <ul className={cx('tag-list')}>
                     <li>
