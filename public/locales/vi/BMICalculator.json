@@ -1,0 +1,11 @@
+{
+    "BMICalculator": "Tính chỉ số BMI",
+    "ContentBMI": "Sử dụng công cụ này để kiểm tra chỉ số khối cơ thể (BMI) để biết bạn có đang ở mức cân nặng hợp lý hay không. Bạn cũng có thể kiểm tra chỉ số BMI của mình tại đây.",
+    "Sex": "Giới tính của bạn",
+    "Years": "Bạn bao nhiêu tuổi? (năm)",
+    "Height": "Bạn cao bao nhiêu? (cm)",
+    "Weight": "Cân nặng của bạn? (kg)",
+    "Male": "Nam",
+    "Fermal": "Nữ",
+    "Btn-BMI": "Tính ngay"
+}

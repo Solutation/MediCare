@@ -58,6 +58,9 @@ $bg-user-options: #f0f8ff;
     opacity: 0;
     animation: fadein ease-in-out 0.4s;
 }
+.headless_healthy:not(div) {
+    inset: 0;
+}
 .language_option_icon {
     font-size: 2.5rem;
     color: var(--color-icon);
@@ -110,7 +113,25 @@ $bg-user-options: #f0f8ff;
         cursor: pointer;
     }
 }
-
+.hov {
+    position: relative;
+}
+.ss {
+    padding: 17px 0;
+}
+.ss:hover .dropdown {
+    display: block;
+}
+.dropdown {
+    background: var(--color-white);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 6.7rem;
+    display: none;
+    border-bottom: 1px solid transparent;
+    box-shadow: var(--box-shadow-default);
+}
 @keyframes fadein {
     from {
         opacity: 0;

@@ -1,0 +1,243 @@
+.left-blognew1 {
+    .h2-bvmn {
+        color: var(--color-black);
+        font-size: 23px !important;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .left-bvnb {
+        position: relative;
+        color: var(--color-white);
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 550px;
+            border-radius: 5px;
+            transition: transform 2s, filter 1s ease-in-out;
+            transform-origin: center center;
+            filter: brightness(80%);
+        }
+        img:hover {
+            filter: brightness(100%);
+            // transform: scale(1.3);
+        }
+        .content-blognew1 {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            h2 {
+                position: absolute;
+                bottom: 0;
+                font-size: 19px !important;
+                padding-left: 20px;
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+            .hv {
+                color: var(--color-white);
+            }
+        }
+    }
+    .right-bvnb {
+        position: relative;
+        color: var(--color-white);
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 330px;
+            border-radius: 5px;
+            transition: transform 1s, filter 1s ease-in-out;
+            transform-origin: center center;
+            filter: brightness(70%);
+        }
+        img:hover {
+            filter: brightness(100%);
+            transform: scale(0.95);
+        }
+        .content-blognew1 {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            h2 {
+                position: absolute;
+                bottom: 0;
+                font-size: 19px !important;
+                padding-left: 20px;
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+            .hv {
+                color: var(--color-white);
+            }
+        }
+    }
+    .right-bvnb-1 {
+        margin-top: 2%;
+        position: relative;
+        color: var(--color-white);
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            transition: transform 1s, filter 1s ease-in-out;
+            transform-origin: center center;
+            filter: brightness(50%);
+        }
+        img:hover {
+            filter: brightness(100%);
+            transform: scale(0.95);
+        }
+        .content-blognew1 {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            h2 {
+                position: absolute;
+                bottom: 0;
+                font-size: 19px !important;
+                padding-left: 20px;
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+            .hv {
+                color: var(--color-white);
+            }
+        }
+    }
+}
+
+.sc-bottom {
+    margin-top: 3%;
+    .ul-chuyenhuong {
+        color: var(--color-black);
+        margin-left: 0 !important;
+        padding-left: 0;
+        li {
+            padding-right: 5px;
+            font-size: 15px;
+        }
+        li .home:hover {
+            color: var(--color-primary);
+        }
+    }
+    .mg-0 {
+        .title-chuyenmuc {
+            padding-left: 0;
+            align-items: center;
+            li {
+                padding-right: 10%;
+                h2 {
+                    font-size: 23px;
+                    color: var(--color-primary);
+                    padding: 0;
+                    margin: 0;
+                    font-weight: bold;
+                }
+                span {
+                    color: var(--color-black);
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    .content-baiviet {
+        margin-bottom: 2%;
+        img {
+            width: 100%;
+            object-fit: cover;
+            border: 1px solid transparent;
+            box-shadow: var(--box-shadow-default);
+        }
+        .title-baiviet {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .title-chuyenmuc {
+            padding-left: 0;
+            .xt {
+                color: rgb(179, 130, 67);
+            }
+            .xt:hover {
+                color: rgba(179, 130, 67, 0.582);
+            }
+        }
+    }
+    .vien-bd {
+        -webkit-box-shadow: 0px 10px 22px rgb(42 135 158 / 14%);
+        .title-bvnb {
+            border-bottom: 1px solid var(--color-primary);
+            h2 {
+                font-size: 23px;
+                font-weight: bold;
+                color: var(--color-white);
+                text-transform: uppercase;
+            }
+            .Fpost {
+                width: 50%;
+                background-color: var(--color-primary);
+                padding-top: 4px;
+            }
+        }
+        .right-bvnb {
+            margin-top: 2%;
+            // padding: 0;
+            position: relative;
+            color: var(--color-white);
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            .content-blognew1 {
+                position: relative;
+                margin: 0 auto;
+                width: 100%;
+                h2 {
+                    position: absolute;
+                    bottom: 0;
+                    font-size: 19px !important;
+                    padding-left: 20px;
+                    // font-weight: bold;
+                    padding-bottom: 20px;
+                    color: var(--color-white);
+                }
+            }
+        }
+        .right-bvn {
+            margin-top: 6%;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+            p {
+                font-weight: bold;
+                color: var(--color-black);
+            }
+        }
+    }
+}
+.disease-wrapper {
+    margin-top: 3%;
+}
+.title__news {
+    margin-top: 10rem;
+    justify-content: center;
+    align-items: center;
+    .div1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 200px;
+        }
+        h3 {
+            margin-left: 20px;
+        }
+    }
+    .div2 {
+        border: 1px solid var(--color-gray);
+    }
+}

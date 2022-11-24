@@ -1,0 +1,11 @@
+{
+    "BMICalculator": "BMI Calculator",
+    "ContentBMI": "Use this tool to check your body mass index (BMI) to see if you're at a healthy weight. You can also check your BMI here.",
+    "Sex": "Sex",
+    "Years": "How old are you? (year)",
+    "Height": "How tall are you? (cm)",
+    "Weight": "How much is your weight? (kg)",
+    "Male": "Male",
+    "Fermal": "Fermale",
+    "Btn-BMI": "Calculate now"
+}

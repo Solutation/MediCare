@@ -1,0 +1,47 @@
+.wrapper {
+    margin-top: 100px;
+}
+.chakra-input1 {
+    background-color: rgb(141, 133, 133) !important;
+}
+.text_p {
+    width: 100px;
+}
+.form_text {
+    position: absolute;
+    top: 55px;
+    width: 25%;
+}
+.input__1 {
+    margin-right: 2.1rem;
+    border: 1px solid;
+    border-color: var(--color-primary);
+    border-radius: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.input__2 {
+    margin-right: 2.1rem;
+    border: 1px solid;
+    border-color: var(--color-primary);
+    border-radius: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.btn-tim {
+    margin-right: 2.1rem;
+    padding: 5px;
+    background-color: var(--color-primary);
+    color: var(--color-black);
+    border-radius: 4px;
+}
+.btn-clear {
+    margin-right: 0;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: var(--color-black);
+    border-radius: 4px;
+}
+#ad {
+    margin-bottom: 0 !important;
+}

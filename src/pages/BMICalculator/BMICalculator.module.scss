@@ -1,0 +1,90 @@
+.modal__caculator {
+    margin-top: 10%;
+}
+.st-content {
+    margin-bottom: 20px;
+
+    .div-content-BMI {
+        h1 {
+            margin-top: 10px !important;
+            font-weight: bold;
+        }
+    }
+    .div-nam {
+        margin-bottom: 5%;
+        max-width: 250px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: var(--color-white);
+        cursor: pointer;
+        -webkit-box-shadow: 0px 10px 40px rgb(42 135 158 / 14%);
+        .img-user-male {
+            margin-top: 3%;
+            margin-bottom: 2%;
+            width: 40px;
+        }
+    }
+    .div-nam:hover {
+        background: var(--color-primary);
+    }
+    .div-nu {
+        margin-bottom: 5%;
+        max-width: 250px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        background: var(--color-white);
+        -webkit-box-shadow: 0px 10px 40px rgb(42 135 158 / 14%);
+        .img-user-fermale {
+            margin-top: 3%;
+            margin-bottom: 2%;
+            width: 40px;
+        }
+    }
+    .div-nu:hover {
+        background: var(--color-primary);
+    }
+    .div-input-year {
+        label {
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgb(217, 217, 217);
+            border-radius: 6px;
+        }
+        input:focus {
+            border-color: var(--color-primary);
+        }
+        .div-messErr {
+            p {
+                padding-left: 10px;
+                padding-top: 5px;
+                color: red;
+            }
+        }
+    }
+    .div-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        .btn-tinh {
+            padding: 20px;
+            border-radius: 5px;
+        }
+    }
+}
+.pg {
+    position: relative;
+    .div-img-heart {
+        img {
+            position: absolute;
+            width: 436px;
+            left: 50%;
+        }
+    }
+}
