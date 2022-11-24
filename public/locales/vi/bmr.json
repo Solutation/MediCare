@@ -1,0 +1,12 @@
+{
+    "tools": "công cụ",
+    "tool-bmr": "Tính chỉ số BMR",
+    "age": "Bạn bao nhiêu tuổi? (năm)",
+    "input-age": "Nhập tuổi",
+    "height": "Bạn cao bao nhiêu? (cm)",
+    "input-height": "Nhập chiều cao",
+    "weight": "Cân nặng của bạn? (kg)",
+    "input-weight": "Nhập cân nặng",
+    "result": "Tính ngay",
+    "output": "Chỉ số BMR của bạn là"
+}

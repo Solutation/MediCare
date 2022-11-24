@@ -1,0 +1,33 @@
+.categories-wrapper {
+    padding-bottom: 6rem;
+    .categories-header {
+        width: 100%;
+        margin: 0px auto 20px auto;
+        max-width: 740px;
+        .header {
+            font-size: 32px;
+            line-height: 42px;
+            letter-spacing: -1px;
+            font-weight: 700;
+            color: var(--color-separate);
+        }
+        .search-wrapper {
+            padding: 16px 0;
+            position: relative;
+            display: flex;
+            .categories-search {
+                box-shadow: var(--box-shadow-default);
+                font-size: 1.8rem;
+                padding: 8px 16px 8px 48px;
+            }
+            .search-icon {
+                position: absolute;
+                top: 50%;
+                left: 18px;
+                display: inline-flex;
+                cursor: default;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

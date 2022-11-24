@@ -1,0 +1,69 @@
+$border-item: 1px solid rgb(228, 232, 236);
+$box-shadow: rgb(40 74 117 / 8%) 0px 5px 12px;
+.tools-wrapper {
+    padding-bottom: 8rem;
+    width: 100%;
+    margin: 0px auto;
+    max-width: 1170px;
+    .header {
+        font-size: 32px;
+        line-height: 42px;
+        letter-spacing: -1px;
+        font-weight: 700;
+        color: var(--color-separate);
+    }
+    .tools {
+        max-width: 1160px;
+        margin: auto;
+        padding: 0;
+        .tool-item {
+            margin-top: 32px;
+            padding: 0px 16px;
+
+            .tool-wrapper {
+                height: 100%;
+                width: 100%;
+                padding: 5px;
+                display: flex;
+                box-sizing: border-box;
+                flex-direction: row;
+                -webkit-box-align: center;
+                align-items: center;
+                border: $border-item;
+                background-color: var(--color-white);
+                border-radius: 6px;
+                box-shadow: $box-shadow;
+                cursor: pointer;
+                text-decoration: none;
+                .tool-img {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: contain;
+                }
+                .content-wrapper {
+                    padding-left: 16px;
+                    .tool-content {
+                        display: -webkit-box;
+                        overflow: hidden;
+                        -webkit-box-orient: vertical;
+                        text-overflow: ellipsis;
+                        -webkit-line-clamp: 2;
+                        color: var(--text-color);
+                        font-size: 2rem;
+                        line-height: 22px;
+                        font-weight: 700;
+                        margin-top: 4px;
+                    }
+                    .tool-description {
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        font-size: 1.4rem;
+                        color: var(--text-color);
+                    }
+                }
+            }
+        }
+    }
+}
