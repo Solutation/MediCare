@@ -10,6 +10,7 @@
     --color-separate: #1f4d91;
     --color-icon: #a6a7ab;
     --color-gray: #f1f1f2;
+    --color-hidden: #9b9b9b;
     --color-primary-bold: #0e424f;
     --color-primary-light: rgba(45, 165, 195, 0.9);
     --bg-form-section-left: linear-gradient(-90deg, #0a81c6, #0659b1);
@@ -60,7 +61,7 @@ input {
     max-width: 1380px !important;
 }
 .primary {
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
 }
 .bg-primary {
     background-color: var(--color-primary) !important;
@@ -69,7 +70,7 @@ input {
     background-color: var(--color-secondary) !important;
 }
 .secondary {
-    color: var(--color-black);
+    color: var(--color-secondary) !important;
 }
 .separate {
     width: 40px;
@@ -87,4 +88,13 @@ input {
     &:hover {
         background-color: var(--color-white) !important;
     }
+}
+.cursor_default {
+    cursor: default;
+}
+.white {
+    color: var(--color-white) !important;
+}
+.hidden {
+    color: var(--color-hidden) !important;
 }

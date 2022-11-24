@@ -1,0 +1,12 @@
+{
+    "tools": "tool",
+    "tool-bmr": "BMR Calculator",
+    "age": "How old are you? (year)",
+    "input-age": "age",
+    "height": "How tall are you? (cm)",
+    "input-height": "height",
+    "weight": "How much do you weigh? (kg)",
+    "input-weight": "weight",
+    "result": "Result",
+    "output": "Your BMR"
+}

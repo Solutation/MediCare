@@ -301,7 +301,7 @@ const DiseaseSection = () => (
         <div className={cx('container')}>
             <h1 className={cx('display-2', 'fw-bold', 'text-black', 'd-inline-block')}>Latest</h1>
             <h1 className={cx('display-2', 'primary', 'fw-bold', 'd-inline-block', 'ms-4')}>Medicare news</h1>
-            <div className={cx('separate')}></div>
+            <div className={cx('separate', 'mx-auto')}></div>
             <p className={cx('text-info', 'w-50')}>
                 Đọc những tin tức y tế mới nhất để biết thêm thông tin về các loại bệnh hiện nay và cách điều trị, phòng
                 tránh chúng.
