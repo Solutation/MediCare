@@ -1,0 +1,69 @@
+.wr {
+    .pd {
+        padding-top: 24px;
+        .left-cc {
+            border-right: 1px solid var(--color-gray);
+            h3 {
+                padding-top: 30px;
+                padding-bottom: 15px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .list-cc {
+                font-size: 18px;
+                margin-left: 5px;
+                .item-heart {
+                    padding-top: 7px;
+                    padding-bottom: 7px;
+                    img {
+                        width: 25px;
+                        margin-right: 10px;
+                    }
+                    span {
+                        color: var(--color-secondary);
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        .left-ccc {
+            h3 {
+                padding-top: 30px;
+                padding-bottom: 15px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .list-cc {
+                display: flex;
+                height: 72%;
+                .item-ccnb {
+                    .item__content {
+                        width: 88%;
+                        height: 85%;
+                        background-image: url(../../assets/bgLogin.jpg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        border-radius: 5px;
+                        margin: auto;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        position: relative;
+                        span {
+                            position: absolute;
+                            bottom: 25%;
+                        }
+                        .img-bmi {
+                            width: 45px;
+                            margin-top: 2%;
+                        }
+                        .img-tnrt {
+                            width: 50px;
+                            margin-top: 2%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

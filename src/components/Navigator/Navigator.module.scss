@@ -1,4 +1,7 @@
+
+
 $blue: #1c4c93;
+
 .wrapper {
     padding: 25px 0;
     width: 100%;
@@ -31,13 +34,24 @@ $blue: #1c4c93;
         }
         .navigator-item {
             display: inline-block;
+
+            color: var(--color-white);
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
+        .navigator-item:hover {
+            color: var(--color-hidden);
+        }
+
             color: var(--color-hidden);
             font-size: 2rem;
             margin-bottom: 0;
         }
     }
-}
-
 .bgPrimaryBold {
+
+    background-color: var(--color-primary-bold) !important;
+
     background-color: $blue !important;
+
 }

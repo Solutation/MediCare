@@ -16,7 +16,8 @@ import { ServiceItem } from '~/components/ServiceItem';
 import { LanguageItem } from './components/LanguageItem';
 import { UserItem } from './components/UserItem';
 import Chibi from '~/assets/chibi.jpg';
-
+import { HealthyItem } from '~/components/HealthyItem';
+import { CategoryItem } from '~/components/CategoryItem';
 const cx = classNames.bind(styles);
 
 const Header = () => {
@@ -58,16 +59,30 @@ const Header = () => {
                                 </Link>
                             </Tippy>
                         </li>
-                        <li className={cx('nav-item')}>
-                            <Link to="/" className={cx('nav-link')}>
-                                {t('category')}
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item')}>
-                            <Link to="/" className={cx('nav-link')}>
-                                {t('healthy_tool')}
-                            </Link>
-                        </li>
+                        <div className={cx('ss')}>
+                            <li className={cx('nav-item')}>
+                                <Link to="/" className={cx('nav-link')}>
+                                    {t('category')}
+                                </Link>
+                            </li>
+                            <div className={cx('dropdown')}>
+                                <div className={cx('dropdown__menu')}>
+                                    <CategoryItem />
+                                </div>
+                            </div>
+                        </div>
+                        <div className={cx('ss')}>
+                            <li className={cx('nav-item', 'hov')}>
+                                <Link to="/" className={cx('nav-link')}>
+                                    {t('healthy_tool')}
+                                </Link>
+                            </li>
+                            <div className={cx('dropdown')}>
+                                <div className={cx('dropdown__menu')}>
+                                    <HealthyItem />
+                                </div>
+                            </div>
+                        </div>
                         <li className={cx('nav-item')}>
                             <Link to="/" className={cx('nav-link')}>
                                 {t('consultant')}
