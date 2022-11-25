@@ -20,6 +20,9 @@ export const init = () => {
             load: 'currentOnly',
             backend: {
                 loadPath: '/locales/{{lng}}/{{ns}}.json'
+            },
+            react: {
+                useSuspense: false
             }
         });
 };

@@ -9,8 +9,6 @@ import {
     MessageInput,
     Thread,
     Window,
-    Avatar,
-    MessageStatus,
     MessageSimple
 } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
@@ -21,26 +19,17 @@ import './override-library.scss';
 import { CustomChannelList } from './ChannelList/CustomChannelList';
 import { CustomChannelPreview } from './ChannelList/CustomChannelPreview';
 import { ChannelSearchProvider } from '~/context/ChannelSearchContext';
-import WaifuIcon from '~/assets/waifu.jpg';
 import ImageUploadIcon from '~/assets/upload.png';
 import EmojiIcon from '~/assets/emoji.png';
 import { CustomThreadHeader } from './ThreadHeader';
+import { CustomChannelHeader } from './CustomChannelHeader';
+import { CustomAvatar } from './CustomAvatar';
 
 const cx = classNames.bind(styles);
 
 const cookies = new Cookies();
 
 const apiKey = process.env.REACT_APP_STREAM_API_KEY;
-
-const chatToken = cookies.get('chatToken');
-
-const CustomAvatar = () => {
-    return <Avatar image={WaifuIcon} shape="circle" size={20} />;
-};
-
-const CustomMessageStatus = (props) => {
-    return <MessageStatus Avatar={CustomAvatar} />;
-};
 
 const CustomFileUploadIcon = (props) => {
     return <img src={ImageUploadIcon} alt="" sizes={20} />;
@@ -57,22 +46,20 @@ const handleHoverUser = (e) => {
     x.title = '';
 };
 
-let flag = 0;
-
 const Contact = () => {
     const [client, setClient] = useState();
+    const userInfo = cookies.get('userAccess').split(',');
+    const chatToken = userInfo[2];
 
     useEffect(() => {
         const init = async () => {
-            if (flag === 0) {
-                flag = 1;
-                const user_id = cookies.get('userId');
-                const chatClient = StreamChat.getInstance(apiKey);
-                await chatClient.connectUser({ id: user_id }, chatToken);
-                setClient(chatClient);
-            }
+            const userContactId = userInfo[1];
+            const chatClient = StreamChat.getInstance(apiKey);
+            await chatClient.connectUser({ id: userContactId }, chatToken);
+            setClient(chatClient);
         };
         init();
+        //eslint-disable-next-line
     }, []);
 
     return (
@@ -86,13 +73,14 @@ const Contact = () => {
                         />
                         <Channel
                             FileUploadIcon={CustomFileUploadIcon}
-                            MessageStatus={(props) => <CustomMessageStatus {...props} />}
+                            Avatar={CustomAvatar}
                             EmojiIcon={CustomEmojiIcon}
                             ThreadHeader={CustomThreadHeader}
                         >
                             <Window>
+                                <CustomChannelHeader />
                                 <MessageList
-                                    messageActions={['reply', 'edit', 'delete', 'react']}
+                                    messageActions={['edit', 'delete', 'react']}
                                     closeReactionSelectorOnClick={true}
                                     hideDeletedMessages={true}
                                     disableDateSeparator={true}

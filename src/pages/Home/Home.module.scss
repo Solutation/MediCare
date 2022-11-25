@@ -16,7 +16,7 @@ $general-section-height: calc(100vh - 180px);
     margin-top: calc($general-section-height - 39%);
 
     .title {
-        font-size: 7rem;
+        font-size: 5rem;
     }
     .description {
         padding: 16px 0;
@@ -108,4 +108,12 @@ $general-section-height: calc(100vh - 180px);
 }
 .disease-wrapper {
     margin-top: 3%;
+
+    .disease_title {
+        cursor: pointer;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
 }

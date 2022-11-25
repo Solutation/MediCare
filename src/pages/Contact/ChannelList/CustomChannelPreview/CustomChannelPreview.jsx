@@ -5,7 +5,6 @@ import { StreamChat } from 'stream-chat';
 import Cookies from 'universal-cookie';
 
 import styles from './CustomChannelPreview.module.scss';
-import ChibiIcon from '~/assets/chibi.jpg';
 import { ChannelSearchContext } from '~/context/ChannelSearchContext';
 import { removeVietnameseTones } from '~/utils';
 
@@ -20,16 +19,17 @@ const cookies = new Cookies();
 let checkValueSearch = 0;
 
 // eslint-disable-next-line
-const CustomChannelPreview = ({ latestMessage }) => {
+const CustomChannelPreview = () => {
     const [channelList, setChannelList] = useState([]);
     const { setActiveChannel } = useChatContext();
     const { channelSearchValue } = useContext(ChannelSearchContext);
+    const userInfo = cookies.get('userAccess').split(',');
 
     useEffect(() => {
         const getChannel = async () => {
-            const user_id = cookies.get('userId');
+            const userContactId = userInfo[1];
             const chatClient = StreamChat.getInstance(api_key, api_secret);
-            const filters = { type: 'messaging', members: { $in: [user_id] } };
+            const filters = { type: 'messaging', members: { $in: [userContactId] } };
             const sort = [{ last_message_at: -1 }];
             const channels = await chatClient.queryChannels(filters, sort, {
                 state: true
@@ -37,6 +37,7 @@ const CustomChannelPreview = ({ latestMessage }) => {
             setChannelList(channels);
         };
         getChannel();
+        // eslint-disable-next-line
     }, []);
 
     const handleSelect = useCallback((channel) => {
@@ -45,17 +46,24 @@ const CustomChannelPreview = ({ latestMessage }) => {
     }, []);
 
     const ChannelItem = useCallback(
-        ({ channel }) => (
-            <div className={cx('preview_list_wrapper')} key={channel.data.id}>
-                <div className={cx('preview_list_item')} onClick={() => handleSelect(channel)}>
-                    <img src={ChibiIcon} alt="" className={cx('preview_avatar')} />
-                    <div className={cx('d-flex', 'flex-column', 'align-items-start')}>
-                        <h2 className={cx('text-white', 'fw-bold', 'px-4', 'fs-3', 'mt-2')}>{channel.data.name}</h2>
-                        <GetMessageText channel={channel} />
+        ({ channel }) => {
+            const channelNameArray = channel.data.name.split('/');
+            const channelName = userInfo[5] === 'Bệnh nhân' ? channelNameArray[1] : channelNameArray[0];
+            const memberList = Object.values(channel.state.members);
+            const userChannel = memberList.find((member) => member.user_id !== userInfo[1]);
+
+            return (
+                <div className={cx('preview_list_wrapper')} key={channel.data.id}>
+                    <div className={cx('preview_list_item')} onClick={() => handleSelect(channel)}>
+                        <img src={userChannel.user.avatar} alt="" className={cx('preview_avatar')} />
+                        <div className={cx('d-flex', 'flex-column', 'align-items-start')}>
+                            <h2 className={cx('text-white', 'fw-bold', 'px-4', 'fs-3', 'mt-2')}>{channelName}</h2>
+                            <GetMessageText channel={channel} />
+                        </div>
                     </div>
                 </div>
-            </div>
-        ),
+            );
+        },
         // eslint-disable-next-line
         []
     );

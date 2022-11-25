@@ -1,0 +1,43 @@
+.overllay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--bg-profile);
+    z-index: -1;
+}
+.sidebar_avatar {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.sidebar_username {
+    color: var(--color-black);
+    font-weight: bold;
+}
+.edit_icon {
+    color: var(--color-icon);
+    font-size: 1.4rem;
+    margin-right: 0.8rem;
+}
+.edit_text {
+    color: var(--color-icon);
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+.sidebar_text:hover {
+    color: var(--color-primary) !important;
+    cursor: pointer;
+}
+.height {
+    height: 62rem;
+}
+.heightPassword {
+    height: 50rem;
+}

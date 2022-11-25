@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import classNames from 'classnames/bind';
 import HeadlessTippy from '@tippyjs/react/headless';
 
@@ -16,6 +16,21 @@ import { WritingComment } from './components/WritingComment';
 const cx = classNames.bind(styles);
 
 const CreatePost = () => {
+    const [imageList, setImageList] = useState([]);
+
+    const handleChooseImage = (e) => {
+        const file = e.target.files[0];
+        const src = URL.createObjectURL(file);
+        setImageList((prev) => [...prev, src]);
+    };
+
+    const handleCancelImageChoosen = (index) => {
+        const arrayLeft = imageList.slice(0, index);
+        const arrayRight = imageList.slice(index + 1);
+        const result = [...arrayLeft, ...arrayRight];
+        setImageList(result);
+    };
+
     return (
         <div className={cx('w-100')}>
             <div className={cx('sending_wrapper')}>
@@ -27,11 +42,18 @@ const CreatePost = () => {
                         className={cx('sending_input')}
                         placeholder="Bạn đang nghĩ gì?"
                     ></textarea>
-                    <div className={cx('image_inner', 'hide')}>
-                        <div className={cx('image_item')}>
-                            <img src={CharlotteIcon} alt="" className={cx('image_choosen')} />
-                            <FontAwesomeIcon icon={faXmark} className={cx('image_close_icon')} />
-                        </div>
+                    <div className={cx('image_inner')}>
+                        {imageList.length >= 1 &&
+                            imageList.map((image, index) => (
+                                <div className={cx('image_item')} key={index}>
+                                    <img src={image} alt="" className={cx('image_choosen')} />
+                                    <FontAwesomeIcon
+                                        icon={faXmark}
+                                        className={cx('image_close_icon')}
+                                        onClick={() => handleCancelImageChoosen(index)}
+                                    />
+                                </div>
+                            ))}
                     </div>
                 </div>
                 <div className={cx('d-flex', 'align-items-center', 'justify-content-between', 'py-3', 'mt-2')}>
@@ -39,7 +61,7 @@ const CreatePost = () => {
                         <label htmlFor="fileChoosen">
                             <FontAwesomeIcon icon={faImage} className={cx('upload_icon')} />
                         </label>
-                        <input id="fileChoosen" type="file" className={cx('d-none')} />
+                        <input id="fileChoosen" type="file" className={cx('d-none')} onChange={handleChooseImage} />
                         <span className={cx('upload_text')}>Ảnh</span>
                     </div>
                     <Button primary small className={cx('btn_post')}>
@@ -54,8 +76,28 @@ const CreatePost = () => {
 const Post = () => {
     const [tippyInstance, setTippyInstance] = useState();
 
+    const handleScroll = useCallback(() => {
+        const x = document.querySelector('#postLoading');
+        if (window.innerHeight + document.documentElement.scrollTop >= document.body.offsetHeight) {
+            // you're at the bottom of the page
+            console.log(1);
+        }
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    // return () => {
+    //     window.removeEventListener(onscroll, handleScroll);
+    // };
+
     return (
-        <>
+        <div id="postLoading">
             <div className={cx('post_wrapper')}>
                 <div className={cx('p-4', 'd-flex', 'flex-column')}>
                     <div className={cx('d-flex', 'justify-content-between', 'align-items-center')}>
@@ -212,7 +254,7 @@ const Post = () => {
                     <WritingComment />
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

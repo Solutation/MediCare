@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 import styles from './UserItem.module.scss';
 import './override-library.scss';
-import Charlotte from '~/assets/charlotte.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faRightFromBracket, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
@@ -14,28 +15,37 @@ import UKColorIcon from '~/assets/ukColor.png';
 
 const cx = classNames.bind(styles);
 
-const UserItem = () => {
+const cookies = new Cookies();
+
+const UserItem = ({ setCheckLogin }) => {
+    const { t } = useTranslation('header');
     const [separate, setSeparate] = useState(false);
     const [language, setLanguage] = useState('vi');
+    const userInfo = cookies.get('userAccess').split(',');
 
     const handleChangeLanguage = (languageCode) => {
         i18next.changeLanguage(languageCode);
         setLanguage(languageCode);
     };
 
+    const handleLogout = () => {
+        cookies.remove('userAccess');
+        setCheckLogin(false);
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('d-flex', 'flex-column', 'header_wrapper')}>
                 <div className={cx('d-flex', 'align-items-center', 'justify-content-start', 'w-100')}>
-                    <img src={Charlotte} alt="" className={cx('avatar')} />
+                    <img src={userInfo[6]} alt="" className={cx('avatar')} />
                     <div className={cx('d-flex', 'flex-column', 'px-4')}>
-                        <p className={cx('text-black', 'fw-bold', 'mb-1')}>Lâm Khương Trí</p>
-                        <span className={cx('text-muted', 'fs-4')}>khuongtri91@gmail.com</span>
+                        <p className={cx('text-black', 'fw-bold', 'mb-1')}>{userInfo[4]}</p>
+                        <span className={cx('text-muted', 'fs-4')}>{userInfo[3]}</span>
                     </div>
                 </div>
                 <div className={cx('description_wrapper')}>
                     <FontAwesomeIcon icon={faStethoscope} className={cx('description_icon')} />
-                    <span className={cx('description_text')}>Bệnh nhân</span>
+                    <span className={cx('description_text')}>{userInfo[5]}</span>
                 </div>
             </div>
             <div className={cx('d-flex', 'flex-column', 'body_wrapper')}>
@@ -45,7 +55,7 @@ const UserItem = () => {
                 >
                     <FontAwesomeIcon icon={faUser} className={cx('option_icon')} />
                     <span className={cx('option_text')} style={{ marginLeft: '0.2rem' }}>
-                        Hồ sơ
+                        {t('profile')}
                     </span>
                 </Link>
                 <div className={cx('accordion', 'accordion-flush', 'accordion_wrapper')} id="accordionLanguage">
@@ -60,7 +70,7 @@ const UserItem = () => {
                                 onClick={() => setSeparate(!separate)}
                             >
                                 <FontAwesomeIcon icon={faGlobe} className={cx('option_icon')} />
-                                <span className={cx('option_text')}>Ngôn ngữ</span>
+                                <span className={cx('option_text')}>{t('language')}</span>
                             </button>
                             {separate && <div className={cx('language_separate')}></div>}
                         </h2>
@@ -84,7 +94,7 @@ const UserItem = () => {
                                 >
                                     <img src={VietNamColorIcon} alt="" className={cx('language_icon')} />
                                     <span className={cx('text-black', 'fw-bold', 'fs-4', 'language_text')}>
-                                        Tiếng Việt
+                                        {t('vietnamese')}
                                     </span>
                                 </button>
                                 {separate && <div className={cx('language_separate', 'mt-4')}></div>}
@@ -109,7 +119,7 @@ const UserItem = () => {
                                         className={cx('text-black', 'fw-bold', 'fs-4', 'language_text')}
                                         style={{ position: 'relative', top: '0.4rem' }}
                                     >
-                                        Tiếng Anh
+                                        {t('english')}
                                     </span>
                                 </button>
                             </div>
@@ -117,10 +127,13 @@ const UserItem = () => {
                     </div>
                 </div>
             </div>
-            <div className={cx('footer_wrapper', 'd-flex', 'justify-content-center', 'align-items-center')}>
+            <div
+                className={cx('footer_wrapper', 'd-flex', 'justify-content-center', 'align-items-center')}
+                onClick={handleLogout}
+            >
                 <div className={cx('footer_inner')}>
                     <FontAwesomeIcon icon={faRightFromBracket} className={cx('logout_icon')} />
-                    <span className={cx('logout-text')}>Đăng xuất</span>
+                    <span className={cx('logout-text')}>{t('logout')}</span>
                 </div>
             </div>
         </div>

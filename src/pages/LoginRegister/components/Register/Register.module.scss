@@ -9,28 +9,24 @@ $default-form-element-width: 96%;
     animation: slideUp 1.2s ease-in-out;
 
     .form-title {
-        margin-top: 4%;
-        padding: 3rem 0;
+        padding: 2rem 0;
         margin-left: 3%;
     }
 
     .form_inner_wrapper {
         margin-left: 1%;
-        margin-top: 1%;
 
         .form-group {
             .form-input {
                 padding: 0.6rem 0;
                 text-indent: 1rem;
                 border: 1px solid transparent;
-                border-radius: 1.2rem;
                 overflow: hidden;
             }
             .form-input-date {
                 padding: 0.6rem 0;
                 text-indent: 0.6rem;
                 border: 1px solid transparent;
-                border-radius: 1.2rem;
                 padding-right: 0.6rem;
             }
         }
@@ -50,9 +46,6 @@ $default-form-element-width: 96%;
     width: 98.6%;
     margin-left: 0.4%;
 }
-.file_wrapper {
-    border-radius: 1.2rem;
-}
 @keyframes slideUp {
     from {
         transform: translateY(100%);
@@ -60,4 +53,7 @@ $default-form-element-width: 96%;
     to {
         transform: translateY(0);
     }
+}
+.mg-top {
+    margin-top: 1rem;
 }

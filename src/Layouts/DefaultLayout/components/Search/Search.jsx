@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
@@ -16,6 +17,7 @@ const Search = () => {
     const [searchResult, setSearchResult] = useState([]);
     const [loading, setLoading] = useState(false);
     const inputRef = useRef();
+    const { t } = useTranslation('header');
 
     const debounceValue = useDebounce(searchValue, 500);
 
@@ -95,7 +97,7 @@ const Search = () => {
                 <div className={cx('search')}>
                     <input
                         type="text"
-                        placeholder="Search"
+                        placeholder={t('searchHeader')}
                         className={cx('search-input')}
                         onChange={(e) => handleSearchValue(e)}
                         onFocus={() => setShowResult(true)}

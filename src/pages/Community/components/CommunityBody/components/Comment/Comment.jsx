@@ -10,6 +10,7 @@ const Comment = () => {
     return (
         <>
             <div>
+                <h2 className={cx('view_more_comment_text')}>Xem thêm bình luận</h2>
                 <div className={cx('d-flex', 'align-items-center', 'mt-3', 'mb-3')}>
                     <img src={Charlotte} alt="" className={cx('avatar')} />
                     <div
@@ -35,7 +36,6 @@ const Comment = () => {
                     </div>
                 </div>
             </div>
-            <span className={cx('view_more_comment_text')}>Xem thêm bình luận</span>
         </>
     );
 };

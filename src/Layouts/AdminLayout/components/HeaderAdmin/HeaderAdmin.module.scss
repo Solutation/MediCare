@@ -1,0 +1,27 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    height: var(--default-header-height);
+    box-shadow: 1px 1px 2px rgb(0 0 0 / 12%);
+    color: var(--color-black);
+    z-index: 20;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+.menu-left {
+    display: flex;
+    align-items: center;
+
+    .logo-link {
+        align-self: center;
+
+        .logo-image {
+            width: 130px;
+            height: 80px;
+            object-fit: contain;
+        }
+    }
+}
