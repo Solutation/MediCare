@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            #overllay1 {
+                background-color: #f1f1f1;
+                width: 100%;
+                height: 420px;
+                text-align: center;
+            }
+            #textWrapper {
+                display: flex;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .title {
+                font-size: 32px;
+                color: black;
+                text-align: center;
+                margin-bottom: 16px;
+                display: block;
+            }
+            .code {
+                font-size: 24px;
+                color: black;
+                text-align: center;
+                display: block;
+            }
+            .btnConfirm {
+                background-color: #38b3d1;
+                color: white;
+                font-size: 22px;
+                text-align: center;
+                padding: 4px 16px;
+                outline: none;
+                border: 1px solid transparent;
+                margin: 0 auto;
+                cursor: pointer;
+                width: 120px;
+            }
+            #linkConfirm {
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                color: white;
+                background-color: #38b3d1;
+                outline: none;
+                border: none;
+                font-size: 22px;
+                text-decoration: none;
+            }
+            .btnConfirm:hover {
+                cursor: pointer;
+                opacity: 0.7;
+            }
+        </style>
+
+        <script>
+            const email = document.querySelector('#emailReceiver').textContent;
+            async function handleSubmit() {
+                console.log(123);
+                await fetch(`http://localhost:4000/auth/verify?email=${email}`, {
+                    method: 'POST',
+                });
+            }
+            //prettier-ignore
+            document.querySelector('#linkConfirm').setAttribute('href', `http://localhost:4000/auth/verify?email=${email}`);
+            console.log(123);
+        </script>
+    </head>
+    <body>
+        <div id="overllay1">
+            <div style="display: block">
+                <img
+                    src="https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2Fmain-logo.png?alt=media&token=6f323b37-51c3-4e16-b695-e6bf301914cf"
+                    alt=""
+                    style="margin-top: 16px; padding-bottom: 46px"
+                />
+            </div>
+            <p class="title">Please click this button below to verify your email</p>
+            <!-- <p class="code">{{verificationCode}}</p> -->
+            <div class="btnConfirm">
+                <a id="linkConfirm" href="">Confirm</a>
+            </div>
+            <span id="emailReceiver" style="display: none"><%= emailReceiver %></span>
+        </div>
+    </body>
+</html>
