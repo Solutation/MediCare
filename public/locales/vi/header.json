@@ -3,5 +3,13 @@
     "category": "Chuyên mục",
     "healthy_tool": "Công cụ kiểm tra",
     "consultant": "Chuyên gia",
-    "login": "Đăng nhập"
+    "login": "Đăng nhập",
+    "vietnamese": "Tiếng Việt",
+    "english": "Tiếng Anh",
+    "language": "Ngôn ngữ",
+    "logout": "Đăng xuất",
+    "profile": "Hồ sơ",
+    "searchHeader": "Tìm theo triệu chứng bệnh",
+    "contact": "Tư vấn",
+    "community": "Cộng đồng"
 }

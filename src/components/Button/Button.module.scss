@@ -40,9 +40,16 @@ $button-secondary-color: #2d87f3;
     }
 }
 .secondary {
-    border-color: $button-secondary-color;
     color: var(--color-white);
-    background-color: $button-secondary-color;
+    background-color: var(--color-secondary);
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+.danger {
+    color: var(--color-white);
+    background-color: var(--color-danger);
 
     &:hover {
         opacity: 0.8;
@@ -58,12 +65,12 @@ $button-secondary-color: #2d87f3;
     }
 }
 .rounded {
-    border-radius: 999px;
+    border-radius: 8px;
     box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
 }
 .small {
-    min-width: 88px;
-    padding: 4px 16px;
+    min-width: 66px;
+    padding: 4px 6px;
 }
 .medium {
     min-width: 100px;
@@ -85,4 +92,7 @@ $button-secondary-color: #2d87f3;
     &:hover {
         opacity: 0.8;
     }
+}
+.margin {
+    margin-right: 0.8rem;
 }

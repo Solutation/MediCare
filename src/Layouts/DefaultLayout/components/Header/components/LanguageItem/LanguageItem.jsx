@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './LanguageItem.module.scss';
 import VietNamIcon from '~/assets/vietnamColor.png';
@@ -8,31 +9,33 @@ import i18next from 'i18next';
 
 const cx = classNames.bind(styles);
 
-const languagesList = [
-    {
-        code: 'vi',
-        icon: VietNamIcon,
-        description: 'Tiếng Việt'
-    },
-    {
-        code: 'en',
-        icon: UKIcon,
-        description: 'Tiếng Anh'
-    }
-];
-
-const LanguageItem = () => {
+const LanguageItem = ({ tippyInstance }) => {
+    const { t } = useTranslation('header');
     const languageRef = useRef();
     const [languageCode, setLanguageCode] = useState('vi');
+
+    const languagesList = [
+        {
+            code: 'vi',
+            icon: VietNamIcon,
+            description: t('vietnamese')
+        },
+        {
+            code: 'en',
+            icon: UKIcon,
+            description: t('english')
+        }
+    ];
 
     const handleChangeLanguage = (languageItem) => {
         i18next.changeLanguage(languageItem.code);
         setLanguageCode(languageItem.code);
+        tippyInstance.hide();
     };
 
     return (
         <div className={cx('wrapper')} ref={languageRef}>
-            <p className={cx('language_header-text')}>Ngôn ngữ</p>
+            <p className={cx('language_header-text')}>{t('language')}</p>
             <div className={cx('separate')}></div>
             <div className={cx('d-flex', 'flex-column', 'language_body')}>
                 {languagesList.map((languageItem) => (

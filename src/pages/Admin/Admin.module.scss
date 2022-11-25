@@ -1,0 +1,47 @@
+.admin_overllay {
+    position: fixed;
+    background-color: var(--bg-light);
+    background-size: cover;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+.sidebar_wrapper {
+    background-color: var(--color-white);
+    border: 1px solid transparent;
+    border-radius: var(--default-border-radius);
+    box-shadow: 1px 1px 2px var(--box-shadow-default);
+    margin-top: 3rem;
+    height: 86vh;
+
+    .manager_icon {
+        color: var(--color-icon);
+        font-size: 2rem;
+    }
+    .manager_text {
+        color: var(--color-icon);
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 0 1.2rem;
+    }
+    .option_text {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: var(--color-black);
+        margin-left: 1.6rem;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
+.manager_body_wrapper {
+    background-color: var(--color-white);
+    border: 1px solid transparent;
+    border-radius: var(--default-border-radius);
+    box-shadow: 1px 1px 2px var(--box-shadow-default);
+    margin-top: 3rem;
+}

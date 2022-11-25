@@ -1,0 +1,35 @@
+.wrapper {
+    width: 100%;
+    background-color: var(--color-white);
+    border-bottom: 1px solid #dcdcdc;
+
+    .header_inner_wrapper {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0.8rem 2.4rem;
+
+        .avatar {
+            width: 5rem;
+            height: 5rem;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .channel_name {
+            font-size: 1.5rem;
+            color: var(--color-black);
+            font-weight: bold;
+            margin-left: 1.2rem;
+        }
+        .rating_text {
+            font-size: 1.4rem;
+            color: var(--color-icon);
+            margin-left: 1.2rem;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}

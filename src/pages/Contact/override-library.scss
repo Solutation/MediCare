@@ -88,3 +88,16 @@ $bg-contact-color: #e7f8ff;
     padding: 0 1.4rem 0 0 !important;
     width: 100%;
 }
+.str-chat__message-reactions {
+    border: 1px solid var(--color-icon);
+    border-radius: 8px;
+}
+.str-chat__message .str-chat__reaction-list::after,
+.str-chat__message .str-chat__reaction-list::before,
+.str-chat__message-commerce .str-chat__reaction-list::after,
+.str-chat__message-commerce .str-chat__reaction-list::before,
+.str-chat__message .str-chat__reaction-list,
+.str-chat__message-commerce .str-chat__reaction-list {
+    background: unset;
+    background-size: unset;
+}

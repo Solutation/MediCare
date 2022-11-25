@@ -89,7 +89,6 @@ $bg-user-options: #f0f8ff;
 
 .user_option_wrapper {
     width: 36rem;
-
     position: relative;
     left: -6%;
 
@@ -104,9 +103,9 @@ $bg-user-options: #f0f8ff;
 }
 .avatar_wrapper {
     .avatar {
-        width: 4rem;
-        height: 4rem;
-        object-fit: contain;
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
         cursor: pointer;
     }
 }

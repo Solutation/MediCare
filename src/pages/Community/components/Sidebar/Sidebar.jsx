@@ -8,6 +8,7 @@ import MentalIcon from '~/assets/mental-health.png';
 import SportIcon from '~/assets/fitness.png';
 import TeethIcon from '~/assets/teeth.png';
 import CancerIcon from '~/assets/cancer.png';
+import ListIcon from '~/assets/list.png';
 
 import styles from './Sidebar.module.scss';
 
@@ -19,12 +20,13 @@ const Sidebar = () => {
     useEffect(() => {
         const fetchApi = () => {
             const data = [
-                { id: 1, name: 'Mắt', icon: EyesIcon },
-                { id: 2, name: 'Tim', icon: HeartIcon },
-                { id: 3, name: 'Tâm lý - Tâm thần', icon: MentalIcon },
-                { id: 4, name: 'Thể dục thể thao', icon: SportIcon },
-                { id: 5, name: 'Sức khỏe răng miệng', icon: TeethIcon },
-                { id: 6, name: 'Ung thư', icon: CancerIcon }
+                { id: 1, name: 'Tất cả chuyên mục', icon: ListIcon },
+                { id: 2, name: 'Mắt', icon: EyesIcon },
+                { id: 3, name: 'Tim', icon: HeartIcon },
+                { id: 4, name: 'Tâm lý - Tâm thần', icon: MentalIcon },
+                { id: 5, name: 'Thể dục thể thao', icon: SportIcon },
+                { id: 6, name: 'Sức khỏe răng miệng', icon: TeethIcon },
+                { id: 7, name: 'Ung thư', icon: CancerIcon }
             ];
             setCategory(data);
         };
@@ -32,7 +34,7 @@ const Sidebar = () => {
     }, []);
 
     return (
-        <div className={cx('wrapper', 'col-2')}>
+        <div className={cx('wrapper')}>
             <div className={cx('d-flex', 'align-items-center', 'w-100', 'title_wrapper')}>
                 <FontAwesomeIcon icon={faNewspaper} className={cx('title_icon')} />
                 <span className={cx('title_text')}>Chuyên mục</span>

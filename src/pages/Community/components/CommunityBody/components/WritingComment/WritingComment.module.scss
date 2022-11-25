@@ -1,0 +1,21 @@
+.avatar {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    margin-right: 1.2rem;
+    border-radius: 50%;
+}
+.sending_input {
+    font-size: 1.4rem;
+    color: var(--color-black);
+    background-color: var(--bg-light);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 1.6rem 1.4rem 1rem 1.4rem;
+    margin-top: 0.6rem;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+}

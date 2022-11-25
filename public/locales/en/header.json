@@ -3,5 +3,13 @@
     "category": "Category",
     "healthy_tool": "Checking tools",
     "consultant": "Consultant",
-    "login": "Login"
+    "login": "Login",
+    "vietnamese": "Vietnamese",
+    "english": "English",
+    "language": "Language",
+    "logout": "Sign out",
+    "profile": "Profile",
+    "searchHeader": "Search for symptoms",
+    "contact": "Contact",
+    "community": "Community"
 }
