@@ -24,12 +24,9 @@
         "i18next-browser-languagedetector": "^6.1.8",
         "i18next-http-backend": "^1.4.4",
         "react": "^18.2.0",
-<<<<<<< HEAD
         "react-auth-code-input": "^3.2.1",
-=======
         "react-bootstrap": "^2.6.0",
         "react-datepicker": "^4.8.0",
->>>>>>> front_end_dev
         "react-dom": "^18.2.0",
         "react-i18next": "^11.18.6",
         "react-redux": "^8.0.5",
