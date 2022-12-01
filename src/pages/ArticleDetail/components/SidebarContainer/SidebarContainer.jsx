@@ -1,15 +1,17 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { useTranslation } from 'react-i18next';
+import { handleDateResponse } from '~/utils';
 
 import styles from './SidebarContainer.module.scss';
 const cx = classNames.bind(styles);
 
-const SidebarContainer = () => {
+const SidebarContainer = ({ article, articleRelated }) => {
     const { t } = useTranslation('article');
+    const navigate = useNavigate();
 
     return (
         <>
@@ -17,68 +19,32 @@ const SidebarContainer = () => {
                 <div className={cx('block-heading')}>
                     <h3 className={cx('primary', 'mt-2', 'sidebar-title', 'text-capitalize')}>{t('related-news')}</h3>
                 </div>
-                <div className={cx('news-wrapper')}>
-                    <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
-                        <div className={cx('news-info', 'flex-wrap')}>
-                            <div className={cx('news-title')}>
-                                <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
+                {articleRelated.map((articleRelatedItem) => (
+                    <div className={cx('news-wrapper')}>
+                        <div
+                            className={cx('news', 'd-flex')}
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => navigate(`/news?articleId=${articleRelatedItem.id}`)}
+                        >
+                            <div className={cx('image-wrapper')}>
+                                <img
+                                    src={articleRelatedItem.image_article}
+                                    alt="Anh"
+                                    className={cx('news-image')}
+                                ></img>
                             </div>
-                            <div className={cx('news-datetime')}>
-                                <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
-                                <span className={cx('px-3')}>August 8, 2022</span>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
-                        <div className={cx('news-info', 'flex-wrap')}>
-                            <div className={cx('news-title')}>
-                                <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
-                            </div>
-                            <div className={cx('news-datetime')}>
-                                <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
-                                <span className={cx('px-3')}>August 8, 2022</span>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
-                        <div className={cx('news-info', 'flex-wrap')}>
-                            <div className={cx('news-title')}>
-                                <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
-                            </div>
-                            <div className={cx('news-datetime')}>
-                                <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
-                                <span className={cx('px-3')}>August 8, 2022</span>
+                            <div className={cx('news-info', 'flex-wrap')}>
+                                <div className={cx('news-title')}>{articleRelatedItem.title}</div>
+                                <div className={cx('news-datetime')}>
+                                    <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
+                                    <span className={cx('px-3')}>
+                                        {handleDateResponse(articleRelatedItem.created_date)}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </Link>
-                    <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
-                        <div className={cx('news-info', 'flex-wrap')}>
-                            <div className={cx('news-title')}>
-                                <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
-                            </div>
-                            <div className={cx('news-datetime')}>
-                                <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
-                                <span className={cx('px-3')}>August 8, 2022</span>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to="" className={cx('news', 'd-flex')}>
-                        <img src={require('~/assets/news.jpg')} alt="Anh" className={cx('news-image')}></img>
-                        <div className={cx('news-info', 'flex-wrap')}>
-                            <div className={cx('news-title')}>
-                                <h3>Thực đơn hàng ngày cho 1 tháng đầy đủ dinh dưỡng</h3>
-                            </div>
-                            <div className={cx('news-datetime')}>
-                                <FontAwesomeIcon icon={faClock} className={cx('disease-date-icon')} />
-                                <span className={cx('px-3')}>August 8, 2022</span>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
+                    </div>
+                ))}
             </div>
             <div className={cx('tags', 'd-block')}>
                 <div className={cx('block-heading')}>
@@ -86,22 +52,12 @@ const SidebarContainer = () => {
                 </div>
                 <ul className={cx('tag-list')}>
                     <li>
-                        <a href="#">Sinh lý (5)</a>
-                    </li>
-                    <li>
-                        <a href="#">Xương khớp (8)</a>
-                    </li>
-                    <li>
-                        <a href="#">Răng hàm mặt (2)</a>
-                    </li>
-                    <li>
-                        <a href="#">Thị giác (2)</a>
-                    </li>
-                    <li>
-                        <a href="#">Ung thư (6)</a>
-                    </li>
-                    <li>
-                        <a href="#">Hô hấp (3)</a>
+                        <div
+                            className={cx('tag_item')}
+                            onClick={() => navigate(`/article?categoryId=${article[0].category_id}`)}
+                        >
+                            {article[0].category_name}
+                        </div>
                     </li>
                 </ul>
             </div>

@@ -1,13 +1,12 @@
 import React from 'react';
-import { Avatar } from 'stream-chat-react';
-import Cookies from 'universal-cookie';
+import { Avatar, useChannelStateContext } from 'stream-chat-react';
 
-const cookies = new Cookies();
+const CustomAvatar = ({ name }) => {
+    const { channel } = useChannelStateContext();
+    const memberList = Object.values(channel.state.members);
+    const userChannel = memberList.find((member) => member.user_id === name);
 
-const CustomAvatar = () => {
-    const userInfo = cookies.get('userAccess').split(',');
-
-    return <Avatar image={userInfo[6]} shape="circle" size={32} />;
+    return <Avatar image={userChannel.user.avatar} shape="circle" size={32} />;
 };
 
 export default CustomAvatar;

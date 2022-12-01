@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { useTranslation } from 'react-i18next';
+import Cookies from 'universal-cookie';
 
 import styles from './LanguageItem.module.scss';
 import VietNamIcon from '~/assets/vietnamColor.png';
@@ -9,10 +10,13 @@ import i18next from 'i18next';
 
 const cx = classNames.bind(styles);
 
+const cookies = new Cookies();
+
 const LanguageItem = ({ tippyInstance }) => {
     const { t } = useTranslation('header');
     const languageRef = useRef();
-    const [languageCode, setLanguageCode] = useState('vi');
+    const [check, setCheck] = useState(false);
+    const languageCode = cookies.get('languageCode');
 
     const languagesList = [
         {
@@ -28,8 +32,9 @@ const LanguageItem = ({ tippyInstance }) => {
     ];
 
     const handleChangeLanguage = (languageItem) => {
+        cookies.set('languageCode', languageItem.code);
         i18next.changeLanguage(languageItem.code);
-        setLanguageCode(languageItem.code);
+        setCheck(!check);
         tippyInstance.hide();
     };
 

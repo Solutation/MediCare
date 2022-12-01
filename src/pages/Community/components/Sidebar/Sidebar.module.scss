@@ -4,8 +4,13 @@
     border: 1px solid transparent;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--default-border-radius);
-    width: 22rem;
-    height: 92vh;
+    width: 24rem;
+    // top: 10px;
+    // left: 10px;
+    top: 30px;
+    // min-height: 92vh;
+    overflow-y: scroll;
+    max-height: 94%;
 
     .title_wrapper {
         padding: 1.2rem;
@@ -29,4 +34,17 @@
             background-color: var(--color-gray);
         }
     }
+    .category_image {
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+    }
+    .category_image_list {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+    }
+}
+.bgGray {
+    background-color: var(--color-gray);
 }

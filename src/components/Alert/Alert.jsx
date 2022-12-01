@@ -6,12 +6,15 @@ import styles from './Alert.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Alert = ({ iconFont, iconImage, content, to, colorIcon, setAlertPopup }) => {
+const Alert = ({ iconFont, iconImage, content, to, colorIcon, setAlertPopup, setPopupRating }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
         if (to) navigate(to);
-        else setAlertPopup(false);
+        else {
+            if (setPopupRating) setPopupRating(false);
+            setAlertPopup(false);
+        }
     };
 
     return (

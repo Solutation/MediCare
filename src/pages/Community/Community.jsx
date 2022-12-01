@@ -5,12 +5,13 @@ import styles from './Community.module.scss';
 import { Sidebar } from './components/Sidebar';
 import { CommunityBody } from './components/CommunityBody';
 import { SidebarRight } from './components/SidebarRight';
+import { CommunityProvider } from '~/context/CommunityContext';
 
 const cx = classNames.bind(styles);
 
 const Community = () => {
     return (
-        <>
+        <CommunityProvider>
             <div className={cx('community_bg')}></div>
             <div className={cx('container', 'pt-4', 'community_wrapper')}>
                 <div className={cx('row', 'mt-2')}>
@@ -19,7 +20,7 @@ const Community = () => {
                     <SidebarRight />
                 </div>
             </div>
-        </>
+        </CommunityProvider>
     );
 };
 

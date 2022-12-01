@@ -26,10 +26,9 @@ $bg-preview-hover: #fbfbfb;
 
         .preview_avatar {
             width: 4.4rem;
-            object-fit: contain;
-            border: 1px solid transparent;
+            height: 4.4rem;
+            object-fit: cover;
             border-radius: 50%;
-            background-color: var(--color-primary);
         }
         .preview_message {
             font-size: 1.6rem;

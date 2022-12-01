@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
@@ -10,6 +11,8 @@ import { faArrowRight, faBookMedical, faHeartPulse } from '@fortawesome/free-sol
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import images from '~/assets';
 import { httpRequest, handleDateResponse } from '~/utils';
+import { store } from '~/redux';
+import { getConsultantContactId } from '~/redux/action';
 
 const cx = classNames.bind(styles);
 
@@ -19,8 +22,8 @@ const GeneralSection = () => {
     return (
         <section id="homeHeader" className={cx('wrapper')}>
             <div className={cx('container', 'h-100')}>
-                <div className={cx('row', 'wrapper_inner')}>
-                    <div className={cx('col-6', 'wrapper-item', 'offset-1', 'text-center')}>
+                <div className={cx('row', 'wrapper_inner')} style={{ height: '100%', margin: 'auto' }}>
+                    <div className={cx('col-6', 'wrapper-item', 'text-center', 'offset-1')}>
                         <h1 className={cx('d-none', 'd-sm-block', 'title')}>{t('title1')}</h1>
                         <h1 className={cx('d-none', 'd-sm-block', 'title', 'primary')}>{t('title2')}</h1>
                         <div className={cx('separate', 'mx-auto')}></div>
@@ -51,9 +54,9 @@ const ServiceSection = () => {
                             <div className={cx('card-body', 'bg-primary', 'text-white')}>
                                 <h2 className={cx('card-title', 'fw-bold')}>{t('featureItemTitle1')}</h2>
                                 <p className={cx('card-text', 'py-2')}>{t('featureContent1')}</p>
-                                <Button serviceBtn outline rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
+                                {/* <Button serviceBtn outline rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
                                     {t('serviceReadmore')}
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </div>
@@ -62,9 +65,9 @@ const ServiceSection = () => {
                             <div className={cx('card-body', 'bg-secondary', 'text-white')}>
                                 <h2 className={cx('card-title', 'fw-bold')}>{t('featureItemTitle2')}</h2>
                                 <p className={cx('card-text', 'py-2')}>{t('featureContent2')}</p>
-                                <Button serviceBtn outline rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
+                                {/* <Button serviceBtn outline rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
                                     {t('serviceReadmore')}
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </div>
@@ -73,9 +76,9 @@ const ServiceSection = () => {
                             <div className={cx('card-body', 'bg-primary', 'text-white')}>
                                 <h2 className={cx('card-title', 'fw-bold')}>{t('featureItemTitle3')}</h2>
                                 <p className={cx('card-text', 'py-2')}>{t('featureContent3')}</p>
-                                <Button serviceBtn outline rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
+                                {/* <Button serviceBtn outline rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
                                     {t('serviceReadmore')}
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </div>
@@ -84,13 +87,13 @@ const ServiceSection = () => {
                             <div className={cx('card-body', 'bg-secondary', 'text-white')}>
                                 <h2 className={cx('card-title', 'fw-bold')}>{t('featureItemTitle4')}</h2>
                                 <p className={cx('card-text', 'py-2')}>{t('featureContent4')}</p>
-                                <Button
+                                {/* <Button
                                     serviceBtn
                                     outline
                                     rightIcon={<FontAwesomeIcon icon={faArrowRight} className={cx('custom-btn')} />}
                                 >
                                     {t('serviceReadmore')}
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </div>
@@ -172,6 +175,7 @@ const AboutSection = () => {
 const ConsultantsSection = () => {
     const { t } = useTranslation('home');
     const [consultantList, setConsultantList] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const cancelToken = axios.CancelToken.source();
@@ -190,6 +194,11 @@ const ConsultantsSection = () => {
             cancelToken.cancel();
         };
     }, []);
+
+    const handleContactClick = (consultantId) => {
+        store.dispatch(getConsultantContactId(consultantId));
+        navigate('/contact');
+    };
 
     return (
         <section id="staff" className={cx('staff-wrapper')}>
@@ -215,21 +224,23 @@ const ConsultantsSection = () => {
                                             <p className={cx('py-4')}>
                                                 {consultant.descriptions.slice(0, 110) + '...'}
                                             </p>
-                                            <Button
-                                                primary
-                                                rightIcon={
-                                                    <FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />
-                                                }
-                                            >
-                                                {t('consultantContact')}
-                                            </Button>
+                                            <div onClick={() => handleContactClick(consultant.id)}>
+                                                <Button
+                                                    primary
+                                                    rightIcon={
+                                                        <FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />
+                                                    }
+                                                >
+                                                    {t('consultantContact')}
+                                                </Button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         ))}
                 </div>
-                <div className={cx('consultants-btn')}>
+                <div className={cx('consultants-btn')} onClick={() => navigate('/consultant/list')}>
                     <Button primary rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
                         {t('consultantReadmore')}
                     </Button>
@@ -243,6 +254,7 @@ const ConsultantsSection = () => {
 const DiseaseSection = () => {
     const { t } = useTranslation('home');
     const [diseaseList, setDiseaseList] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const cancelToken = axios.CancelToken.source();
@@ -261,6 +273,10 @@ const DiseaseSection = () => {
             cancelToken.cancel();
         };
     }, []);
+
+    const handleReadNews = (articleId) => {
+        navigate(`/news?articleId=${articleId}`);
+    };
 
     return (
         <section id="disease" className={cx('disease-wrapper')}>
@@ -286,13 +302,19 @@ const DiseaseSection = () => {
                                                     {handleDateResponse(diseaseItem.created_date)}
                                                 </span>
                                             </div>
-                                            <h1 className={cx('fw-bold', 'py-3', 'disease_title')}>
+                                            <h1
+                                                className={cx('fw-bold', 'py-3', 'disease_title')}
+                                                onClick={() => handleReadNews(diseaseItem.id)}
+                                            >
                                                 {diseaseItem.title.length >= 63
                                                     ? diseaseItem.title.slice(0, 62) + '...'
                                                     : diseaseItem.title}
                                             </h1>
                                             <p className={cx('pb-3')}>{diseaseItem.content.slice(0, 130) + '...'}</p>
-                                            <div className={cx('mt-4')}>
+                                            <div
+                                                className={cx('mt-4')}
+                                                onClick={() => navigate(`/news?articleId=${diseaseItem.id}`)}
+                                            >
                                                 <Button primary rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
                                                     {t('newsDBReadmore')}
                                                 </Button>
@@ -303,7 +325,7 @@ const DiseaseSection = () => {
                             </div>
                         ))}
                 </div>
-                <div className={cx('consultants-btn')}>
+                <div className={cx('consultants-btn')} onClick={() => navigate('/categories')}>
                     <Button primary rightIcon={<FontAwesomeIcon icon={faArrowRight} />}>
                         {t('newsReadmore')}
                     </Button>

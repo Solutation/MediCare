@@ -52,13 +52,18 @@ const Contact = () => {
     const chatToken = userInfo[2];
 
     useEffect(() => {
+        const chatClient = StreamChat.getInstance(apiKey);
         const init = async () => {
             const userContactId = userInfo[1];
-            const chatClient = StreamChat.getInstance(apiKey);
             await chatClient.connectUser({ id: userContactId }, chatToken);
             setClient(chatClient);
         };
         init();
+        //eslint-disable-next-line
+
+        return async () => {
+            await chatClient.disconnectUser();
+        };
         //eslint-disable-next-line
     }, []);
 

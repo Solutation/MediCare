@@ -1,4 +1,5 @@
 {
+    "description": "Chỉ số BMR (Basal Metabolic Rate) là tỷ lệ trao đổi chất cơ bản trong cơ thể con người. Chỉ số này cho biết mức năng lượng tối thiểu mà cơ thể cần, để thực hiện các chức năng cơ bản nhằm đảm bảo duy trì sự sống của cơ thể, khi bạn ở trạng thái nghỉ ngơi.",
     "tools": "công cụ",
     "tool-bmr": "Tính chỉ số BMR",
     "age": "Bạn bao nhiêu tuổi? (năm)",
@@ -8,5 +9,8 @@
     "weight": "Cân nặng của bạn? (kg)",
     "input-weight": "Nhập cân nặng",
     "result": "Tính ngay",
-    "output": "Chỉ số BMR của bạn là"
+    "output": "Chỉ số BMR của bạn là",
+    "gender": "Giới tính của bạn?",
+    "male": "Nam",
+    "female": "Nữ"
 }

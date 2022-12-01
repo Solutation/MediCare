@@ -1,9 +1,9 @@
 {
+    "description": "Ovulation day is the most fertile time because during this period sperm can meet the egg if having sex. Track your menstrual cycle, determine the most fertile days to increase your chances of conception or take birth control.",
     "tool": "tool",
     "ovulation": "ovulation calculator",
-    "recent": "First day of last period",
     "length": "Length of menstrual cycle (days)",
-    "cycle-length": "Cycle time",
+    "cycle_length": "Cycle time",
     "result": "Result",
     "output": "Ovulation day"
 }

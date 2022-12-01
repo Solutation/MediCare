@@ -2,5 +2,13 @@
     "health-tool": "công cụ kiểm tra sức khỏe",
     "tool": "công cụ",
     "title": "Tất cả công cụ",
-    "search": "Tìm kiếm công cụ"
+    "bmi": "Đo chỉ số BMI",
+    "bmr": "Đo nhu cầu calo (BMR)",
+    "ovulation": "Tính ngày rụng trứng",
+    "heartrate": "Đo nhịp tim lý tưởng",
+    "menopause": "Sàng lọc mãn kinh",
+    "vaccination": "Theo dõi lịch tiêm chủng cho bé",
+    "covid": "Sàng lọc Covid-19",
+    "stroke": "Sàng lọc đột quỵ",
+    "breastcancer": "Sàng lọc ung thư vú"
 }

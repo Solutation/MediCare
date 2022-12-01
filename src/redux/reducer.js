@@ -1,6 +1,7 @@
 const initialState = {
     checkError: '',
-    submit: false
+    submit: false,
+    consultantContactId: ''
 };
 
 export default function reducer(state, action) {
@@ -8,6 +9,10 @@ export default function reducer(state, action) {
         case 'GET_CHECK_FORM_STATE':
             return {
                 checkError: action.payload
+            };
+        case 'GET_CONSULTANT_CONTACT_ID':
+            return {
+                consultantContactId: action.payload
             };
         default:
             return state;

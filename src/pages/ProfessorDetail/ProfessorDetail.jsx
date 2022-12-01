@@ -1,81 +1,120 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
-import { Navigator } from '~/components/Navigator';
-import { ReviewContainer } from './components/ReviewContainer';
-import { Button } from '~/components/Button';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faContactBook } from '@fortawesome/free-solid-svg-icons';
+import { useSearchParams } from 'react-router-dom';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 
+import { Navigator } from '~/components/Navigator';
+import { Button } from '~/components/Button';
 import styles from './ProfessorDetail.module.scss';
-import { faContactBook, faStar } from '@fortawesome/free-solid-svg-icons';
+import { httpRequest } from '~/utils';
+import { Alert } from '~/components/Alert';
+import SadIcon from '~/assets/sad.png';
+import { store } from '~/redux';
+import { getConsultantContactId } from '~/redux/action';
 
 const cx = classNames.bind(styles);
 
+const cookies = new Cookies();
+
 const ProfessorDetail = () => {
     const { t } = useTranslation('professor');
+    const [consultantInfo, setConsultantInfo] = useState();
+    const [alertPopup, setAlertPopup] = useState(false);
+    const [searchParams] = useSearchParams();
+    const consultantId = searchParams.get('consultantId');
+    const userInfo = cookies.get('userAccess');
+    const navigate = useNavigate();
 
     const pageItem = [
-        { id: 1, name: t('professor'), to: '' },
+        { id: 1, name: t('professor'), to: '/consultant/list' },
         { id: 2, name: t('detail'), to: '' }
     ];
 
+    useEffect(() => {
+        const cancelToken = axios.CancelToken.source();
+        const fetchAPI = async () => {
+            const { data: consultantInfo } = await httpRequest.get(`/consultant/detail/${consultantId}`);
+            setConsultantInfo(consultantInfo);
+        };
+        fetchAPI();
+
+        return () => {
+            cancelToken.cancel();
+        };
+    }, [consultantId]);
+
+    const handleContactClick = async (consultantId) => {
+        if (!userInfo) {
+            setAlertPopup(true);
+            return;
+        }
+        store.dispatch(getConsultantContactId(consultantId));
+        navigate('/contact');
+    };
+
     return (
         <>
-            <Navigator title={'lâm khương trí'} page={pageItem} bgPrimaryBold />
-            <div className={cx('container', 'flex-wrap')}>
-                <div className={cx('row', 'mx-auto', 'd-flex')}>
-                    <div className={cx('col-7', 'offset-1', 'professor-info')}>
-                        <div className={cx('professor-wrapper')}>
-                            <h1 className={cx('biography')}>{t('biography')}</h1>
-                            <p>
-                                Suas iracundia his ea errem ridens nam an veniam equidem. Lorem ipsum dolor sit amet
-                                lore ipsum dolor sit amet. Suas iracundia his ea errem ridens nam an veniam equidem.
-                                Lorem ipsum dolor sit amet lore ipsum dolor sit amet Suas iracundia his ea errem ridens
-                                nam an veniam equidem. Lorem ipsum dolor sit amet lore ipsum dolor sit amet. Suas
-                                iracundia his ea errem ridens nam an veniam equidem. Lorem ipsum dolor sit amet lore
-                                ipsum dolor sit amet Suas iracundia his ea errem ridens nam an veniam equidem. Lorem
-                                ipsum dolor sit amet lore ipsum dolor sit amet. Suas iracundia his ea errem ridens nam
-                                an veniam equidem. Lorem ipsum dolor sit amet lore ipsum dolor sit amet
-                            </p>
-                            <div className={cx('more-info')}>
-                                <ul className={cx('insurance-list')}>
-                                    <li>
-                                        <b>Email:</b> <span>trikhuong@gmail.com</span>
-                                    </li>
-                                    <li>
-                                        <b>{t('phone')}:</b> <span>0123456789</span>
-                                    </li>
-                                    <li>
-                                        <b>{t('score')}:</b> <span>4.5</span>
-                                    </li>
-                                    <li>
-                                        <b>{t('certification')}:</b> <span>Master Of Cardiology </span>
-                                    </li>
-                                </ul>
+            {consultantInfo && (
+                <>
+                    <Navigator title={'lâm khương trí'} page={pageItem} bgPrimaryBold />
+                    <div className={cx('container', 'flex-wrap')}>
+                        <div className={cx('row', 'mx-auto', 'd-flex')}>
+                            <div className={cx('col-7', 'offset-1', 'professor-info')}>
+                                <div className={cx('professor-wrapper')}>
+                                    <h1 className={cx('biography')}>{t('biography')}</h1>
+                                    <p>{consultantInfo.descriptions}</p>
+                                    <div className={cx('more-info')}>
+                                        <ul className={cx('insurance-list')}>
+                                            <li>
+                                                <b>Email:</b>
+                                                <span>{consultantInfo.email}</span>
+                                            </li>
+                                            <li>
+                                                <b>{t('phone')}:</b>
+                                                <span>{consultantInfo.phone_number}</span>
+                                            </li>
+                                            <li>
+                                                <b>{t('score')}:</b>
+                                                <span>{consultantInfo.average_score}</span>
+                                            </li>
+                                            <li>
+                                                <b>{t('certification')}:</b>{' '}
+                                                <span>{consultantInfo.certificate_name}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={cx('col-3')}>
+                                <div className={cx('sidebar-wrapper')}>
+                                    <img src={consultantInfo.avatar} alt="Anh" className={cx('professor-image')}></img>
+                                    <div className={cx('mt-2')} onClick={() => handleContactClick(consultantInfo.id)}>
+                                        <Button
+                                            className={cx('contact-btn')}
+                                            primary
+                                            leftIcon={<FontAwesomeIcon icon={faContactBook} />}
+                                        >
+                                            {t('contact')}
+                                        </Button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className={cx('col-3')}>
-                        <div className={cx('sidebar-wrapper')}>
-                            <img
-                                src={require('~/assets/doctor1.jpg')}
-                                alt="Anh"
-                                className={cx('professor-image')}
-                            ></img>
-                            <Button
-                                className={cx('contact-btn')}
-                                primary
-                                leftIcon={<FontAwesomeIcon icon={faContactBook} />}
-                            >
-                                {t('contact')}
-                            </Button>
-                            <Button className={cx('review-btn')} primary leftIcon={<FontAwesomeIcon icon={faStar} />}>
-                                {t('evaluate')}
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    {alertPopup && (
+                        <Alert
+                            iconImage={SadIcon}
+                            content="Bạn phải đăng nhập mới được sử dụng tính năng này"
+                            setAlertPopup={setAlertPopup}
+                        />
+                    )}
+                </>
+            )}
         </>
     );
 };

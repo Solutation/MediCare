@@ -2,7 +2,7 @@ $bg-color: #f0f8fa;
 .carousel-professor {
     .professor-card {
         border-radius: 11px;
-        margin: 30px 30px 30px 30px;
+        margin: 30px 30px -5px 30px;
         background-color: $bg-color;
         display: -webkit-box;
         display: -webkit-flex;
@@ -10,7 +10,6 @@ $bg-color: #f0f8fa;
         display: flex;
         padding: 30px;
         -webkit-border-radius: 11px;
-        margin-bottom: -5px;
         position: relative;
         .professor-image {
             width: 150px;

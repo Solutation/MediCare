@@ -56,12 +56,14 @@ $button-secondary-color: #2d87f3;
     }
 }
 .outline {
-    border-color: $gray-color;
+    font-size: 1.5rem;
+    border-color: var(--color-primary);
     background-color: var(--color-white);
-    color: var(--color-black);
+    color: var(--color-primary);
 
     &:hover {
         opacity: 0.8;
+        color: var(--color-primary);
     }
 }
 .rounded {

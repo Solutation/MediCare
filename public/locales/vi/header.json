@@ -11,5 +11,16 @@
     "profile": "Hồ sơ",
     "searchHeader": "Tìm theo triệu chứng bệnh",
     "contact": "Tư vấn",
-    "community": "Cộng đồng"
+    "community": "Cộng đồng",
+    "categoryPopupTitle": "Chuyên mục sức khỏe",
+    "categoryPopupBtn": "Xem tất cả chuyên mục",
+    "categoryFeatureTitle": "Các hình ảnh y tế nổi bật",
+    "findingHospital": "Tìm bệnh viện",
+    "toolItemTitle": "Các công cụ tiêu biểu",
+    "toolItemName1": "Sàng lọc mãn kinh",
+    "toolItemName2": "Tính ngày rụng trứng",
+    "toolItemName3": "Đo chỉ số BMI",
+    "toolItemName4": "Đo nhu cầu calo (BMR)",
+    "toolItemName5": "Đo nhịp tim lý tưởng",
+    "toolItemName6": "Theo dõi lịch tiêm chủng cho bé"
 }
