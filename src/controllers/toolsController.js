@@ -13,19 +13,19 @@ class TollsController {
         else if (result >= 18.5 && result <= 24.99) dataResult = 'Bình thường';
         else if (result >= 25 && result <= 29.99) dataResult = 'Thừa cân';
         else dataResult = 'Béo phì';
-        res.status(200).json({ BMI: dataResult });
+        res.status(200).json(new ResponseDTO(200, `Chỉ số BMI: ${dataResult}`));
     }
     handleBMR(req, res) {
         const { weight, height, age, sex } = req.body;
         let result;
         if (sex === 'Nam') result = 9.99 * weight + 6.25 * height - 4.92 * age + 5;
         else result = 9.99 * weight + 6.25 * height - 4.92 * age - 161;
-        res.status(200).json({ BMR: result.toFixed(3) });
+        res.status(200).json(new ResponseDTO(200, `Chỉ số BMR: ${result.toFixed(3)}`));
     }
     handleOvulation(req, res) {
         const { dayCycle } = req.body;
         let result = dayCycle - 14;
-        res.status(200).json({ 'Ngày rụng trứng': result });
+        res.status(200).json(new ResponseDTO(200, `Ngày rụng trứng: ${result}`));
     }
 }
 

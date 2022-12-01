@@ -31,7 +31,7 @@ class ArticleController {
                     totalPages,
                     pageSize: pageSizeResult,
                     pageNumber: pageNumberResult,
-                    data: result[0],
+                    articleData: result[0],
                 };
                 res.status(200).json(dataResult);
             });
