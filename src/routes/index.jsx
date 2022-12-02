@@ -10,10 +10,9 @@ import { ArticleDetail } from '~/pages/ArticleDetail';
 import { ProfessorDetail } from '~/pages/ProfessorDetail';
 import { ProfessorList } from '~/pages/ProfessorList';
 import { Categories } from '~/pages/Categories';
-import { OvulationCalculator } from '~/pages/OvulationCalculator';
-import { BMRCalculator } from '~/pages/BMRCalculator';
 import { ToolCategories } from '~/pages/ToolCategories';
 import { ArticleList } from '~/pages/ArticleList';
+import { ToolCaculator } from '~/pages/ToolCaculator';
 
 const publicRoutes = [
     { path: '/', component: Home },
@@ -23,14 +22,13 @@ const publicRoutes = [
     { path: '/profile', component: Profile },
     { path: '/admin', component: Admin, layout: AdminLayout },
     { path: '/news', component: ArticleDetail },
-    { path: '/professor', component: ProfessorDetail },
-    { path: '/professorlist', component: ProfessorList },
+    { path: '/consultant', component: ProfessorDetail },
+    { path: '/consultant/list', component: ProfessorList },
     { path: '/categories', component: Categories },
-    { path: '/toolovulation', component: OvulationCalculator },
-    { path: '/toolbmr', component: BMRCalculator },
     { path: '/tools', component: ToolCategories },
     { path: '/community', component: Community },
-    { path: '/articlelist', component: ArticleList }
+    { path: '/article', component: ArticleList },
+    { path: 'tools/calculator', component: ToolCaculator }
 ];
 
 const privateRoutes = {};

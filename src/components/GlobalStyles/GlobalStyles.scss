@@ -23,6 +23,8 @@
     --bg-light: #f4f7fc;
     --bg-profile: #f5f5f5;
     --box-shadow-default: rgb(0 0 0 / 12%) 0px 2px 12px;
+    --box-shadow-popup: rgb(0 0 0 / 4%) 0px 10px 16px, rgb(0 0 0 / 4%) 0px 2px 8px, rgb(0 0 0 / 4%) 0px 0px 1px;
+    --color-border-separate: rgb(228, 232, 236);
 
     --default-header-height: 80px;
     --default-header-spacer: 100px;
@@ -96,6 +98,12 @@ input {
         background-color: var(--color-white) !important;
     }
 }
+.btnDisabled {
+    user-select: none !important;
+    pointer-events: none !important;
+    cursor: default;
+    opacity: 0.6;
+}
 .blur {
     position: fixed;
     top: 0;
@@ -136,4 +144,36 @@ tr {
 }
 .hidden {
     color: var(--color-hidden) !important;
+}
+.paginationFocus {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-white) !important;
+    cursor: default !important;
+    user-select: none !important;
+    pointer-events: none !important;
+}
+.btn_pagination_wrapper {
+    display: flex;
+    padding: unset !important;
+    align-items: center;
+    border-left: 1px solid var(--color-primary);
+    background-color: var(--color-white);
+    overflow: hidden;
+
+    .btn_pagination {
+        outline: none;
+        border-right: 1px solid var(--color-primary);
+        border-bottom: 1px solid var(--color-primary);
+        border-top: 1px solid var(--color-primary);
+        font-size: 1.6rem;
+        padding: 1rem;
+        text-align: center;
+        background-color: var(--color-white);
+        overflow: hidden;
+        height: 100%;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
 }

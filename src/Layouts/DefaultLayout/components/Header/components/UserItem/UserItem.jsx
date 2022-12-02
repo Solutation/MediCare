@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
@@ -17,20 +17,25 @@ const cx = classNames.bind(styles);
 
 const cookies = new Cookies();
 
-const UserItem = ({ setCheckLogin }) => {
+const UserItem = ({ setCheckLogin, tippyUserItemInstance }) => {
     const { t } = useTranslation('header');
     const [separate, setSeparate] = useState(false);
-    const [language, setLanguage] = useState('vi');
+    const [check, setCheck] = useState(false);
+    const languageCode = cookies.get('languageCode');
     const userInfo = cookies.get('userAccess').split(',');
+    const navigate = useNavigate();
 
     const handleChangeLanguage = (languageCode) => {
+        cookies.set('languageCode', languageCode);
         i18next.changeLanguage(languageCode);
-        setLanguage(languageCode);
+        tippyUserItemInstance.hide();
+        setCheck(!check);
     };
 
     const handleLogout = () => {
         cookies.remove('userAccess');
         setCheckLogin(false);
+        navigate('/');
     };
 
     return (
@@ -49,15 +54,18 @@ const UserItem = ({ setCheckLogin }) => {
                 </div>
             </div>
             <div className={cx('d-flex', 'flex-column', 'body_wrapper')}>
-                <Link
-                    className={cx('d-flex', 'align-items-center', 'justify-content-start', 'body_item_profile')}
-                    to=""
-                >
-                    <FontAwesomeIcon icon={faUser} className={cx('option_icon')} />
-                    <span className={cx('option_text')} style={{ marginLeft: '0.2rem' }}>
-                        {t('profile')}
-                    </span>
-                </Link>
+                {userInfo[5] === 'Bệnh nhân' && (
+                    <Link
+                        className={cx('d-flex', 'align-items-center', 'justify-content-start', 'body_item_profile')}
+                        to="/profile"
+                        onClick={() => tippyUserItemInstance.hide()}
+                    >
+                        <FontAwesomeIcon icon={faUser} className={cx('option_icon')} />
+                        <span className={cx('option_text')} style={{ marginLeft: '0.2rem' }}>
+                            {t('profile')}
+                        </span>
+                    </Link>
+                )}
                 <div className={cx('accordion', 'accordion-flush', 'accordion_wrapper')} id="accordionLanguage">
                     <div className={cx('body_separate')}></div>
                     <div className={cx('accordion-item')} style={{ padding: '0.8rem 0' }}>
@@ -88,7 +96,7 @@ const UserItem = ({ setCheckLogin }) => {
                                         'justify-content-start',
                                         'language_wrapper',
                                         'mt-3',
-                                        { disabled: language === 'vi' }
+                                        { disabled: languageCode === 'vi' }
                                     )}
                                     onClick={() => handleChangeLanguage('vi')}
                                 >
@@ -104,7 +112,7 @@ const UserItem = ({ setCheckLogin }) => {
                                         'align-items-center',
                                         'justify-content-start',
                                         'language_wrapper',
-                                        { disabled: language === 'en' }
+                                        { disabled: languageCode === 'en' }
                                     )}
                                     style={{ padding: '0', marginTop: '2.8rem' }}
                                     onClick={() => handleChangeLanguage('en')}

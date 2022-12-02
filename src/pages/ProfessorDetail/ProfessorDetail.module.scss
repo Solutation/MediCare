@@ -18,6 +18,9 @@ $border: #dedddd;
         ul.insurance-list {
             padding-left: 0;
             padding-right: 27px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
         }
 
         ul.insurance-list li {
@@ -25,12 +28,17 @@ $border: #dedddd;
             padding: 4px 0;
             padding-left: 0;
             margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul.insurance-list b {
+            flex: 2;
         }
 
         ul.insurance-list span {
-            width: 200px;
+            flex: 1;
             text-align: left;
-            float: right;
             color: $color-text;
         }
     }

@@ -13,7 +13,9 @@ $general-section-height: calc(100vh - 180px);
 
 .wrapper-item {
     position: relative;
-    margin-top: calc($general-section-height - 39%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .title {
         font-size: 5rem;

@@ -1,8 +1,18 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import { Navigator } from '~/components/Navigator';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
+import bmi from '~/assets/bmi.png';
+import bmr from '~/assets/bmr.png';
+import ovulation from '~/assets/ovulation.png';
+import heartrate from '~/assets/heartrate.png';
+import menopause from '~/assets/menopause.png';
+import vaccination from '~/assets/vaccination.png';
+import covid from '~/assets/covid.png';
+import stroke from '~/assets/stroke.png';
+import breastcancer from '~/assets/breastcancer.png';
 
 import styles from './ToolCategories.module.scss';
 
@@ -10,133 +20,97 @@ const cx = classNames.bind(styles);
 
 const ToolCategories = () => {
     const { t } = useTranslation('tools');
+    const navigate = useNavigate();
 
     const pageItem = [{ id: 1, name: t('tool'), to: '' }];
 
+    const result = [
+        {
+            id: 1,
+            image: bmi,
+            type: 'bmr',
+            name: t('bmi')
+        },
+        {
+            id: 2,
+            image: bmr,
+            type: 'bmr',
+            name: t('bmr')
+        },
+        {
+            id: 3,
+            image: ovulation,
+            type: 'ovulation',
+            name: t('ovulation')
+        },
+        {
+            id: 4,
+            image: heartrate,
+            type: 'bmr',
+            name: t('heartrate')
+        },
+        {
+            id: 5,
+            image: menopause,
+            type: 'ovulation',
+            name: t('menopause')
+        },
+        {
+            id: 6,
+            image: vaccination,
+            type: 'bmr',
+            name: t('vaccination')
+        },
+        {
+            id: 7,
+            image: covid,
+            type: 'bmr',
+            name: t('covid')
+        },
+        {
+            id: 8,
+            image: stroke,
+            type: 'bmr',
+            name: t('stroke')
+        },
+        {
+            id: 9,
+            image: breastcancer,
+            type: 'ovulation',
+            name: t('breastcancer')
+        }
+    ];
+
     return (
         <>
-            <Navigator title={t('health-tool')} page={pageItem} bgPrimaryBold />
-            <div className={cx('tools-wrapper')}>
-                <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
-                <div className={cx('container')}>
-                    <div className={cx('row', 'd-flex', 'flex-wrap')}>
-                        <div className={cx('tools', 'd-flex', 'flex-wrap')}>
-                            <div className={cx('col-4', 'tool-item')}>
-                                <Link to="">
-                                    <div className={cx('tool-wrapper')}>
-                                        <img
-                                            src={require('~/assets/bmi.png')}
-                                            alt="Anh"
-                                            className={cx('tool-img')}
-                                        ></img>
-                                        <div className={cx('content-wrapper')}>
-                                            <h3 className={cx('tool-content')}>Đo chỉ số BMI</h3>
-                                            <h3 className={cx('tool-description')}>
-                                                Chỉ số BMI (Body Mass Index) được tính dựa trên tỉ lệ giữa cân nặng và
-                                                chiều cao bình phương, nói lên tình trạng cân nặng hiện tại của bạn.
-                                            </h3>
+            <>
+                <Navigator title={t('health-tool')} page={pageItem} bgPrimaryBold />
+                <div className={cx('tools-wrapper')}>
+                    <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'd-flex', 'flex-wrap')}>
+                            <div className={cx('tools', 'd-flex', 'flex-wrap')}>
+                                {result.map((item) => (
+                                    <div
+                                        className={cx('col-4', 'tool-item')}
+                                        key={item.id}
+                                        onClick={() => navigate(`/tools/calculator?type=${item.type}`)}
+                                    >
+                                        <div style={{ cursor: 'pointer' }}>
+                                            <div className={cx('tool-wrapper')}>
+                                                <img src={item.image} alt="Anh" className={cx('tool-img')}></img>
+                                                <div className={cx('content-wrapper')}>
+                                                    <h3 className={cx('tool-content')}>{item.name}</h3>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </Link>
-                            </div>
-                            <div className={cx('col-4', 'tool-item')}>
-                                <Link to="">
-                                    <div className={cx('tool-wrapper')}>
-                                        <img
-                                            src={require('~/assets/ovulation.png')}
-                                            alt="Anh"
-                                            className={cx('tool-img')}
-                                        ></img>
-                                        <div className={cx('content-wrapper')}>
-                                            <h3 className={cx('tool-content')}>Tính ngày rụng trứng</h3>
-                                            <h3 className={cx('tool-description')}>
-                                                Ngày rụng trứng chính là thời gian dễ thụ thai nhất bởi vì giai đoạn này
-                                                tinh trùng có thể gặp trứng nếu quan hệ tình dục. Theo dõi chu kỳ kinh
-                                                nguyệt của bạn, xác định những ngày dễ thụ thai nhất để tăng cơ hội thụ
-                                                thai hoặc áp dụng biện pháp tránh thai.
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className={cx('col-4', 'tool-item')}>
-                                <Link to="">
-                                    <div className={cx('tool-wrapper')}>
-                                        <img
-                                            src={require('~/assets/bmr.png')}
-                                            alt="Anh"
-                                            className={cx('tool-img')}
-                                        ></img>
-                                        <div className={cx('content-wrapper')}>
-                                            <h3 className={cx('tool-content')}>Đo chỉ số BMR</h3>
-                                            <h3 className={cx('tool-description')}>
-                                                Chỉ số BMR (Basal Metabolic Rate) là tỷ lệ trao đổi chất cơ bản trong cơ
-                                                thể con người. Chỉ số này cho biết mức năng lượng tối thiểu mà cơ thể
-                                                cần, để thực hiện các chức năng cơ bản nhằm đảm bảo duy trì sự sống của
-                                                cơ thể, khi bạn ở trạng thái nghỉ ngơi.
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className={cx('col-4', 'tool-item')}>
-                                <Link to="">
-                                    <div className={cx('tool-wrapper')}>
-                                        <img
-                                            src={require('~/assets/bmi.png')}
-                                            alt="Anh"
-                                            className={cx('tool-img')}
-                                        ></img>
-                                        <div className={cx('content-wrapper')}>
-                                            <h3 className={cx('tool-content')}>Đo chỉ số BMI</h3>
-                                            <h3 className={cx('tool-description')}>
-                                                Chỉ số BMI (Body Mass Index) được tính dựa trên tỉ lệ giữa cân nặng và
-                                                chiều cao bình phương, nói lên tình trạng cân nặng hiện tại của bạn.
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className={cx('col-4', 'tool-item')}>
-                                <Link to="">
-                                    <div className={cx('tool-wrapper')}>
-                                        <img
-                                            src={require('~/assets/bmi.png')}
-                                            alt="Anh"
-                                            className={cx('tool-img')}
-                                        ></img>
-                                        <div className={cx('content-wrapper')}>
-                                            <h3 className={cx('tool-content')}>Đo chỉ số BMI</h3>
-                                            <h3 className={cx('tool-description')}>
-                                                Chỉ số BMI (Body Mass Index) được tính dựa trên tỉ lệ giữa cân nặng và
-                                                chiều cao bình phương, nói lên tình trạng cân nặng hiện tại của bạn.
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className={cx('col-4', 'tool-item')}>
-                                <Link to="">
-                                    <div className={cx('tool-wrapper')}>
-                                        <img
-                                            src={require('~/assets/bmi.png')}
-                                            alt="Anh"
-                                            className={cx('tool-img')}
-                                        ></img>
-                                        <div className={cx('content-wrapper')}>
-                                            <h3 className={cx('tool-content')}>Đo chỉ số BMI</h3>
-                                            <h3 className={cx('tool-description')}>
-                                                Chỉ số BMI (Body Mass Index) được tính dựa trên tỉ lệ giữa cân nặng và
-                                                chiều cao bình phương, nói lên tình trạng cân nặng hiện tại của bạn.
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </Link>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </>
         </>
     );
 };

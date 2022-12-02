@@ -1,9 +1,8 @@
 import React, { useState, useEffect, memo, useLayoutEffect } from 'react';
 import classNames from 'classnames/bind';
 import Cookies from 'universal-cookie';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useTranslation } from 'react-i18next';
 
@@ -13,11 +12,12 @@ import { Search } from '../Search';
 import { Button } from '~/components/Button';
 import { faEllipsisVertical, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import { ServiceItem } from '~/components/ServiceItem';
 import { LanguageItem } from './components/LanguageItem';
 import { UserItem } from './components/UserItem';
 import { Alert } from '~/components/Alert';
 import SadIcon from '~/assets/sad.png';
+import { CategoryItem } from './components/CategoryItem';
+import { ServiceItem } from './components/ServiceItem';
 
 const cx = classNames.bind(styles);
 
@@ -26,11 +26,22 @@ const cookies = new Cookies();
 const Header = () => {
     const { t } = useTranslation('header');
     const [checkLogin, setCheckLogin] = useState(false);
+    const [hide, setHide] = useState(false);
     const [alertPopup, setAlertPopup] = useState(false);
+    const [popupCategory, setPopupCategory] = useState(false);
+    const [popupService, setPopupService] = useState(false);
+    const [categoryPrimary, setCategoryPrimary] = useState(false);
+    const [servicePrimary, setServicePrimary] = useState(false);
     const [tippyInstance, setTippyInstance] = useState();
+    const [tippyUserItemInstance, setTippyUserItemInstance] = useState();
+    const [hideCategory, setHideCategory] = useState(false);
+    const [hideService, setHideService] = useState(false);
     const [userInfo, setUserInfo] = useState();
     const userInfoAccess = cookies.get('userAccess');
-    const navigate = useNavigate();
+
+    useLayoutEffect(() => {
+        cookies.set('languageCode', 'vi');
+    }, []);
 
     useLayoutEffect(() => {
         if (userInfoAccess) {
@@ -39,8 +50,30 @@ const Header = () => {
         }
     }, [userInfoAccess]);
 
+    useEffect(() => {
+        if (userInfoAccess) {
+            if (userInfoAccess.split(',')[5] !== 'Bệnh nhân') setHide(true);
+        } else setHide(false);
+    }, [userInfoAccess]);
+
     const handleContactClick = () => {
         if (!userInfoAccess) setAlertPopup(true);
+    };
+
+    const handleCommunityClick = () => {
+        if (!userInfoAccess) setAlertPopup(true);
+    };
+
+    const handleCategoryPopup = () => {
+        setPopupCategory(true);
+        setHideCategory(false);
+        setCategoryPrimary(true);
+    };
+
+    const handleServicePopup = () => {
+        setPopupService(true);
+        setHideService(false);
+        setServicePrimary(true);
     };
 
     return (
@@ -64,13 +97,14 @@ const Header = () => {
                     <div id="navbarCollapse" className={cx('collapse', 'navbar-collapse')} style={{ flexGrow: '0.5' }}>
                         <ul className={cx('navbar-nav', 'ml-auto', 'menu-right')}>
                             <div className={cx('separate')}></div>
-                            <li className={cx('nav-item')}>
-                                <Link to="/" className={cx('nav-link')}>
-                                    {t('category')}
-                                </Link>
+                            <li
+                                className={cx('nav-item', 'category_option', { primary: categoryPrimary })}
+                                onClick={handleCategoryPopup}
+                            >
+                                {t('category')}
                             </li>
                             <li className={cx('nav-item')}>
-                                <Link to="/" className={cx('nav-link')}>
+                                <Link to="/consultant/list" className={cx('nav-link')}>
                                     {t('consultant')}
                                 </Link>
                             </li>
@@ -83,26 +117,20 @@ const Header = () => {
                                     {t('contact')}
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')}>
-                                <Link to="/" className={cx('nav-link')}>
+                            <li className={cx('nav-item', { hide })}>
+                                <Link
+                                    to={userInfoAccess ? '/community' : ''}
+                                    className={cx('nav-link')}
+                                    onClick={handleCommunityClick}
+                                >
                                     {t('community')}
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')}>
-                                <Tippy
-                                    interactive
-                                    delay={[300, 0]}
-                                    content={
-                                        <PopperWrapper className={cx('custom-service-popper')}>
-                                            <ServiceItem />
-                                        </PopperWrapper>
-                                    }
-                                    trigger="mouseenter"
-                                >
-                                    <Link to="/" className={cx('nav-link')}>
-                                        {t('service')}
-                                    </Link>
-                                </Tippy>
+                            <li
+                                className={cx('nav-item', 'category_option', { primary: servicePrimary })}
+                                onClick={handleServicePopup}
+                            >
+                                {t('service')}
                             </li>
                         </ul>
                     </div>
@@ -124,10 +152,14 @@ const Header = () => {
                             render={(attrs) => (
                                 <div className={cx('user_option_wrapper')} {...attrs}>
                                     <PopperWrapper className={cx('user_popper')}>
-                                        <UserItem setCheckLogin={setCheckLogin} />
+                                        <UserItem
+                                            setCheckLogin={setCheckLogin}
+                                            tippyUserItemInstance={tippyUserItemInstance}
+                                        />
                                     </PopperWrapper>
                                 </div>
                             )}
+                            onShow={(instance) => setTippyUserItemInstance(instance)}
                             trigger="click"
                         >
                             <div className={cx('px-2', 'avatar_wrapper')}>
@@ -161,6 +193,22 @@ const Header = () => {
                     iconImage={SadIcon}
                     content="Bạn phải đăng nhập mới được sử dụng tính năng này"
                     setAlertPopup={setAlertPopup}
+                />
+            )}
+            {popupCategory && (
+                <CategoryItem
+                    setPopupCategory={setPopupCategory}
+                    setCategoryPrimary={setCategoryPrimary}
+                    setHideCategory={setHideCategory}
+                    hideCategory={hideCategory}
+                />
+            )}
+            {popupService && (
+                <ServiceItem
+                    setPopupService={setPopupService}
+                    setServicePrimary={setServicePrimary}
+                    hideService={hideService}
+                    setHideService={setHideService}
                 />
             )}
         </>

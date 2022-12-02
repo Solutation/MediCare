@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
+import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useTranslation } from 'react-i18next';
+import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Search.module.scss';
-import classNames from 'classnames/bind';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { DiseaseItem } from '~/components/DiseaseItem';
-import { useDebounce } from '~/hooks';
+import { checkSearch } from '~/utils/checkSearch';
+import { httpRequest } from '~/utils';
+
 const cx = classNames.bind(styles);
 
 const Search = () => {
@@ -16,10 +18,9 @@ const Search = () => {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [tippyInstance, setTippyInstance] = useState();
     const inputRef = useRef();
     const { t } = useTranslation('header');
-
-    const debounceValue = useDebounce(searchValue, 500);
 
     useEffect(() => {
         if (searchValue.trim() === '') {
@@ -28,42 +29,19 @@ const Search = () => {
         }
 
         //call API
-        const fetchAPI = () => {
+        const fetchAPI = async () => {
             setLoading(true);
-            const result = [
-                {
-                    id: 1,
-                    title: 'Bệnh về mắt',
-                    description:
-                        'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                        'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                        'được ưu tiên',
-                    image: 'waifu.jpg'
-                },
-                {
-                    id: 2,
-                    title: 'Bệnh về dạ dày',
-                    description:
-                        'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                        'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                        'được ưu tiên',
-                    image: 'waifu.jpg'
-                },
-                {
-                    id: 3,
-                    title: 'Bệnh về tim',
-                    description:
-                        'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                        'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                        'được ưu tiên',
-                    image: 'waifu.jpg'
-                }
-            ];
-            setSearchResult(result);
+            const categoryId = checkSearch(searchValue);
+            const {
+                data: { articleData }
+            } = await httpRequest.get('/article/search', { params: { categoryId, pageSize: 5, pageNumber: 1 } });
+            setSearchResult(articleData);
             setLoading(false);
         };
         fetchAPI();
-    }, [debounceValue]);
+
+        //eslint-disable-next-line
+    }, [searchValue]);
 
     const handleHideResult = () => {
         setShowResult(false);
@@ -88,11 +66,16 @@ const Search = () => {
                     <div className={cx('search-result')} {...attrs}>
                         <PopperWrapper>
                             <h4 className={cx('search-title')}>Bệnh</h4>
-                            <DiseaseItem data={searchResult} />
+                            <DiseaseItem
+                                data={searchResult}
+                                tippyInstance={tippyInstance}
+                                setSearchValue={setSearchValue}
+                            />
                         </PopperWrapper>
                     </div>
                 )}
                 onClickOutside={handleHideResult}
+                onShow={(instance) => setTippyInstance(instance)}
             >
                 <div className={cx('search')}>
                     <input

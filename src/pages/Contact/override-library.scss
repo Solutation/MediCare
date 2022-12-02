@@ -101,3 +101,11 @@ $bg-contact-color: #e7f8ff;
     background: unset;
     background-size: unset;
 }
+.str-chat__message-name,
+.str-chat__message-simple-name {
+    display: none !important;
+}
+.str-chat__message-simple-status > .str-chat__avatar,
+.str-chat__message-simple-status > .str-chat-angular__avatar-host .str-chat__avatar {
+    display: none !important;
+}

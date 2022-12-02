@@ -2,5 +2,13 @@
     "health-tool": "health checker",
     "tool": "tool",
     "title": "Tools list",
-    "search": "Find tool"
+    "bmi": "BMI calculator",
+    "bmr": "BMR calculator",
+    "ovulation": "Ovulation calculator",
+    "heartrate": "Target heart rate calculator",
+    "menopause": "Perimenopause assessment",
+    "vaccination": "Vaccination schedule for children",
+    "covid": "Covid-19 screening",
+    "stroke": "Stroke screening",
+    "breastcancer": "Breastcancer screening"
 }

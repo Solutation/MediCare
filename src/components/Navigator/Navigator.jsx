@@ -8,12 +8,6 @@ import styles from './Navigator.module.scss';
 
 const cx = classNames.bind(styles);
 
-const getCurrentUrl = () => {
-    return window.location.href;
-};
-
-const currentUrl = getCurrentUrl();
-
 const Navigator = ({ title, page, bgPrimaryBold = false, className, ...passProps }) => {
     const classes = cx('wrapper', {
         [className]: className,
@@ -26,8 +20,6 @@ const Navigator = ({ title, page, bgPrimaryBold = false, className, ...passProps
     };
 
     const pageList = page ? page : [];
-
-    console.log(currentUrl);
 
     return (
         <section className={classes} {...prop}>

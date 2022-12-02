@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faGear, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Admin.module.scss';
 import UserIcon from '~/assets/user.png';
@@ -15,7 +15,6 @@ import ImageArticleIcon from '~/assets/imageArticle.png';
 import PostIcon from '~/assets/post.png';
 import ImagePostIcon from '~/assets/imagePost.png';
 import ReactionIcon from '~/assets/reaction.png';
-import { Button } from '~/components/Button';
 import { UserManagement } from './components/UserManagement';
 import { ConsultantsManagement } from './components/ConsultantsManagement';
 import { CertificateManagement } from './components/CertificateManagement';

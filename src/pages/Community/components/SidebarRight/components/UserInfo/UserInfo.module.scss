@@ -32,9 +32,10 @@ $post-content-color: #6b7c8f;
             width: 8rem;
             height: 8rem;
             border: 1px solid transparent;
-            border-radius: 1rem;
+            border-radius: 30%;
+            object-fit: cover;
             margin-right: 1.6rem;
-            z-index: 200;
+            z-index: 5;
             margin-top: 0.4rem;
         }
         .analysis_wrapper {

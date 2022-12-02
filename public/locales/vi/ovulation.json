@@ -1,9 +1,9 @@
 {
+    "description": "Ngày rụng trứng chính là thời gian dễ thụ thai nhất bởi vì giai đoạn này tinh trùng có thể gặp trứng nếu quan hệ tình dục. Theo dõi chu kỳ kinh nguyệt của bạn, xác định những ngày dễ thụ thai nhất để tăng cơ hội thụ thai hoặc áp dụng biện pháp tránh thai.",
     "tool": "công cụ",
     "ovulation": "tính ngày rụng trứng",
-    "recent": "Ngày đầu tiên của chu kỳ gần nhất",
     "length": "Độ dài chu kỳ kinh nguyệt (ngày)",
-    "cycle-length": "Nhập thời gian",
+    "cycle_length": "Nhập thời gian",
     "result": "Tính ngay",
     "output": "Ngày rụng trứng là"
 }

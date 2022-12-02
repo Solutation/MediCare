@@ -11,5 +11,16 @@
     "profile": "Profile",
     "searchHeader": "Search for symptoms",
     "contact": "Contact",
-    "community": "Community"
+    "community": "Community",
+    "categoryPopupTitle": "Health Category",
+    "categoryPopupBtn": "See all categories",
+    "categoryFeatureTitle": "Typical medicare images",
+    "findingHospital": "Finding hospital",
+    "toolItemTitle": "Typical tools",
+    "toolItemName1": "Menopause screening",
+    "toolItemName2": "Calculating ovulation date",
+    "toolItemName3": "Measuring BMI",
+    "toolItemName4": "Measuring calorie needs (BMR)",
+    "toolItemName5": "Measuring ideal heart rate",
+    "toolItemName6": "Keeping track of schedule injection"
 }

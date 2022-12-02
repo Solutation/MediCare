@@ -1,165 +1,135 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import { Navigator } from '~/components/Navigator';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Pagination } from './components/Pagination';
+import axios from 'axios';
 
 import styles from './ProfessorList.module.scss';
-import { useState } from 'react';
+import { httpRequest } from '~/utils';
+import { getTotalPageList } from '~/utils/PaginationUtils';
+import { Navigator } from '~/components/Navigator';
 
 const cx = classNames.bind(styles);
 
 const ProfessorList = () => {
     const { t } = useTranslation('professorlist');
-
+    const [totalPages, setTotalPages] = useState();
+    const [pageNumber, setPageNumber] = useState(1);
+    const [consultantList, setConsultantList] = useState();
     const pageItem = [{ id: 1, name: t('professor'), to: '' }];
+    const navigate = useNavigate();
 
-    const images = {
-        doctor1: require('~/assets/doctor1.jpg')
+    useEffect(() => {
+        const cancelToken = axios.CancelToken.source();
+        const fetchAPI = async () => {
+            const {
+                data: {
+                    data: { consultantList },
+                    totalPages
+                }
+            } = await httpRequest.get(
+                '/consultant/list',
+                { params: { pageSize: 6, pageNumber } },
+                { cancelToken: cancelToken.token }
+            );
+            setTotalPages(getTotalPageList(totalPages));
+            setConsultantList(consultantList);
+        };
+        fetchAPI();
+
+        return () => {
+            cancelToken.cancel();
+        };
+    }, [pageNumber]);
+
+    const handleClickPagination = (pageIndex) => {
+        setPageNumber(pageIndex);
     };
 
-    const result = [
-        {
-            id: 1,
-            role: 'Cosmetic Surgeon',
-            name: 'Lâm Khương Trí',
-            description: 'Donec varius libero tortor, eu luctus ipsum aliquet ut.',
-            image: images.doctor1
-        },
-        {
-            id: 2,
-            role: 'Cosmetic Surgeon',
-            name: 'Lâm Đăng Khoa',
-            description: 'Donec varius libero tortor, eu luctus ipsum aliquet ut.',
-            image: images.doctor1
-        },
-        {
-            id: 3,
-            role: 'Cosmetic Surgeon',
-            name: 'phan',
-            description:
-                'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                'được ưu tiên',
-            image: images.doctor1
-        },
-        {
-            id: 4,
-            role: 'Cosmetic Surgeon',
-            name: 'phan',
-            description:
-                'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                'được ưu tiên',
-            image: images.doctor1
-        },
-        {
-            id: 5,
-            role: 'Cosmetic Surgeon',
-            name: 'hoàng',
-            description:
-                'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                'được ưu tiên',
-            image: images.doctor1
-        },
-        {
-            id: 6,
-            role: 'Cosmetic Surgeon',
-            name: 'viết anh',
-            description:
-                'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                'được ưu tiên',
-            image: images.doctor1
-        },
-        {
-            id: 7,
-            role: 'Cosmetic Surgeon',
-            name: 'viết anh',
-            description:
-                'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                'được ưu tiên',
-            image: images.doctor1
-        },
-        {
-            id: 8,
-            role: 'Cosmetic Surgeon',
-            name: 'viết anh',
-            description:
-                'Mắt là một trong những cơ quan cảm giác phát triển nhất trong cơ thể. Ta phụ thuộc vào thị lực để có' +
-                'thể thực hiện hầu hết các hoạt động hàng ngày. Vì vậy, việc duy trì sức khỏe đôi mắt tốt là điều cần' +
-                'được ưu tiên',
-            image: images.doctor1
-        }
-    ];
-    const [searchValue, setSearchValue] = useState('');
-    const handleOnChangeSearch = (e) => {
-        setSearchValue(e.target.value);
+    const handlePrevious = () => {
+        setPageNumber((prevPageNumber) => prevPageNumber - 1);
     };
+
+    const handleNext = () => {
+        setPageNumber((prevPageNumber) => prevPageNumber + 1);
+    };
+
     return (
         <>
-            <Navigator title={t('professor')} page={pageItem} bgPrimaryBold />
-            <div className={cx('wrapper')}>
-                <div className={cx('professor-header')}>
-                    <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
-                    <div className={cx('search-wrapper')}>
-                        <FontAwesomeIcon icon={faSearch} className={cx('search-icon')} />
-                        <input
-                            className={cx('categories-search', 'form-control')}
-                            type="search"
-                            placeholder={t('search')}
-                            aria-label="Search"
-                            value={searchValue}
-                            onChange={handleOnChangeSearch}
-                        ></input>
-                    </div>
-                </div>
-                <div className={cx('container')}>
-                    <div className={cx('row')}>
-                        <div className={cx('professor-wrapper', 'd-flex', 'flex-wrap')}>
-                            {result.filter((item) => {
-                                return item.name.toLowerCase().includes(searchValue);
-                            }).length > 0 ? (
-                                result
-                                    .filter((item) => {
-                                        return item.name.toLowerCase().includes(searchValue);
-                                    })
-                                    .map((item) => (
+            {consultantList && totalPages && (
+                <>
+                    <Navigator title={t('professor')} page={pageItem} bgPrimaryBold />
+                    <div className={cx('wrapper')}>
+                        <div className={cx('professor-header')}>
+                            <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
+                        </div>
+                        <div className={cx('container')}>
+                            <div className={cx('row')}>
+                                <div className={cx('professor-wrapper', 'd-flex', 'flex-wrap')}>
+                                    {consultantList.map((consultant, index) => (
                                         <div
                                             className={cx('col-sm-6', 'col-md-3', 'col-ms-12', 'professor-item')}
-                                            key={item.id}
+                                            key={consultant.id}
+                                            onClick={() => navigate(`/consultant?consultantId=${consultant.id}`)}
                                         >
-                                            <Link to="">
+                                            <div style={{ cursor: 'pointer' }}>
                                                 <div className={cx('professor-content')}>
                                                     <img
-                                                        src={item.image}
+                                                        src={consultant.avatar}
                                                         alt="Anh"
                                                         className={cx('professor-image')}
                                                     ></img>
                                                     <div className={cx('professor-info')}>
-                                                        <div className={cx('professor-role')}>{item.role}</div>
-                                                        <div className={cx('professor-name')}>{item.name}</div>
+                                                        {/* <div className={cx('professor-role')}>{item.role}</div> */}
+                                                        <div
+                                                            className={cx('professor-name')}
+                                                        >{`${consultant.first_name} ${consultant.last_name}`}</div>
                                                         <div className={cx('professor-description')}>
-                                                            {item.description}
+                                                            {consultant.descriptions}
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </Link>
+                                            </div>
                                         </div>
-                                    ))
-                            ) : (
-                                <p>Không tìm thấy</p>
-                            )}
+                                    ))}
+                                    <div className={cx('d-flex', 'justify-content-end', 'w-100', 'me-4')}>
+                                        <div className={cx('btn_pagination_wrapper', 'h-100')}>
+                                            <button
+                                                type="button"
+                                                className={cx('btn_pagination', { btnDisabled: pageNumber === 1 })}
+                                                onClick={handlePrevious}
+                                            >
+                                                Previous
+                                            </button>
+                                            {totalPages.map((pageIndex, index) => (
+                                                <button
+                                                    type="button"
+                                                    className={cx('btn_pagination', {
+                                                        paginationFocus: pageIndex === pageNumber
+                                                    })}
+                                                    key={index}
+                                                    onClick={() => handleClickPagination(pageIndex)}
+                                                >
+                                                    {pageIndex}
+                                                </button>
+                                            ))}
+                                            <button
+                                                type="button"
+                                                className={cx('btn_pagination', {
+                                                    btnDisabled: pageNumber === totalPages.length
+                                                })}
+                                                onClick={handleNext}
+                                            >
+                                                Next
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <Pagination></Pagination>
-                </div>
-            </div>
+                </>
+            )}
         </>
     );
 };

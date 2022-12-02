@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie';
 import styles from './CustomChannelPreview.module.scss';
 import { ChannelSearchContext } from '~/context/ChannelSearchContext';
 import { removeVietnameseTones } from '~/utils';
+import { store } from '~/redux';
 
 const cx = classNames.bind(styles);
 
@@ -24,12 +25,13 @@ const CustomChannelPreview = () => {
     const { setActiveChannel } = useChatContext();
     const { channelSearchValue } = useContext(ChannelSearchContext);
     const userInfo = cookies.get('userAccess').split(',');
+    const { consultantContactId } = store.getState();
 
     useEffect(() => {
         const getChannel = async () => {
             const userContactId = userInfo[1];
             const chatClient = StreamChat.getInstance(api_key, api_secret);
-            const filters = { type: 'messaging', members: { $in: [userContactId] } };
+            const filters = { type: 'messaging', members: { $in: [`${userContactId}`] } };
             const sort = [{ last_message_at: -1 }];
             const channels = await chatClient.queryChannels(filters, sort, {
                 state: true
@@ -39,6 +41,24 @@ const CustomChannelPreview = () => {
         getChannel();
         // eslint-disable-next-line
     }, []);
+
+    useEffect(() => {
+        if (consultantContactId && channelList.length >= 1) {
+            let channelResult;
+            channelList.forEach((channel) => {
+                const memberList = Object.values(channel.state.members);
+                const consultantChannel = memberList.find(
+                    // eslint-disable-next-line
+                    (member) => member.user_id.slice(0, 1) == consultantContactId
+                );
+                if (consultantChannel) {
+                    channelResult = channel;
+                }
+            });
+            setActiveChannel(channelResult);
+        }
+        //eslint-disable-next-line
+    }, [channelList, consultantContactId]);
 
     const handleSelect = useCallback((channel) => {
         setActiveChannel(channel);
@@ -69,7 +89,6 @@ const CustomChannelPreview = () => {
     );
 
     const EmptyChannel = useCallback(() => {
-        console.log(1);
         return <span className={cx('text-white', 'fs-2', 'p-3', 'fw-bold')}>Không tìm thấy kênh...</span>;
     }, []);
 

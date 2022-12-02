@@ -1,4 +1,5 @@
 {
+    "description": "BMR (Basal Metabolic Rate) is the basal metabolic rate in the human body. This index indicates the minimum amount of energy that the body needs to perform the basic functions to maintain the life of the body, when you are at rest.",
     "tools": "tool",
     "tool-bmr": "BMR Calculator",
     "age": "How old are you? (year)",
@@ -8,5 +9,8 @@
     "weight": "How much do you weigh? (kg)",
     "input-weight": "weight",
     "result": "Result",
-    "output": "Your BMR"
+    "output": "Your BMR",
+    "gender": "Your gender?",
+    "male": "Male",
+    "female": "Female"
 }

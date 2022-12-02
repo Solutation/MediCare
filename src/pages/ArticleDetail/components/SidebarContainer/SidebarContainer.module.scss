@@ -22,13 +22,15 @@
             &:hover {
                 opacity: 80%;
             }
-            .news-image {
-                width: 120px;
-                height: 70px;
-                border-radius: 10px;
+            .image-wrapper {
+                .news-image {
+                    width: 100px;
+                    height: 70px;
+                    border-radius: 5px;
+                }
             }
             .news-info {
-                padding: 4px 0 0 10px;
+                padding: 3px 0 0 10px;
                 height: 8.2rem;
                 overflow: hidden;
                 .news-title {
@@ -72,6 +74,16 @@
     text-align: center;
     &:hover {
         opacity: 0.7;
+        color: var(--color-primary);
+    }
+}
+.tag_item {
+    cursor: pointer;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--default-border-radius);
+    padding: 0.6rem 1rem;
+
+    &:hover {
         color: var(--color-primary);
     }
 }
