@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Cookies from 'universal-cookie';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 
@@ -13,8 +14,12 @@ import images from '~/assets';
 import { httpRequest, handleDateResponse } from '~/utils';
 import { store } from '~/redux';
 import { getConsultantContactId } from '~/redux/action';
+import SadIcon from '~/assets/sad.png';
+import { Alert } from '~/components/Alert';
 
 const cx = classNames.bind(styles);
+
+const cookies = new Cookies();
 
 const GeneralSection = () => {
     const { t } = useTranslation('home');
@@ -175,6 +180,8 @@ const AboutSection = () => {
 const ConsultantsSection = () => {
     const { t } = useTranslation('home');
     const [consultantList, setConsultantList] = useState([]);
+    const [alertPopup, setAlertPopup] = useState(false);
+    const userInfo = cookies.get('userAccess');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -196,6 +203,10 @@ const ConsultantsSection = () => {
     }, []);
 
     const handleContactClick = (consultantId) => {
+        if (!userInfo) {
+            setAlertPopup(true);
+            return;
+        }
         store.dispatch(getConsultantContactId(consultantId));
         navigate('/contact');
     };
@@ -247,6 +258,13 @@ const ConsultantsSection = () => {
                 </div>
                 <hr />
             </div>
+            {alertPopup && (
+                <Alert
+                    iconImage={SadIcon}
+                    content="Bạn phải đăng nhập mới được sử dụng tính năng này"
+                    setAlertPopup={setAlertPopup}
+                />
+            )}
         </section>
     );
 };
