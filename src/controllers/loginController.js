@@ -95,26 +95,29 @@ class LoginController {
             const getConsultantSql = `CALL GetAllConsultant()`;
             const getUserByEmail = `CALL GetUserByEmailName('${email}')`;
             const chatClient = StreamChat.getInstance(api_key, api_secret);
-            const serverClient = connect(api_key, api_secret, api_id);
-            db.query(verifySql, async (err, result) => {
+            db.query(getUserByEmail, async (err, result) => {
                 if (err) {
-                    res.status(400).json(new ResponseDTO(400, 'Lỗi trong quá trình gọi request'));
+                    res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
                     return;
                 }
-                db.query(getUserByEmail, async (err, result) => {
+                if (result[0][0].status === 1) {
+                    res.status(400).json(new ResponseDTO(400, 'Bạn đã xác nhận email này rồi'));
+                    return;
+                }
+                const userData = {
+                    id: result[0][0].id + '_' + v4(),
+                    user_role: 'patient',
+                    email: result[0][0].email,
+                    first_name: result[0][0].first_name,
+                    last_name: result[0][0].last_name,
+                    phone_number: result[0][0].phone_number,
+                    avatar: result[0][0].avatar,
+                };
+                db.query(verifySql, async (err, result) => {
                     if (err) {
                         res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
                         return;
                     }
-                    const userData = {
-                        id: result[0][0].id + '_' + v4(),
-                        user_role: 'patient',
-                        email: result[0][0].email,
-                        first_name: result[0][0].first_name,
-                        last_name: result[0][0].last_name,
-                        phone_number: result[0][0].phone_number,
-                        avatar: result[0][0].avatar,
-                    };
                     const userId = userData.id;
                     const userName = `${userData.first_name} ${userData.last_name}`;
                     await chatClient.upsertUsers([userData]);

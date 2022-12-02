@@ -36,6 +36,26 @@ class CategoryController {
             });
         });
     }
+    getCategoryBy5(req, res) {
+        const sql = `CALL GetCategoryBy5()`;
+        db.query(sql, (err, result) => {
+            if (err) {
+                res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
+                return;
+            }
+            res.status(200).json({ categoryList: result[0] });
+        });
+    }
+    getAllCategory(req, res) {
+        const sql = `CALL GetAllCategory()`;
+        db.query(sql, (err, result) => {
+            if (err) {
+                res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
+                return;
+            }
+            res.status(200).json({ categoryList: result[0] });
+        });
+    }
 }
 
 module.exports = new CategoryController();

@@ -6,6 +6,8 @@ const homeRouter = require('./home');
 const articleRouter = require('./article');
 const categoryRouter = require('./category');
 const toolRouter = require('./tools');
+const communityRouter = require('./community');
+const profileRouter = require('./profile');
 
 function routes(app) {
     app.use('/', homeRouter);
@@ -16,6 +18,8 @@ function routes(app) {
     app.use('/article', articleRouter);
     app.use('/category', categoryRouter);
     app.use('/tool', toolRouter);
+    app.use('/community', communityRouter);
+    app.use('/profile', profileRouter);
 }
 
 module.exports = routes;
