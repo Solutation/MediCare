@@ -1,0 +1,7 @@
+{
+    "description": "Use this tool to calculate your due date. Note, the results are for reference only. Most expectant mothers usually give birth within a week before or after this due date.",
+    "tool": "tool",
+    "pdd": "pregnancy due date calculator",
+    "date": "Date of conception",
+    "result": "Result"
+}

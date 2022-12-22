@@ -1,20 +1,20 @@
 $color-text: #9f9f9f;
 $border: #dedddd;
-.container {
-    padding-top: 10px;
+.wrapper {
+    padding-top: 20px;
+    max-width: 1160px;
+    margin: auto;
     .professor-wrapper {
-        padding: 0 16px 50px 0;
+        padding-bottom: 20px;
         .biography {
             margin-bottom: 30px;
         }
-
         p {
             margin: 0 0 27px 0;
             color: $color-text;
             font-size: 1.6rem;
             line-height: 2.6rem;
         }
-
         ul.insurance-list {
             padding-left: 0;
             padding-right: 27px;
@@ -22,7 +22,6 @@ $border: #dedddd;
             justify-content: space-between;
             flex-direction: column;
         }
-
         ul.insurance-list li {
             border-bottom: 1px solid $border;
             padding: 4px 0;
@@ -31,11 +30,9 @@ $border: #dedddd;
             display: flex;
             justify-content: space-between;
         }
-
         ul.insurance-list b {
             flex: 2;
         }
-
         ul.insurance-list span {
             flex: 1;
             text-align: left;
@@ -43,7 +40,7 @@ $border: #dedddd;
         }
     }
     .sidebar-wrapper {
-        padding: 0 16px;
+        padding: 0 5px;
         .professor-image {
             max-width: 100%;
         }

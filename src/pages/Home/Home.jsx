@@ -114,57 +114,64 @@ const AboutSection = () => {
     return (
         <section id="about">
             <div className={cx('container')}>
-                <img src={images.aboutImage} alt="" className={cx('about-image')} />
-                <div className={cx('row', 'about-head-wrapper')}>
-                    <div className={cx('col-8', 'offset-4')}>
-                        <div className={cx('about-head')}>
-                            <h2 className={cx('display-4', 'fw-bold')}>{t('aboutTitle1')}</h2>
-                            <div className={cx('separate')}></div>
-                            <div className={cx('about-info')}>
-                                <h1 className={cx('primary', 'fw-bold', 'about-title')}>{t('aboutTitle2')}</h1>
-                                <h1 className={cx('about-title')}>{t('aboutTitle3')}</h1>
-                                <p className={cx('py-4', 'about-text')}>{t('aboutContent1')}</p>
-                            </div>
-                            <div
-                                className={cx('about-signature', 'd-flex', 'justify-content-end', 'align-items-center')}
-                            >
-                                <div className={cx('d-flex', 'flex-column', 'px-5')}>
-                                    <h2 className={cx('about-signature-text', 'primary', 'fw-bold')}>Khuong Tri</h2>
-                                    <cite className={cx('text-muted')}>{`Coder & Member`}</cite>
+                <div>
+                    <img src={images.aboutImage} alt="" className={cx('about-image')} />
+                    <div className={cx('row', 'about-head-wrapper')}>
+                        <div className={cx('col-8', 'offset-4')}>
+                            <div className={cx('about-head')}>
+                                <h2 className={cx('display-4', 'fw-bold')}>{t('aboutTitle1')}</h2>
+                                <div className={cx('separate')}></div>
+                                <div className={cx('about-info')}>
+                                    <h1 className={cx('primary', 'fw-bold', 'about-title')}>{t('aboutTitle2')}</h1>
+                                    <h1 className={cx('about-title')}>{t('aboutTitle3')}</h1>
+                                    <p className={cx('py-4', 'about-text')}>{t('aboutContent1')}</p>
                                 </div>
-                                <img src={images.aboutSignature} alt="" />
-                            </div>
-                        </div>
-                        <hr className={cx('mt-5')} />
-                        <div className={cx('about-footer', 'pt-5')}>
-                            <div className={cx('container', 'px-0')}>
-                                <div className={cx('row')}>
-                                    <div className={cx('col-6', 'd-flex', 'align-items-center')}>
-                                        <div className={cx('about-footer-icon-wrapper')}>
-                                            <FontAwesomeIcon
-                                                icon={faHeartPulse}
-                                                className={cx('primary', 'about-footer-icon')}
-                                            />
-                                        </div>
-                                        <div className={cx('d-flex', 'flex-column', 'mt-1')}>
-                                            <h2 className={cx('fw-bold')}>{t('aboutItemTitle1')}</h2>
-                                            <p className={cx('text-muted', 'about-footer-info')}>
-                                                {t('aboutItemContent1')}
-                                            </p>
-                                        </div>
+                                <div
+                                    className={cx(
+                                        'about-signature',
+                                        'd-flex',
+                                        'justify-content-end',
+                                        'align-items-center'
+                                    )}
+                                >
+                                    <div className={cx('d-flex', 'flex-column', 'px-5')}>
+                                        <h2 className={cx('about-signature-text', 'primary', 'fw-bold')}>Khuong Tri</h2>
+                                        <cite className={cx('text-muted')}>{`Coder & Member`}</cite>
                                     </div>
-                                    <div className={cx('col-6', 'd-flex', 'align-items-center')}>
-                                        <div className={cx('about-footer-icon-wrapper')}>
-                                            <FontAwesomeIcon
-                                                icon={faBookMedical}
-                                                className={cx('primary', 'about-footer-icon')}
-                                            />
+                                    <img src={images.aboutSignature} alt="" />
+                                </div>
+                            </div>
+                            <hr className={cx('mt-5')} />
+                            <div className={cx('about-footer', 'pt-5')}>
+                                <div className={cx('container', 'px-0')}>
+                                    <div className={cx('row')}>
+                                        <div className={cx('col-6', 'd-flex', 'align-items-center')}>
+                                            <div className={cx('about-footer-icon-wrapper')}>
+                                                <FontAwesomeIcon
+                                                    icon={faHeartPulse}
+                                                    className={cx('primary', 'about-footer-icon')}
+                                                />
+                                            </div>
+                                            <div className={cx('d-flex', 'flex-column', 'mt-1')}>
+                                                <h2 className={cx('fw-bold')}>{t('aboutItemTitle1')}</h2>
+                                                <p className={cx('text-muted', 'about-footer-info')}>
+                                                    {t('aboutItemContent1')}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div className={cx('d-flex', 'flex-column')}>
-                                            <h2 className={cx('fw-bold')}>{t('aboutItemTitle2')}</h2>
-                                            <p className={cx('text-muted', 'about-footer-info')}>
-                                                {t('aboutItemContent2')}
-                                            </p>
+                                        <div className={cx('col-6', 'd-flex', 'align-items-center')}>
+                                            <div className={cx('about-footer-icon-wrapper')}>
+                                                <FontAwesomeIcon
+                                                    icon={faBookMedical}
+                                                    className={cx('primary', 'about-footer-icon')}
+                                                />
+                                            </div>
+                                            <div className={cx('d-flex', 'flex-column')}>
+                                                <h2 className={cx('fw-bold')}>{t('aboutItemTitle2')}</h2>
+                                                <p className={cx('text-muted', 'about-footer-info')}>
+                                                    {t('aboutItemContent2')}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

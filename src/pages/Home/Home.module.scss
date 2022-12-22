@@ -43,10 +43,12 @@ $general-section-height: calc(100vh - 180px);
     z-index: -1;
     margin-top: 4%;
     width: 100%;
+    min-height: 880px;
+    overflow: hidden;
+    z-index: -1;
 }
 .about-head-wrapper {
     padding-top: 18rem;
-
     .about-info {
         padding-top: 1.4rem;
         margin-bottom: 0;
