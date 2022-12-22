@@ -9,7 +9,6 @@
     "weight": "How much do you weigh? (kg)",
     "input-weight": "weight",
     "result": "Result",
-    "output": "Your BMR",
     "gender": "Your gender?",
     "male": "Male",
     "female": "Female"

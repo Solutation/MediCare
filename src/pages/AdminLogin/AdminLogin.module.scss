@@ -1,0 +1,47 @@
+$border: #d7d7d9;
+
+.admin_bg {
+    position: fixed;
+    background-color: var(--bg-light);
+    background-size: cover;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.form-wrapper {
+    position: relative;
+    max-width: 45rem;
+    min-height: 40rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border-radius: 2rem;
+    margin: auto;
+    border: 1px solid $border;
+    box-shadow: var(--box-shadow-default);
+    .form-group {
+        margin: 5.5rem 7rem;
+        .login {
+            line-height: 3.5rem;
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        .form-input {
+            margin: 5px 0 20px 0;
+            line-height: 3rem;
+            font-size: 1.6rem;
+        }
+        .description {
+            font-size: 1.8rem;
+        }
+        .login-btn {
+            position: relative;
+            min-width: 100%;
+            margin-top: 3.5rem;
+        }
+    }
+}

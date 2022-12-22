@@ -74,7 +74,6 @@ const Categories = () => {
                                 {categoryList.map((categoryItem) => (
                                     <div className={cx('col-3', 'category-item')} key={categoryItem.id}>
                                         <div
-                                            to=""
                                             onClick={() => navigate(`/article?categoryId=${categoryItem.id}`)}
                                             style={{ cursor: 'pointer' }}
                                         >

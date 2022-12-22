@@ -1,0 +1,10 @@
+{
+    "description": "Body Mass Index (BMI), also known as body mass index or body mass index, is a commonly used tool to measure body fat. Standard BMI is calculated based on height and weight and applies to adult men and women.",
+    "tools": "tool",
+    "tool-bmi": "BMI Calculator",
+    "height": "How tall are you? (cm)",
+    "input-height": "height",
+    "weight": "How much do you weigh? (kg)",
+    "input-weight": "weight",
+    "result": "Result"
+}

@@ -3,6 +3,7 @@ import { LoginRegister } from '~/pages/LoginRegister';
 import { Contact } from '~/pages/Contact';
 import { HeaderOnly } from '~/Layouts/HeaderOnly';
 import { AdminLayout } from '~/Layouts/AdminLayout';
+import { NoLayout } from '~/Layouts/NoLayout';
 import { Community } from '~/pages/Community';
 import { Profile } from '~/pages/Profile';
 import { Admin } from '~/pages/Admin';
@@ -13,6 +14,7 @@ import { Categories } from '~/pages/Categories';
 import { ToolCategories } from '~/pages/ToolCategories';
 import { ArticleList } from '~/pages/ArticleList';
 import { ToolCaculator } from '~/pages/ToolCaculator';
+import { AdminLogin } from '~/pages/AdminLogin';
 
 const publicRoutes = [
     { path: '/', component: Home },
@@ -28,7 +30,8 @@ const publicRoutes = [
     { path: '/tools', component: ToolCategories },
     { path: '/community', component: Community },
     { path: '/article', component: ArticleList },
-    { path: 'tools/calculator', component: ToolCaculator }
+    { path: 'tools/calculator', component: ToolCaculator },
+    { path: '/adminlogin', component: AdminLogin, layout: NoLayout }
 ];
 
 const privateRoutes = {};

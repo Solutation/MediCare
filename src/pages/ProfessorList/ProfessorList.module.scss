@@ -1,90 +1,57 @@
 $background: #f1f1f1;
-.wrapper {
-    padding-bottom: 2rem;
-    .professor-header {
+
+.header {
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: -1px;
+    font-weight: 700;
+    color: var(--color-separate);
+    margin-bottom: 30px;
+}
+
+.professor-content {
+    box-shadow: var(--box-shadow-default);
+    background: rgba(255, 255, 255, 0.8);
+    min-height: 450px;
+    color: var(--text-color);
+    transition: transform 0.2s;
+    cursor: pointer;
+    .professor-image {
         width: 100%;
-        margin: 0px auto 30px auto;
-        max-width: 740px;
-        .header {
-            font-size: 32px;
-            line-height: 42px;
-            letter-spacing: -1px;
-            font-weight: 700;
-            color: var(--color-separate);
+        height: 100%;
+        object-fit: cover;
+    }
+    .professor-info {
+        margin: 15px 20px 10px 20px;
+        .professor-role {
+            font-size: 1.6rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            margin-bottom: 8px;
         }
-        .search-wrapper {
-            margin: auto;
-            margin-bottom: 2rem;
-            max-width: 740px;
-            padding: 16px 0;
-            position: relative;
-            display: flex;
-            .categories-search {
-                box-shadow: var(--box-shadow-default);
-                font-size: 1.8rem;
-                padding: 8px 16px 8px 48px;
-            }
-            .search-icon {
-                position: absolute;
-                top: 50%;
-                left: 18px;
-                display: inline-flex;
-                cursor: default;
-                transform: translateY(-50%);
-            }
+        .professor-name {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 2.6rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+        .professor-description {
+            word-wrap: break-word;
+            white-space: normal;
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
         }
     }
-    .professor-wrapper {
-        max-width: 1160px;
-        margin: auto;
-        padding: 0;
-        .professor-item {
-            margin-bottom: 40px;
-            padding: 0px 16px;
-            .professor-content {
-                box-shadow: var(--box-shadow-default);
-                background: rgba(255, 255, 255, 0.8);
-                min-height: 450px;
-                color: var(--text-color);
-                transition: transform 0.2s;
-                .professor-image {
-                    max-width: 100%;
-                    object-fit: contain;
-                }
-                .professor-info {
-                    margin: 15px 20px 10px 20px;
-                    .professor-role {
-                        font-size: 1.6rem;
-                        overflow: hidden;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 1;
-                        margin-bottom: 8px;
-                    }
-                    .professor-name {
-                        font-size: 2.2rem;
-                        font-weight: bold;
-                        margin-bottom: 10px;
-                        line-height: 2.6rem;
-                        overflow: hidden;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 2;
-                    }
-                    .professor-description {
-                        word-wrap: break-word;
-                        white-space: normal;
-                        overflow: hidden;
-                        display: -webkit-box;
-                        text-overflow: ellipsis;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 3;
-                    }
-                }
-            }
-            .professor-content:hover {
-                transform: scale(1.05);
-            }
-        }
-    }
+}
+.professor-content:hover {
+    transform: scale(1.05);
 }
