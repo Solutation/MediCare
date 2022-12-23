@@ -15,6 +15,7 @@ import { ToolCategories } from '~/pages/ToolCategories';
 import { ArticleList } from '~/pages/ArticleList';
 import { ToolCaculator } from '~/pages/ToolCaculator';
 import { AdminLogin } from '~/pages/AdminLogin';
+import { FindHospitals } from '~/pages/FindHospitals';
 
 const publicRoutes = [
     { path: '/', component: Home },
@@ -31,7 +32,9 @@ const publicRoutes = [
     { path: '/community', component: Community },
     { path: '/article', component: ArticleList },
     { path: 'tools/calculator', component: ToolCaculator },
-    { path: '/adminlogin', component: AdminLogin, layout: NoLayout }
+    { path: '/adminlogin', component: AdminLogin, layout: NoLayout },
+    { path: '/findhospitals', component:FindHospitals},
+
 ];
 
 const privateRoutes = {};
