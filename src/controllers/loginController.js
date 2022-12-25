@@ -34,6 +34,10 @@ class LoginController {
                 res.status(400).json(new ResponseDTO(400, 'Vui lòng vào mail xác nhận để kích hoạt tài khoản của bạn'));
                 return;
             }
+            if (result[0][0].status == 2) {
+                res.status(400).json(new ResponseDTO(400, 'Tài khoản của bạn đã bị chặn'));
+                return;
+            }
             const serverClient = connect(api_key, api_secret, api_id);
             const chatClient = StreamChat.getInstance(api_key, api_secret);
             const { users } = await chatClient.queryUsers({ email: email });
@@ -68,6 +72,10 @@ class LoginController {
             const success = await bcrypt.compare(pass_word, result[0][0].password);
             if (!success) {
                 res.status(400).json(new ResponseDTO(400, errorMessage));
+                return;
+            }
+            if (result[0][0].status == 2) {
+                res.status(400).json(new ResponseDTO(400, 'Tài khoản của bạn đã bị chặn'));
                 return;
             }
             const serverClient = connect(api_key, api_secret, api_id);
@@ -133,7 +141,7 @@ class LoginController {
                             const channelId = v4();
                             const consultantName = `${consultant.first_name} ${consultant.last_name}`;
                             const channel = chatClient.channel('messaging', channelId, {
-                                created_by_id: 'duy-tan-university',
+                                created_by_id: 'viettel-center',
                                 name: `${userName}/${consultantName}`,
                             });
                             await channel.create();

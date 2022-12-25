@@ -72,6 +72,7 @@ class ConsultantController {
                 id: result[0][0].id,
                 descriptions: result[0][0].descriptions,
                 email: result[0][0].email,
+                fullName: `${result[0][0].first_name} ${result[0][0].last_name}`,
                 phone_number: result[0][0].phone_number,
                 average_score: averageScoreResult,
                 certificate_name: certificateResult.join(','),
@@ -90,6 +91,7 @@ class ConsultantController {
         }
         const contentResult = content == undefined ? null : content;
         const checkRatingSql = `CALL GetPatientByRating(${patientId}, ${consultantId})`;
+        const updateScoreSql = `CALL UpdateScoreConsultant(${consultantId})`;
         db.query(checkRatingSql, (err, result) => {
             if (err) {
                 res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
@@ -102,7 +104,13 @@ class ConsultantController {
                         res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
                         return;
                     }
-                    res.status(200).json(new ResponseDTO(200, 'Cập nhật đánh giá chuyên gia thành công'));
+                    db.query(updateScoreSql, (err, result) => {
+                        if (err) {
+                            res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
+                            return;
+                        }
+                        res.status(200).json(new ResponseDTO(200, 'Cập nhật đánh giá chuyên gia thành công'));
+                    });
                 });
             } else {
                 const addRatingSql = `CALL AddRatingConsultant(${patientId}, ${consultantId}, ${score}, '${contentResult}')`;
@@ -111,7 +119,13 @@ class ConsultantController {
                         res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
                         return;
                     }
-                    res.status(200).json(new ResponseDTO(200, 'Đánh giá chuyên gia thành công'));
+                    db.query(updateScoreSql, (err, result) => {
+                        if (err) {
+                            res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
+                            return;
+                        }
+                        res.status(200).json(new ResponseDTO(200, 'Thêm đánh giá chuyên gia thành công'));
+                    });
                 });
             }
         });

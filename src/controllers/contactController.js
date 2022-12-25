@@ -76,6 +76,28 @@ class ContactController {
             res.status(200).json(new ResponseDTO(200, 'Tạo consultant cho liên hệ thành công'));
         });
     }
+    createSpecificConsultantContact(req, res) {
+        const { consultantId } = req.query;
+        const sql = `CALL GetConsultantDetail(${consultantId})`;
+        const chatClient = StreamChat.getInstance(api_key, api_secret);
+        db.query(sql, async (err, result) => {
+            if (err) {
+                res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
+                return;
+            }
+            let data = {
+                id: result[0][0].id + '@' + v4(),
+                user_role: 'consultant',
+                email: result[0][0].email,
+                first_name: result[0][0].first_name,
+                last_name: result[0][0].last_name,
+                phone_number: result[0][0].phone_number,
+                avatar: result[0][0].avatar,
+            };
+            await chatClient.upsertUsers([data]);
+            res.status(200).json(new ResponseDTO(200, 'Tạo consultant cho liên hệ thành công'));
+        });
+    }
 }
 
 module.exports = new ContactController();

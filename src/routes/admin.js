@@ -1,0 +1,33 @@
+const express = require('express');
+const router = express.Router();
+const AdminController = require('../controllers/adminController');
+
+router.get('/patient/info', AdminController.getAllPatient);
+router.get('/patient/:patientId', AdminController.getPatientById);
+router.put('/patient/update/:patientId', AdminController.updatePatientInfo);
+router.put('/patient/block/:patientId', AdminController.blockPatient);
+router.get('/consultant/info', AdminController.getAllConsultant);
+router.post('/consultant/add', AdminController.addConsultant);
+router.put('/consultant/block/:consultantId', AdminController.blockConsultant);
+router.get('/consultant/detail/:consultantId', AdminController.getConsultantDetailAdmin);
+router.put('/consultant/update/:consultantId', AdminController.updateConsultantDetailAdmin);
+router.get('/consultant/certificate/:consultantId', AdminController.getCertificateByConsultantId);
+router.post('/consultant/certificate/add', AdminController.addCertificateByConsultantId);
+router.delete('/consultant/certificate/delete/:certificateId', AdminController.deleteCertificateById);
+router.get('/rating/list', AdminController.getAllRating);
+router.delete('/rating/delete/:ratingId', AdminController.deleteRatingById);
+router.get('/category/info', AdminController.getAllCategory);
+router.post('/category/add', AdminController.addCategory);
+router.get('/category/:categoryId', AdminController.getCategoryById);
+router.put('/category/update/:categoryId', AdminController.updateCategoryById);
+router.delete('/category/delete/:categoryId', AdminController.deleteCategoryById);
+router.get('/article/info', AdminController.getAllArticle);
+router.get('/article/:articleId', AdminController.getArticleDetailById);
+router.put('/article/update/:articleId', AdminController.updateArticleDetailById);
+router.delete('/article/delete/:articleId', AdminController.deleteArticleById);
+router.get('/post/info', AdminController.getAllPost);
+router.delete('/post/delete/:postId', AdminController.deletePostById);
+router.get('/category/list/all', AdminController.getListAllCategory);
+router.post('/login', AdminController.adminLogin);
+
+module.exports = router;

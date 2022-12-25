@@ -8,6 +8,7 @@ const categoryRouter = require('./category');
 const toolRouter = require('./tools');
 const communityRouter = require('./community');
 const profileRouter = require('./profile');
+const adminRouter = require('./admin');
 
 function routes(app) {
     app.use('/', homeRouter);
@@ -20,6 +21,7 @@ function routes(app) {
     app.use('/tool', toolRouter);
     app.use('/community', communityRouter);
     app.use('/profile', profileRouter);
+    app.use('/admin', adminRouter);
 }
 
 module.exports = routes;
