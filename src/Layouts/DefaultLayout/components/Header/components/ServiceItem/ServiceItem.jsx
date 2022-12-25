@@ -68,7 +68,14 @@ const ServiceItem = ({ setPopupService, setServicePrimary, hideService, setHideS
                                 <img src={ToolsIcon} alt="" className={cx('service_image')} />
                                 <span className={cx('service_text', 'primary')}>{t('healthy_tool')}</span>
                             </div>
-                            <div className={cx('d-flex', 'align-items-center', 'py-4', 'service_item_wrapper')}>
+                            <div
+                                className={cx('d-flex', 'align-items-center', 'py-4', 'service_item_wrapper')}
+                                onClick={() => {
+                                    navigate('/findhospitals');
+                                    setHideService(true);
+                                    setServicePrimary(false);
+                                }}
+                            >
                                 <img src={HospitalIcon} alt="" className={cx('service_image')} />
                                 <span className={cx('service_text')}>{t('findingHospital')}</span>
                             </div>
