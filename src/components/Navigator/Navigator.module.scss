@@ -3,8 +3,8 @@ $lightblue: #3d78e0;
 .wrapper {
     padding: 25px 0;
     width: 100%;
-    height: 100%;
     margin-bottom: 4rem;
+    flex: 0.3;
 }
 .item-wrapper {
     position: relative;
@@ -20,7 +20,7 @@ $lightblue: #3d78e0;
     .navigator-item {
         display: inline-block;
         color: var(--color-hidden);
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-bottom: 0;
     }
 }

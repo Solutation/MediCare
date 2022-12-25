@@ -10,6 +10,7 @@ import axios from 'axios';
 import { Navigator } from '~/components/Navigator';
 import { httpRequest, handleDateResponse } from '~/utils';
 import { getTotalPageList } from '~/utils/PaginationUtils';
+import './ArticleList.scss';
 
 import styles from './ArticleList.module.scss';
 
@@ -78,15 +79,18 @@ const ArticleList = () => {
                     <div className={cx('wrapper')}>
                         <div className={cx('header', 'd-flex', 'justify-content-center')}>
                             <img src={category.image} alt="Anh" className={cx('category-img')}></img>
-                            <h3 className={cx('category')}>{category.name}</h3>
+                            <h3 className={cx('category', 'text-center')}>{category.name}</h3>
                         </div>
                         <div className={cx('separate', 'mx-auto')}></div>
                         <div className={cx('description', 'text-center')}>{category.descriptions}</div>
-                        <div className={cx('row')}>
-                            <div className={cx('list-wrapper', 'd-flex', 'flex-wrap')}>
+                        <div className={cx('list-wrapper', 'd-flex', 'flex-wrap')}>
+                            <div className={cx('row')}>
                                 {article.map((articleItem) => {
                                     return (
-                                        <div className={cx('col-4', 'list-item')} key={articleItem.id}>
+                                        <div
+                                            className={cx('col-sm-6', 'col-md-6', 'col-lg-4', 'list-item')}
+                                            key={articleItem.id}
+                                        >
                                             <div
                                                 style={{ cursor: 'pointer', height: '100%' }}
                                                 onClick={() => navigate(`/news?articleId=${articleItem.id}`)}

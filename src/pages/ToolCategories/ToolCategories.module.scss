@@ -9,45 +9,43 @@ $box-shadow-hover: rgba(40, 73, 117, 0.199) 0px 5px 10px;
     letter-spacing: -1px;
     font-weight: 700;
     color: var(--color-separate);
+    margin-bottom: 30px;
 }
-.tool-item {
-    margin-top: 32px;
-    padding: 0px 20px;
-    .tool-wrapper {
-        cursor: pointer;
-        padding: 14px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        border: $border-item;
-        background-color: var(--color-white);
-        border-radius: 6px;
-        box-shadow: $box-shadow;
-        text-decoration: none;
-        .tool-img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-        }
-        .content-wrapper {
-            padding-left: 16px;
-            overflow: hidden;
-        }
-        .tool-content {
-            display: -webkit-box;
-            overflow: hidden;
-            -webkit-box-orient: vertical;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 3;
-            color: var(--text-color);
-            font-size: 2rem;
-            line-height: 2.6rem;
-            font-weight: 700;
-            margin-top: 4px;
-        }
+
+.tool-wrapper {
+    cursor: pointer;
+    padding: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: $border-item;
+    background-color: var(--color-white);
+    border-radius: 6px;
+    box-shadow: $box-shadow;
+    text-decoration: none;
+    .tool-img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
     }
-    .tool-wrapper:hover {
-        border: $border-hover;
-        box-shadow: $box-shadow-hover;
+    .content-wrapper {
+        padding-left: 16px;
+        overflow: hidden;
     }
+    .tool-content {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        color: var(--text-color);
+        font-size: 2rem;
+        line-height: 2.6rem;
+        font-weight: 700;
+        margin-top: 4px;
+    }
+}
+.tool-wrapper:hover {
+    border: $border-hover;
+    box-shadow: $box-shadow-hover;
 }

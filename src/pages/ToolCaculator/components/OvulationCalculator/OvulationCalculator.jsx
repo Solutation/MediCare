@@ -59,7 +59,7 @@ const OvulationCalculator = () => {
             {initialValues && (
                 <>
                     <Navigator title={t('ovulation')} page={pageItem} bgPrimaryBold />
-                    <div className={cx('container', 'flex-wrap')}>
+                    <div className={cx('page-wrapper', 'flex-wrap')}>
                         <div className={cx('row', 'mx-auto', 'd-flex')}>
                             <Formik
                                 initialValues={initialValues}
@@ -67,7 +67,7 @@ const OvulationCalculator = () => {
                                 onSubmit={handleSubmit}
                                 enableReinitialize={true}
                             >
-                                <Form action="" className={cx('tool-wrapper', 'col-7', 'offset-1')}>
+                                <Form action="" className={cx('col-12', 'col-md-8')}>
                                     <div className={cx('introduction')}>{t('description')}</div>
                                     <div className={cx('form-group')}>
                                         <h3 className={cx('description')}>{t('length')}</h3>
@@ -87,10 +87,8 @@ const OvulationCalculator = () => {
                                     </Button>
                                 </Form>
                             </Formik>
-                            <div className={cx('col-3')}>
-                                <div className={cx('sidebar-wrapper')}>
-                                    <img src={ovulation} alt="Anh" className={cx('tool-img')}></img>
-                                </div>
+                            <div className={cx('d-none', 'd-md-block', 'col-md-4')}>
+                                <img src={ovulation} alt="Anh" className={cx('tool-img')}></img>
                             </div>
                         </div>
                     </div>

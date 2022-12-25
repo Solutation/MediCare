@@ -73,14 +73,14 @@ const BMRCalculator = ({ setFlag }) => {
             {initialValues && (
                 <>
                     <Navigator title={t('tool-bmr')} page={pageItem} bgPrimaryBold />
-                    <div className={cx('container', 'flex-wrap')}>
+                    <div className={cx('page-wrapper', 'flex-wrap')}>
                         <div className={cx('row', 'mx-auto', 'd-flex')}>
                             <Formik
                                 initialValues={initialValues}
                                 validationSchema={validationSchema}
                                 onSubmit={handleSubmit}
                             >
-                                <Form className={cx('tool-wrapper', 'col-7', 'offset-1')}>
+                                <Form className={cx('col-12', 'col-md-8')}>
                                     <div className={cx('introduction')}>{t('description')}</div>
                                     <div className={cx('form-group')}>
                                         <h3 className={cx('description')}>{t('age')}</h3>
@@ -142,10 +142,8 @@ const BMRCalculator = ({ setFlag }) => {
                                     </Button>
                                 </Form>
                             </Formik>
-                            <div className={cx('col-3')}>
-                                <div className={cx('sidebar-wrapper')}>
-                                    <img src={bmr} alt="Anh" className={cx('tool-img')}></img>
-                                </div>
+                            <div className={cx('d-none', 'd-md-block', 'col-md-4')}>
+                                <img src={bmr} alt="Anh" className={cx('tool-img')}></img>
                             </div>
                         </div>
                     </div>

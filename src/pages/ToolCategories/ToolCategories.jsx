@@ -86,16 +86,15 @@ const ToolCategories = () => {
         <>
             <>
                 <Navigator title={t('health-tool')} page={pageItem} bgPrimaryBold />
+                <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
                 <div className={cx('tools-wrapper')}>
-                    <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
                     <div className={cx('row', 'd-flex', 'flex-wrap')}>
                         {result.map((item) => (
-                            <div
-                                className={cx('col-sm-6', 'col-md-6', 'col-lg-4', 'tool-item')}
-                                key={item.id}
-                                onClick={() => navigate(`/tools/calculator?type=${item.type}`)}
-                            >
-                                <div className={cx('tool-wrapper')}>
+                            <div className={cx('col-sm-6', 'col-md-6', 'col-lg-4', 'tool-item')} key={item.id}>
+                                <div
+                                    className={cx('tool-wrapper')}
+                                    onClick={() => navigate(`/tools/calculator?type=${item.type}`)}
+                                >
                                     <img src={item.image} alt="Anh" className={cx('tool-img')}></img>
                                     <div className={cx('content-wrapper')}>
                                         <h3 className={cx('tool-content')}>{item.name}</h3>

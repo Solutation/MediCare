@@ -1,10 +1,17 @@
-.tool-wrapper {
+.page-wrapper {
+    max-width: 1160px;
+    margin: 40px auto auto auto;
+    padding: 0;
     .introduction {
         font-size: 2rem;
         line-height: 2.4rem;
         margin-bottom: 30px;
         font-weight: 500;
         color: var(--color-secondary);
+    }
+    .description {
+        margin-top: 28px;
+        margin-bottom: 8px;
     }
     .form-group {
         margin-bottom: 35px;
@@ -23,7 +30,7 @@
     }
 }
 .tool-img {
-    max-width: 100%;
+    width: 100%;
     min-height: 300px;
     margin-left: 10px;
 }

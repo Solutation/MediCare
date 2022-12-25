@@ -16,6 +16,7 @@ import { store } from '~/redux';
 import { getConsultantContactId } from '~/redux/action';
 import SadIcon from '~/assets/sad.png';
 import { Alert } from '~/components/Alert';
+import './Home.scss';
 
 const cx = classNames.bind(styles);
 
@@ -25,11 +26,11 @@ const GeneralSection = () => {
     const { t } = useTranslation('home');
 
     return (
-        <section id="homeHeader" className={cx('wrapper')}>
+        <section id="homeHeader" className={cx('wrapper', 'd-none', 'd-md-block')}>
             <div className={cx('container', 'h-100')}>
                 <div className={cx('row', 'wrapper_inner')} style={{ height: '100%', margin: 'auto' }}>
                     <div className={cx('col-6', 'wrapper-item', 'text-center', 'offset-1')}>
-                        <h1 className={cx('d-none', 'd-sm-block', 'title')}>{t('title1')}</h1>
+                        <h1 className={cx('d-none', 'd-sm-block', 'title', 'mt-5')}>{t('title1')}</h1>
                         <h1 className={cx('d-none', 'd-sm-block', 'title', 'primary')}>{t('title2')}</h1>
                         <div className={cx('separate', 'mx-auto')}></div>
                         <p className={cx('description')}>{t('contentTitle')}</p>
@@ -54,7 +55,7 @@ const ServiceSection = () => {
                 </h1>
                 <div className={cx('separate', 'mx-auto')}></div>
                 <div className={cx('row', 'pt-5')}>
-                    <div className={cx('col-md-3', 'col-sm-2')}>
+                    <div className={cx('col-md-3', 'col-sm-6')}>
                         <div className={cx('card', 'service-wrapper')}>
                             <div className={cx('card-body', 'bg-primary', 'text-white')}>
                                 <h2 className={cx('card-title', 'fw-bold')}>{t('featureItemTitle1')}</h2>
@@ -65,7 +66,7 @@ const ServiceSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={cx('col-md-3', 'col-sm-2')}>
+                    <div className={cx('col-md-3', 'col-sm-6')}>
                         <div className={cx('card', 'service-wrapper')}>
                             <div className={cx('card-body', 'bg-secondary', 'text-white')}>
                                 <h2 className={cx('card-title', 'fw-bold')}>{t('featureItemTitle2')}</h2>
@@ -76,7 +77,7 @@ const ServiceSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={cx('col-md-3', 'col-sm-2')}>
+                    <div className={cx('col-md-3', 'col-sm-6')}>
                         <div className={cx('card', 'service-wrapper')}>
                             <div className={cx('card-body', 'bg-primary', 'text-white')}>
                                 <h2 className={cx('card-title', 'fw-bold')}>{t('featureItemTitle3')}</h2>
@@ -87,7 +88,7 @@ const ServiceSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={cx('col-md-3', 'col-sm-2')}>
+                    <div className={cx('col-md-3', 'col-sm-6')}>
                         <div className={cx('card', 'service-wrapper')}>
                             <div className={cx('card-body', 'bg-secondary', 'text-white')}>
                                 <h2 className={cx('card-title', 'fw-bold')}>{t('featureItemTitle4')}</h2>
@@ -113,7 +114,7 @@ const AboutSection = () => {
 
     return (
         <section id="about">
-            <div className={cx('container')}>
+            <div className={cx('container', 'd-none', 'd-lg-block')}>
                 <div>
                     <img src={images.aboutImage} alt="" className={cx('about-image')} />
                     <div className={cx('row', 'about-head-wrapper')}>
@@ -226,12 +227,12 @@ const ConsultantsSection = () => {
                     {t('consultantTitle2')}
                 </h1>
                 <hr />
-                <p className={cx('staff-description', 'w-50')}>{t('consultantContent')}</p>
+                <p className={cx('staff-description')}>{t('consultantContent')}</p>
                 <div className={cx('row')}>
                     {consultantList.length >= 1 &&
                         consultantList.map((consultant) => (
-                            <div className={cx('col-3')} key={consultant.id}>
-                                <div className={cx('card')}>
+                            <div className={cx('col-12', 'col-md-6', 'col-lg-3')} key={consultant.id}>
+                                <div className={cx('card', 'info-wrapper')}>
                                     <div className={cx('card-body', 'bg-staff', 'p-0')}>
                                         <img src={consultant.avatar} alt="Anh" className={cx('card-header-image')} />
                                         <div className={cx('p-4')}>
@@ -309,12 +310,12 @@ const DiseaseSection = () => {
                 <h1 className={cx('display-2', 'fw-bold', 'text-black', 'd-inline-block')}>{t('newsTitle1')}</h1>
                 <h1 className={cx('display-2', 'fw-bold', 'primary', 'd-inline-block', 'ms-4')}>{t('newsTitle2')}</h1>
                 <div className={cx('separate')}></div>
-                <p className={cx('text-info', 'w-50')}>{t('newsContent')}</p>
+                <p className={cx('text-info')}>{t('newsContent')}</p>
                 <div className={cx('row')}>
                     {diseaseList.length >= 1 &&
                         diseaseList.map((diseaseItem) => (
-                            <div className={cx('col-4')} key={diseaseItem.id}>
-                                <div className={cx('card')}>
+                            <div className={cx('col-12', 'col-md-6', 'col-lg-4')} key={diseaseItem.id}>
+                                <div className={cx('card', 'item-wrapper')}>
                                     <div className={cx('card-body', 'bg-staff', 'p-0')}>
                                         <img src={diseaseItem.name} alt="Anh" className={cx('card-header-image')} />
                                         <div className={cx('p-4')}>

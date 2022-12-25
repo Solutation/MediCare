@@ -14,39 +14,41 @@ const Footer = () => {
     return (
         <>
             <footer className={cx('footer-wrapper')}>
-                <div className={cx('row', 'content-wrapper', 'd-flex')}>
-                    <div className={cx('col-md-8', 'details-wrapper')}>
-                        <div className={cx('footer-title')}>{t('MedicalCare')}</div>
-                        <div className={cx('description')}>{t('Slogan')}</div>
+                <div className={cx('container')}>
+                    <div className={cx('row', 'd-flex')}>
+                        <div className={cx('col-md-8', 'details-wrapper')}>
+                            <div className={cx('footer-title')}>{t('MedicalCare')}</div>
+                            <div className={cx('description')}>{t('Slogan')}</div>
+                        </div>
+                        <div className={cx('col-md-4', 'details-wrapper')}>
+                            <div className={cx('footer-title')}>{t('Social')}</div>
+                            <ul className={cx('social-icons')}>
+                                <li>
+                                    <Link to="">
+                                        <FontAwesomeIcon icon={faFacebook} className={cx('color-icon')} />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="">
+                                        <FontAwesomeIcon icon={faTwitter} className={cx('color-icon')} />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="">
+                                        <FontAwesomeIcon icon={faInstagram} className={cx('color-icon')} />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="">
+                                        <FontAwesomeIcon icon={faLinkedin} className={cx('color-icon')} />
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div className={cx('col-md-4', 'details-wrapper')}>
-                        <div className={cx('footer-title')}>{t('Social')}</div>
-                        <ul className={cx('social-icons')}>
-                            <li>
-                                <Link to="">
-                                    <FontAwesomeIcon icon={faFacebook} className={cx('color-icon')} />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="">
-                                    <FontAwesomeIcon icon={faTwitter} className={cx('color-icon')} />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="">
-                                    <FontAwesomeIcon icon={faInstagram} className={cx('color-icon')} />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="">
-                                    <FontAwesomeIcon icon={faLinkedin} className={cx('color-icon')} />
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
+                    <hr />
+                    <div className={cx('copyright')}>Copyright © 2022 All team Medical Care</div>
                 </div>
-                <hr />
-                <div className={cx('copyright')}>Copyright © 2022 All team Medical Care</div>
             </footer>
         </>
     );

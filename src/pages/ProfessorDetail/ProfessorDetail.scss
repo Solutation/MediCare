@@ -1,31 +1,36 @@
-.tools-wrapper {
+.page-wrapper {
     max-width: 1160px;
     margin: auto;
 }
-.tool-item {
-    margin-bottom: 40px;
-    padding: 0px 20px;
+.sidebar-wrapper {
+    padding: 0 5px;
 }
 @media (max-width: 575px) {
-    .tool-item {
-        padding: 0px 35px;
+    .sidebar-wrapper {
+        padding: 0 35px;
     }
 }
 @media (min-width: 576px) and (max-width: 767px) {
-    .tool-item {
-        padding: 0px 25px;
+    .sidebar-wrapper {
+        padding: 0px;
     }
 }
 @media (min-width: 768px) and (max-width: 991px) {
 }
 @media (min-width: 992px) and (max-width: 1399px) {
-    .tools-wrapper {
-        margin: 10px auto auto auto;
+    .wrapper {
+        margin: 40px auto auto auto;
+    }
+    .sidebar-wrapper {
+        padding: 0 0 45px 45px;
     }
 }
 @media (min-width: 1400px) {
-    .tools-wrapper {
+    .wrapper {
         max-width: 1380px;
         margin: 40px auto auto auto;
+    }
+    .sidebar-wrapper {
+        padding: 0 45px;
     }
 }

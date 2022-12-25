@@ -16,6 +16,7 @@ import { Alert } from '~/components/Alert';
 import SadIcon from '~/assets/sad.png';
 import { store } from '~/redux';
 import { getConsultantContactId } from '~/redux/action';
+import './ProfessorDetail.scss';
 
 const cx = classNames.bind(styles);
 
@@ -62,8 +63,8 @@ const ProfessorDetail = () => {
             {consultantInfo && (
                 <>
                     <Navigator title={consultantInfo.fullName} page={pageItem} bgPrimaryBold />
-                    <div className={cx('row', 'd-flex', 'wrapper')}>
-                        <div className={cx('col-12', 'col-sm-8', 'col-md-9', 'professor-info')}>
+                    <div className={cx('row', 'd-flex', 'page-wrapper')}>
+                        <div className={cx('col-12', 'col-sm-8', 'col-md-8', 'col-lg-8', 'professor-info')}>
                             <div className={cx('professor-wrapper')}>
                                 <h1 className={cx('biography')}>{t('biography')}</h1>
                                 <p>{consultantInfo.descriptions}</p>
@@ -88,7 +89,7 @@ const ProfessorDetail = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className={cx('col-12', 'col-sm-4', 'col-md-3')}>
+                        <div className={cx('col-12', 'col-sm-4', 'col-md-4', 'col-lg-4')}>
                             <div className={cx('sidebar-wrapper')}>
                                 <img src={consultantInfo.avatar} alt="Anh" className={cx('professor-image')}></img>
                                 <div className={cx('mt-2')} onClick={() => handleContactClick(consultantInfo.id)}>

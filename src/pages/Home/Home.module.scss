@@ -8,7 +8,9 @@ $general-section-height: calc(100vh - 180px);
     background-repeat: no-repeat;
     height: $general-section-height;
     width: 100%;
-    margin-bottom: 2%;
+    height: 100%;
+    margin: 2rem 0 0 0;
+    padding-bottom: 10%;
 }
 
 .wrapper-item {
@@ -16,7 +18,6 @@ $general-section-height: calc(100vh - 180px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     .title {
         font-size: 5rem;
     }
@@ -27,23 +28,21 @@ $general-section-height: calc(100vh - 180px);
     }
 }
 
-.service-wrapper {
-    height: 300px;
-
-    .card-title {
-        font-size: 2rem;
-    }
-    .card-text {
-        font-size: 1.8rem;
-    }
+.card-title {
+    font-size: 2rem;
 }
+.card-text {
+    font-size: 1.8rem;
+}
+
 .about-image {
     position: absolute;
+    object-fit: cover;
     right: 1px;
     z-index: -1;
     margin-top: 4%;
     width: 100%;
-    min-height: 880px;
+    max-height: 100%;
     overflow: hidden;
     z-index: -1;
 }
@@ -83,13 +82,6 @@ $general-section-height: calc(100vh - 180px);
         line-height: 2.8rem;
     }
 }
-.staff-wrapper {
-    .staff-description {
-        padding: 1.2rem 0;
-        font-size: 1.8rem;
-        line-height: 3rem;
-    }
-}
 .bg-staff {
     background-color: $bg-staff;
 }
@@ -104,20 +96,11 @@ $general-section-height: calc(100vh - 180px);
     margin: 0 auto;
     padding: 5rem 0;
 }
-.text-info {
-    font-weight: 300;
-    font-size: 1.8rem;
-    line-height: 3rem;
-    padding: 2rem 0;
-}
-.disease-wrapper {
-    margin-top: 3%;
 
-    .disease_title {
-        cursor: pointer;
+.disease_title {
+    cursor: pointer;
 
-        &:hover {
-            color: var(--color-primary);
-        }
+    &:hover {
+        color: var(--color-primary);
     }
 }
