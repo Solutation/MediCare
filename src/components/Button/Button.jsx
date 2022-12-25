@@ -21,17 +21,20 @@ function Button({
     medium = false,
     serviceBtn = false,
     margin = false,
+    padding = false,
     className,
     children,
     leftIcon,
     rightIcon,
     style,
     onClick,
+    type,
     ...passProps
 }) {
     let Comp = 'button';
     const props = {
         onClick,
+        type,
         ...passProps
     };
     if (to) {
@@ -62,6 +65,7 @@ function Button({
         disabled,
         small,
         margin,
+        padding,
         large,
         medium,
         serviceBtn

@@ -10,6 +10,43 @@
     z-index: 20;
     font-size: 1.7rem;
     font-weight: bold;
+
+    .admin_popper {
+        position: relative;
+        bottom: 0.7rem;
+        transition: all 0.5s ease-in-out;
+    }
+    .admin_item_wrapper {
+        width: 100%;
+        border: 2px solid var(--color-gray-icon);
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-radius: 8px;
+        background: rgb(255, 255, 255);
+        box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--color-gray);
+        }
+
+        .logout_icon {
+            color: var(--color-icon);
+            padding: 0 0.8rem;
+            font-size: 1.6rem;
+        }
+
+        .admin_item_text {
+            text-align: center;
+            color: var(--color-black);
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin: auto 0;
+            padding: 1rem;
+        }
+    }
 }
 .menu-left {
     display: flex;

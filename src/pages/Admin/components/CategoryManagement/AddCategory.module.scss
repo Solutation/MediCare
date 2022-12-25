@@ -1,0 +1,58 @@
+.wrapper {
+    position: relative;
+    width: 110rem;
+    min-height: 32rem;
+    background-color: var(--color-white);
+    margin: auto;
+    border: 1px solid transparent;
+    border-radius: var(--default-border-radius);
+    box-shadow: 1px 1px 2px var(--box-shadow-default);
+    z-index: 20;
+
+    .form_label {
+        color: var(--color-icon);
+        font-size: 1.6rem;
+        padding: 0.6rem 0;
+    }
+    .form_input {
+        color: var(--color-black);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-black);
+        text-indent: 0.8rem;
+        padding: 0.6rem 0;
+        width: 100%;
+
+        &:focus {
+            border-color: var(--color-primary);
+        }
+    }
+    .btn_choose_image {
+        padding: 0.6rem 2rem;
+        font-size: 1.6rem;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border: 1px solid transparent;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    .form_input_description {
+        color: var(--color-black);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-black);
+        text-indent: 0.4rem;
+        outline: none;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+    }
+    .avatar {
+        width: 30rem;
+        height: 16rem;
+        object-fit: cover;
+    }
+}

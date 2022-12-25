@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import axios from 'axios';
 
-import styles from './RatingManagement.module.scss';
+import styles from './CommunityManagement.module.scss';
 import { Button } from '~/components/Button';
 import { httpRequest } from '~/utils';
 import { getSerialList, getTotalPageList } from '~/utils/PaginationUtils';
@@ -11,13 +11,13 @@ import SmileIcon from '~/assets/smile.png';
 
 const cx = classNames.bind(styles);
 
-const RatingManagement = () => {
-    const [ratingList, setRatingList] = useState();
+const CommunityManagement = () => {
+    const [postList, setPostList] = useState();
     const [pageNumber, setPageNumber] = useState(1);
     const [totalPages, setTotalPages] = useState();
     const [checkUpdate, setCheckUpdate] = useState(false);
-    const [deleteAlert, setDeleteAlert] = useState(false);
     const [serial, setSerial] = useState();
+    const [deletePostAlert, setDeletePostAlert] = useState(false);
 
     useEffect(() => {
         const cancelToken = axios.CancelToken.source();
@@ -25,14 +25,14 @@ const RatingManagement = () => {
             const {
                 data: {
                     totalPages,
-                    data: { ratingList }
+                    data: { postList }
                 }
             } = await httpRequest.get(
-                '/admin/rating/list',
+                '/admin/post/info',
                 { params: { pageSize: 5, pageNumber } },
                 { cancelToken: cancelToken.token }
             );
-            setRatingList(ratingList);
+            setPostList(postList);
             setTotalPages(getTotalPageList(totalPages));
             setSerial(getSerialList(pageNumber, 5));
         };
@@ -54,51 +54,53 @@ const RatingManagement = () => {
         setPageNumber(pageNumber + 1);
     };
 
-    const handleDeleteRating = async (ratingId) => {
-        if (!window.confirm('Bạn có chắc muốn xóa đánh giá này không?')) return false;
+    const handleDeletePost = async (postId) => {
+        if (!window.confirm('Bạn có chắc muốn xóa bài viết này không?')) return false;
         else {
-            await httpRequest.delete(`/admin/rating/delete/${ratingId}`);
-            setDeleteAlert(true);
+            await httpRequest.delete(`/admin/post/delete/${postId}`);
             setCheckUpdate(!checkUpdate);
+            setDeletePostAlert(true);
         }
     };
 
     return (
         <>
-            {ratingList && serial && totalPages && (
+            {postList && totalPages && serial && (
                 <>
                     <div className={cx('d-flex', 'flex-column', 'w-100', 'p-4')}>
-                        <h2 className={cx('fw-bold')}>Quản lý đánh giá</h2>
+                        <h2 className={cx('fw-bold')}>Quản lý cộng đồng</h2>
                         <hr />
                         {/* <div className={cx('search_wrapper')}>
-                            <button className={cx('search_icon')}>
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
-                            <input type="text" placeholder="Tìm kiếm đánh giá" className={cx('search_input')} />
-                            <button className={cx('clear_icon')}>
-                                <FontAwesomeIcon icon={faCircleXmark} />
-                            </button>
-                        </div> */}
+                    <button className={cx('search_icon')}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                    <input type="text" placeholder="Tìm kiếm bài đăng" className={cx('search_input')} />
+                    <button className={cx('clear_icon')}>
+                        <FontAwesomeIcon icon={faCircleXmark} />
+                    </button>
+                </div> */}
                         <div className={cx('py-3', 'mt-5')}>
                             <table className={cx('table', 'table-bordered')}>
                                 <thead className={cx('table-primary')}>
-                                    <tr>
+                                    <tr className={cx('text-center')}>
                                         <th style={{ width: '3%' }}>STT</th>
-                                        <th style={{ width: '40%' }}>Nội dung</th>
-                                        <th style={{ width: '8%' }}>Điểm</th>
-                                        <th style={{ width: '14%' }}>Người đánh giá</th>
-                                        <th style={{ width: '14%' }}>Chuyên gia</th>
+                                        <th style={{ width: '58%' }}>Nội dung</th>
+                                        <th style={{ width: '10%' }}>Tác giả</th>
+                                        <th style={{ width: '10%' }}>Chuyên mục</th>
+                                        <th style={{ width: '6%' }}>Lượt phản hồi</th>
+                                        <th style={{ width: '6%' }}>Lượt cảm xúc</th>
                                         <th style={{ width: '20rem' }}>Hành động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {ratingList.map((ratingItem, index) => (
-                                        <tr key={ratingItem.id}>
-                                            <td>{serial[index]}</td>
-                                            <td>{ratingItem.content}</td>
-                                            <td>{ratingItem.score}</td>
-                                            <td>{`${ratingItem.patient_first_name} ${ratingItem.patient_last_name}`}</td>
-                                            <td>{`${ratingItem.consultant_first_name} ${ratingItem.consultant_last_name}`}</td>
+                                    {postList.map((postItem, index) => (
+                                        <tr key={postItem.id}>
+                                            <td className={cx('text-center')}>{serial[index]}</td>
+                                            <td>{postItem.content}</td>
+                                            <td>{`${postItem.first_name} ${postItem.last_name}`}</td>
+                                            <td>{postItem.name}</td>
+                                            <td>{postItem.comment_count}</td>
+                                            <td>{postItem.reaction_count}</td>
                                             <td>
                                                 <div
                                                     className={cx(
@@ -108,13 +110,9 @@ const RatingManagement = () => {
                                                         'justify-content-center',
                                                         'h-100'
                                                     )}
+                                                    onClick={() => handleDeletePost(postItem.id)}
                                                 >
-                                                    <Button
-                                                        danger
-                                                        small
-                                                        margin
-                                                        onClick={() => handleDeleteRating(ratingItem.id)}
-                                                    >
+                                                    <Button danger small margin>
                                                         Xóa
                                                     </Button>
                                                 </div>
@@ -153,8 +151,12 @@ const RatingManagement = () => {
                             </button>
                         </div>
                     </div>
-                    {deleteAlert && (
-                        <Alert iconImage={SmileIcon} content="Xóa đánh giá thành công" setAlertPopup={setDeleteAlert} />
+                    {deletePostAlert && (
+                        <Alert
+                            iconImage={SmileIcon}
+                            content="Xóa bài đăng thành công"
+                            setAlertPopup={setDeletePostAlert}
+                        />
                     )}
                 </>
             )}
@@ -162,4 +164,4 @@ const RatingManagement = () => {
     );
 };
 
-export default RatingManagement;
+export default CommunityManagement;

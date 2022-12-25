@@ -69,7 +69,7 @@ const Register = () => {
             .required('Địa chỉ không được để trống')
             //eslint-disable-next-line
             .matches(/[^-_+=<!@#$%^&*({})>]+$/, 'Địa chỉ không được chứa ký tự đặc biệt')
-            .min(4, 'Địa chỉ phải chứa ít nhất 10 ký tự')
+            .min(4, 'Địa chỉ phải chứa ít nhất 4 ký tự')
             .max(255, 'Địa chỉ chỉ được chứa tối đa 255 ký tự'),
         birth_day: Yup.string().required('Ngày sinh không được để trống'),
         phone_number: Yup.string()

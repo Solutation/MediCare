@@ -85,7 +85,7 @@ const Contact = () => {
                             <Window>
                                 <CustomChannelHeader />
                                 <MessageList
-                                    messageActions={['edit', 'delete', 'react']}
+                                    messageActions={['edit', 'delete']}
                                     closeReactionSelectorOnClick={true}
                                     hideDeletedMessages={true}
                                     disableDateSeparator={true}

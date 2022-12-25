@@ -116,6 +116,13 @@ $bg-user-options: #f0f8ff;
         color: var(--color-primary);
     }
 }
+.header-item {
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-primary);
+    }
+}
 
 @keyframes fadein {
     from {
