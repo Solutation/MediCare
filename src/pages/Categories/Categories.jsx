@@ -66,61 +66,57 @@ const Categories = () => {
             {categoryList && totalPages && (
                 <>
                     <Navigator title={t('categories')} page={pageItem} bgPrimaryBold />
+
                     <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
-                    <div className={cx('categories-wrapper')}>
+                    <div className={cx('categories-wrapper', 'd-flex', 'flex-wrap')}>
                         <div className={cx('row')}>
-                            <div className={cx('d-flex', 'flex-wrap')}>
-                                {categoryList.map((categoryItem) => (
-                                    <div
-                                        className={cx('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'category-item')}
-                                        key={categoryItem.id}
-                                    >
-                                        <div
-                                            onClick={() => navigate(`/article?categoryId=${categoryItem.id}`)}
-                                            style={{ cursor: 'pointer' }}
-                                        >
-                                            <div className={cx('category-wrapper')}>
-                                                <img
-                                                    src={categoryItem.image}
-                                                    alt="Anh"
-                                                    className={cx('category-img')}
-                                                ></img>
-                                                <h3 className={cx('category-content')}>{categoryItem.name}</h3>
-                                            </div>
+                            {categoryList.map((categoryItem) => (
+                                <div
+                                    className={cx('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'category-item')}
+                                    key={categoryItem.id}
+                                >
+                                    <div onClick={() => navigate(`/article?categoryId=${categoryItem.id}`)}>
+                                        <div className={cx('category-wrapper')}>
+                                            <img
+                                                src={categoryItem.image}
+                                                alt="Anh"
+                                                className={cx('category-img')}
+                                            ></img>
+                                            <h3 className={cx('category-content')}>{categoryItem.name}</h3>
                                         </div>
                                     </div>
-                                ))}
-                                <div className={cx('d-flex', 'justify-content-end', 'w-100', 'me-4')}>
-                                    <div className={cx('btn_pagination_wrapper', 'h-100')}>
-                                        <button
-                                            type="button"
-                                            className={cx('btn_pagination', { btnDisabled: pageNumber === 1 })}
-                                            onClick={handlePrevious}
-                                        >
-                                            Previous
-                                        </button>
-                                        {totalPages.map((pageIndex, index) => (
-                                            <button
-                                                type="button"
-                                                className={cx('btn_pagination', {
-                                                    paginationFocus: pageIndex === pageNumber
-                                                })}
-                                                key={index}
-                                                onClick={() => handleClickPagination(pageIndex)}
-                                            >
-                                                {pageIndex}
-                                            </button>
-                                        ))}
+                                </div>
+                            ))}
+                            <div className={cx('d-flex', 'justify-content-end', 'w-100', 'me-4')}>
+                                <div className={cx('btn_pagination_wrapper', 'h-100')}>
+                                    <button
+                                        type="button"
+                                        className={cx('btn_pagination', { btnDisabled: pageNumber === 1 })}
+                                        onClick={handlePrevious}
+                                    >
+                                        Previous
+                                    </button>
+                                    {totalPages.map((pageIndex, index) => (
                                         <button
                                             type="button"
                                             className={cx('btn_pagination', {
-                                                btnDisabled: pageNumber === totalPages.length
+                                                paginationFocus: pageIndex === pageNumber
                                             })}
-                                            onClick={handleNext}
+                                            key={index}
+                                            onClick={() => handleClickPagination(pageIndex)}
                                         >
-                                            Next
+                                            {pageIndex}
                                         </button>
-                                    </div>
+                                    ))}
+                                    <button
+                                        type="button"
+                                        className={cx('btn_pagination', {
+                                            btnDisabled: pageNumber === totalPages.length
+                                        })}
+                                        onClick={handleNext}
+                                    >
+                                        Next
+                                    </button>
                                 </div>
                             </div>
                         </div>

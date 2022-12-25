@@ -76,89 +76,82 @@ const ArticleList = () => {
             {category && article && totalPagesResult && pageItem && (
                 <>
                     <Navigator title={t('news')} page={pageItem} bgPrimaryBold />
-                    <div className={cx('wrapper')}>
-                        <div className={cx('header', 'd-flex', 'justify-content-center')}>
-                            <img src={category.image} alt="Anh" className={cx('category-img')}></img>
-                            <h3 className={cx('category', 'text-center')}>{category.name}</h3>
-                        </div>
-                        <div className={cx('separate', 'mx-auto')}></div>
-                        <div className={cx('description', 'text-center')}>{category.descriptions}</div>
-                        <div className={cx('list-wrapper', 'd-flex', 'flex-wrap')}>
-                            <div className={cx('row')}>
-                                {article.map((articleItem) => {
-                                    return (
-                                        <div
-                                            className={cx('col-sm-6', 'col-md-6', 'col-lg-4', 'list-item')}
-                                            key={articleItem.id}
-                                        >
-                                            <div
-                                                style={{ cursor: 'pointer', height: '100%' }}
-                                                onClick={() => navigate(`/news?articleId=${articleItem.id}`)}
-                                            >
-                                                <div className={cx('article-wrapper')}>
-                                                    <img
-                                                        src={articleItem.image_article}
-                                                        alt="Anh"
-                                                        className={cx('article-img')}
-                                                    ></img>
-                                                    <div className={cx('article-content')}>
-                                                        <h3 className={cx('article-title')}>{articleItem.title}</h3>
-                                                        <div className={cx('article-description')}>
-                                                            {articleItem.content}
-                                                        </div>
-                                                        <div className={cx('article-datetime')}>
-                                                            <FontAwesomeIcon
-                                                                icon={faClock}
-                                                                className={cx('date-icon')}
-                                                            />
-                                                            <span className={cx('px-3')}>
-                                                                {handleDateResponse(articleItem.created_date)}
-                                                            </span>
-                                                        </div>
-                                                        <div className={cx('more', 'd-flex')}>
-                                                            <div className={cx('more-detail')}>Xem thêm</div>
-                                                            <FontAwesomeIcon
-                                                                icon={faChevronRight}
-                                                                className={cx('arrow-icon')}
-                                                            />
-                                                        </div>
+
+                    <div className={cx('header', 'd-flex', 'justify-content-center')}>
+                        <img src={category.image} alt="Anh" className={cx('category-img')}></img>
+                        <h3 className={cx('category', 'text-center')}>{category.name}</h3>
+                    </div>
+                    <div className={cx('separate', 'mx-auto')}></div>
+                    <div className={cx('description', 'text-center')}>{category.descriptions}</div>
+                    <div className={cx('list-wrapper', 'd-flex', 'flex-wrap')}>
+                        <div className={cx('row')}>
+                            {article.map((articleItem) => {
+                                return (
+                                    <div
+                                        className={cx('col-sm-6', 'col-md-6', 'col-lg-4', 'list-item')}
+                                        key={articleItem.id}
+                                    >
+                                        <div onClick={() => navigate(`/news?articleId=${articleItem.id}`)}>
+                                            <div className={cx('article-wrapper')}>
+                                                <img
+                                                    src={articleItem.image_article}
+                                                    alt="Anh"
+                                                    className={cx('article-img')}
+                                                ></img>
+                                                <div className={cx('article-content')}>
+                                                    <h3 className={cx('article-title')}>{articleItem.title}</h3>
+                                                    <div className={cx('article-description')}>
+                                                        {articleItem.content}
+                                                    </div>
+                                                    <div className={cx('article-datetime')}>
+                                                        <FontAwesomeIcon icon={faClock} className={cx('date-icon')} />
+                                                        <span className={cx('px-3')}>
+                                                            {handleDateResponse(articleItem.created_date)}
+                                                        </span>
+                                                    </div>
+                                                    <div className={cx('more', 'd-flex')}>
+                                                        <div className={cx('more-detail')}>Xem thêm</div>
+                                                        <FontAwesomeIcon
+                                                            icon={faChevronRight}
+                                                            className={cx('arrow-icon')}
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    );
-                                })}
-                                <div className={cx('d-flex', 'justify-content-end', 'w-100', 'me-4')}>
-                                    <div className={cx('btn_pagination_wrapper', 'h-100')}>
-                                        <button
-                                            type="button"
-                                            className={cx('btn_pagination', { btnDisabled: pageNumber === 1 })}
-                                            onClick={handlePrevious}
-                                        >
-                                            Previous
-                                        </button>
-                                        {totalPagesResult.map((pageIndex, index) => (
-                                            <button
-                                                type="button"
-                                                className={cx('btn_pagination', {
-                                                    paginationFocus: pageIndex === pageNumber
-                                                })}
-                                                key={index}
-                                                onClick={() => handleClickPagination(pageIndex)}
-                                            >
-                                                {pageIndex}
-                                            </button>
-                                        ))}
+                                    </div>
+                                );
+                            })}
+                            <div className={cx('d-flex', 'justify-content-end', 'w-100', 'me-4')}>
+                                <div className={cx('btn_pagination_wrapper', 'h-100')}>
+                                    <button
+                                        type="button"
+                                        className={cx('btn_pagination', { btnDisabled: pageNumber === 1 })}
+                                        onClick={handlePrevious}
+                                    >
+                                        Previous
+                                    </button>
+                                    {totalPagesResult.map((pageIndex, index) => (
                                         <button
                                             type="button"
                                             className={cx('btn_pagination', {
-                                                btnDisabled: pageNumber === totalPagesResult.length
+                                                paginationFocus: pageIndex === pageNumber
                                             })}
-                                            onClick={handleNext}
+                                            key={index}
+                                            onClick={() => handleClickPagination(pageIndex)}
                                         >
-                                            Next
+                                            {pageIndex}
                                         </button>
-                                    </div>
+                                    ))}
+                                    <button
+                                        type="button"
+                                        className={cx('btn_pagination', {
+                                            btnDisabled: pageNumber === totalPagesResult.length
+                                        })}
+                                        onClick={handleNext}
+                                    >
+                                        Next
+                                    </button>
                                 </div>
                             </div>
                         </div>

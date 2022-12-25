@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '~/components/Button';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 
 import './CarouselContainer.scss';

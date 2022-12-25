@@ -64,29 +64,27 @@ const ProfessorDetail = () => {
                 <>
                     <Navigator title={consultantInfo.fullName} page={pageItem} bgPrimaryBold />
                     <div className={cx('row', 'd-flex', 'page-wrapper')}>
-                        <div className={cx('col-12', 'col-sm-8', 'col-md-8', 'col-lg-8', 'professor-info')}>
-                            <div className={cx('professor-wrapper')}>
-                                <h1 className={cx('biography')}>{t('biography')}</h1>
-                                <p>{consultantInfo.descriptions}</p>
-                                <div className={cx('more-info')}>
-                                    <ul className={cx('insurance-list')}>
-                                        <li>
-                                            <b>Email:</b>
-                                            <span>{consultantInfo.email}</span>
-                                        </li>
-                                        <li>
-                                            <b>{t('phone')}:</b>
-                                            <span>{consultantInfo.phone_number}</span>
-                                        </li>
-                                        <li>
-                                            <b>{t('score')}:</b>
-                                            <span>{consultantInfo.average_score}</span>
-                                        </li>
-                                        <li>
-                                            <b>{t('certification')}:</b> <span>{consultantInfo.certificate_name}</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                        <div className={cx('col-12', 'col-sm-8', 'col-md-8', 'col-lg-8')}>
+                            <h1 className={cx('biography')}>{t('biography')}</h1>
+                            <p>{consultantInfo.descriptions}</p>
+                            <div className={cx('more-info')}>
+                                <ul className={cx('insurance-list')}>
+                                    <li>
+                                        <b>Email:</b>
+                                        <span>{consultantInfo.email}</span>
+                                    </li>
+                                    <li>
+                                        <b>{t('phone')}:</b>
+                                        <span>{consultantInfo.phone_number}</span>
+                                    </li>
+                                    <li>
+                                        <b>{t('score')}:</b>
+                                        <span>{consultantInfo.average_score}</span>
+                                    </li>
+                                    <li>
+                                        <b>{t('certification')}:</b> <span>{consultantInfo.certificate_name}</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <div className={cx('col-12', 'col-sm-4', 'col-md-4', 'col-lg-4')}>
