@@ -1,0 +1,30 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    z-index: 20;
+
+    .loading_icon {
+        font-size: 6rem;
+        color: var(--color-white);
+        animation: spinner 0.8s linear infinite;
+        margin-top: 8.6rem;
+    }
+    .loading_text {
+        color: var(--color-white);
+        margin-left: 2rem;
+        font-size: 4.2rem;
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}

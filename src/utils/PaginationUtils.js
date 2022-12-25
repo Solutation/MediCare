@@ -7,3 +7,14 @@ export const getTotalPageList = (value) => {
     }
     return result;
 };
+
+export const getSerialList = (pageNumber, pageSize) => {
+    let result = [];
+    let startIndex = (pageNumber - 1) * pageSize;
+    let endIndex = pageNumber * pageSize;
+    while (startIndex < endIndex) {
+        result.push(startIndex + 1);
+        startIndex++;
+    }
+    return result;
+};

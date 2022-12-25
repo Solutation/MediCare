@@ -1,7 +1,7 @@
 import React, { useState, useEffect, memo, useLayoutEffect } from 'react';
 import classNames from 'classnames/bind';
 import Cookies from 'universal-cookie';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useTranslation } from 'react-i18next';
@@ -38,6 +38,7 @@ const Header = () => {
     const [hideService, setHideService] = useState(false);
     const [userInfo, setUserInfo] = useState();
     const userInfoAccess = cookies.get('userAccess');
+    const navigate = useNavigate();
 
     useLayoutEffect(() => {
         cookies.set('languageCode', 'vi');
@@ -58,10 +59,12 @@ const Header = () => {
 
     const handleContactClick = () => {
         if (!userInfoAccess) setAlertPopup(true);
+        else navigate('/contact');
     };
 
     const handleCommunityClick = () => {
         if (!userInfoAccess) setAlertPopup(true);
+        else navigate('/community');
     };
 
     const handleCategoryPopup = () => {
@@ -108,23 +111,15 @@ const Header = () => {
                                     {t('consultant')}
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')}>
-                                <Link
-                                    to={userInfo ? '/contact' : ''}
-                                    className={cx('nav-link')}
-                                    onClick={handleContactClick}
-                                >
+                            <li className={cx('nav-item', 'header-item')}>
+                                <div className={cx('nav-link')} onClick={handleContactClick}>
                                     {t('contact')}
-                                </Link>
+                                </div>
                             </li>
-                            <li className={cx('nav-item', { hide })}>
-                                <Link
-                                    to={userInfoAccess ? '/community' : ''}
-                                    className={cx('nav-link')}
-                                    onClick={handleCommunityClick}
-                                >
+                            <li className={cx('nav-item', 'header-item', { hide })}>
+                                <div className={cx('nav-link')} onClick={handleCommunityClick}>
                                     {t('community')}
-                                </Link>
+                                </div>
                             </li>
                             <li
                                 className={cx('nav-item', 'category_option', { primary: servicePrimary })}

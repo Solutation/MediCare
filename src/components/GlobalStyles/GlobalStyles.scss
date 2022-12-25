@@ -104,6 +104,11 @@ input {
     cursor: default;
     opacity: 0.6;
 }
+.inputDisabled {
+    user-select: none !important;
+    pointer-events: none !important;
+    cursor: default !important;
+}
 .blur {
     position: fixed;
     top: 0;
@@ -166,14 +171,15 @@ tr {
         border-bottom: 1px solid var(--color-primary);
         border-top: 1px solid var(--color-primary);
         font-size: 1.6rem;
-        padding: 1rem;
+        padding: 0.6rem;
         text-align: center;
         background-color: var(--color-white);
         overflow: hidden;
         height: 100%;
 
         &:hover {
-            color: var(--color-primary);
+            color: var(--color-white);
+            background-color: var(--color-secondary);
         }
     }
 }

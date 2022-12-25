@@ -96,7 +96,10 @@ const CustomChannelPreview = () => {
         let message = '';
         const checkMessage = channel.state.messages[channel.state.messages.length - 1];
         if (checkMessage === undefined) message = 'Bạn chưa có tin nhắn nào';
-        else message = checkMessage.text;
+        else {
+            if (checkMessage.text === 'This message was deleted.') message = 'Tin nhắn đã xóa';
+            else message = checkMessage.text;
+        }
         return <span className={cx('preview_message')}>{message}</span>;
     };
 
@@ -108,7 +111,7 @@ const CustomChannelPreview = () => {
                     if (channelSearchValue !== '') {
                         if (
                             removeVietnameseTones(channel.data.name.toLowerCase()).indexOf(
-                                removeVietnameseTones(channelSearchValue).toLowerCase()
+                                removeVietnameseTones(channelSearchValue.toLowerCase())
                             ) !== -1
                         ) {
                             checkValueSearch = 1;

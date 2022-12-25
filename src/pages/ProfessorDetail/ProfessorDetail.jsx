@@ -61,7 +61,7 @@ const ProfessorDetail = () => {
         <>
             {consultantInfo && (
                 <>
-                    <Navigator title={'lâm khương trí'} page={pageItem} bgPrimaryBold />
+                    <Navigator title={consultantInfo.fullName} page={pageItem} bgPrimaryBold />
                     <div className={cx('container', 'flex-wrap')}>
                         <div className={cx('row', 'mx-auto', 'd-flex')}>
                             <div className={cx('col-7', 'offset-1', 'professor-info')}>

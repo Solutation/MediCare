@@ -1,0 +1,67 @@
+.wrapper {
+    position: relative;
+    width: 110rem;
+    max-height: 80rem;
+    background-color: var(--color-white);
+    margin: auto;
+    box-shadow: 1px 1px 2px var(--box-shadow-default);
+    z-index: 20;
+    overflow-y: scroll;
+    max-height: 96%;
+
+    .form_label {
+        color: var(--color-icon);
+        font-size: 1.6rem;
+        padding: 0.6rem 0;
+    }
+    .form_text {
+        color: var(--color-black);
+        font-size: 1.6rem;
+        padding: 0 1.4rem;
+    }
+    .form_input {
+        color: var(--color-black);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-black);
+        text-indent: 0.8rem;
+        padding: 0.6rem 0;
+        width: 100%;
+
+        &:focus {
+            border-color: var(--color-primary);
+        }
+    }
+    .content_wrapper {
+        border: 1px solid var(--color-black);
+        position: relative;
+
+        .article_title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-black);
+            padding: 1rem 0;
+        }
+        .article_image {
+            width: 100%;
+        }
+        .article_content {
+            font-size: 1.6rem;
+            color: var(--color-black);
+            line-height: 2.2rem;
+            overflow: hidden;
+        }
+    }
+    .form_option {
+        font-size: 1.6rem;
+        padding: 0.8rem 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        .form_option_item {
+            font-size: 1.6rem;
+            color: var(--color-black);
+        }
+    }
+}

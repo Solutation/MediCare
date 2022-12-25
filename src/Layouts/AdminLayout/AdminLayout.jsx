@@ -1,14 +1,7 @@
 import React from 'react';
 
-import { HeaderAdmin } from './components/HeaderAdmin';
-
 const AdminLayout = ({ children }) => {
-    return (
-        <>
-            <HeaderAdmin />
-            {children}
-        </>
-    );
+    return <>{children}</>;
 };
 
 export default AdminLayout;
