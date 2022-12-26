@@ -240,7 +240,7 @@ const ConsultantsSection = () => {
                                                 className={cx('fw-bold')}
                                             >{`${consultant.first_name} ${consultant.last_name}`}</h1>
                                             <div className={cx('separate')}></div>
-                                            <p className={cx('py-4')}>
+                                            <p className={cx('py-4', 'text-black')}>
                                                 {consultant.descriptions.slice(0, 110) + '...'}
                                             </p>
                                             <div onClick={() => handleContactClick(consultant.id)}>
@@ -336,7 +336,9 @@ const DiseaseSection = () => {
                                                     ? diseaseItem.title.slice(0, 62) + '...'
                                                     : diseaseItem.title}
                                             </h1>
-                                            <p className={cx('pb-3')}>{diseaseItem.content.slice(0, 130) + '...'}</p>
+                                            <p className={cx('pb-3', 'text-black')}>
+                                                {diseaseItem.content.slice(0, 130) + '...'}
+                                            </p>
                                             <div
                                                 className={cx('mt-4')}
                                                 onClick={() => navigate(`/news?articleId=${diseaseItem.id}`)}
