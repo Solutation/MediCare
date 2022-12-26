@@ -1,7 +1,6 @@
 .categories-wrapper {
-    max-width: 1160px;
-    margin: auto;
-    padding: 0;
+    width: 1160px;
+    margin: 0 auto auto auto;
 }
 .category-item {
     margin-bottom: 40px;
@@ -10,6 +9,9 @@
 @media (max-width: 575px) {
     .category-item {
         padding: 0px 35px;
+    }
+    .categories-wrapper {
+        max-width: 100%;
     }
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -25,8 +27,8 @@
     }
 }
 @media (min-width: 1400px) {
-    .categories-wrapper {
-        max-width: 1380px;
-        margin: 40px auto auto auto;
-    }
+    // .categories-wrapper {
+    //     max-width: 1380px;
+    //     margin: 40px auto auto auto;
+    // }
 }
