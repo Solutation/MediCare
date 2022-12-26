@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faChevronRight, faHouseMedical } from '@fortawesome/free-solid-svg-icons';
+import './Navigator.scss';
 
 import styles from './Navigator.module.scss';
 

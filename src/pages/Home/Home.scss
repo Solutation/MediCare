@@ -1,0 +1,82 @@
+.disease-wrapper {
+    margin-top: 2%;
+}
+.text-info {
+    font-weight: 300;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    padding: 2rem 0;
+    width: 50%;
+    color: var(--text-color) !important;
+}
+.staff-description {
+    padding: 1.2rem 0;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    width: 50%;
+}
+.card {
+    padding: 0;
+    margin-bottom: 40px;
+}
+.service-wrapper {
+    min-height: 300px;
+}
+.item-wrapper {
+    min-height: 585px;
+}
+.info-wrapper {
+    min-height: 550px;
+}
+@media (max-width: 575px) {
+    .disease-wrapper {
+        margin-top: 12%;
+    }
+    .text-info {
+        width: 100%;
+    }
+    .card {
+        margin: 0 15px 40px 15px;
+    }
+    .staff-description {
+        width: 100%;
+    }
+    .service-wrapper {
+        min-height: 250px;
+    }
+    .item-wrapper {
+        min-height: 640px;
+    }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+    .disease-wrapper {
+        margin-top: 8%;
+    }
+    .card {
+        margin: 0 40px 40px 40px;
+    }
+    .staff-description {
+        width: 100%;
+    }
+    .text-info {
+        width: 100%;
+    }
+    .service-wrapper {
+        min-height: 350px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .item-wrapper {
+        min-height: 640px;
+    }
+    .service-wrapper {
+        min-height: 375px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1399px) {
+    .item-wrapper {
+        min-height: 590px;
+    }
+}
+@media (min-width: 1400px) {
+}

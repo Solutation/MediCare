@@ -136,7 +136,7 @@ const Header = () => {
                             primary
                             small
                             leftIcon={<FontAwesomeIcon icon={faUser} />}
-                            className={cx('fs-3')}
+                            className={cx('fs-3', 'd-none', 'd-lg-block')}
                         >
                             {t('login')}
                         </Button>
@@ -176,7 +176,7 @@ const Header = () => {
                             trigger="mouseenter"
                             onShow={(instance) => setTippyInstance(instance)}
                         >
-                            <div className={cx('p-4')}>
+                            <div className={cx('p-4', 'd-none', 'd-lg-block')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} className={cx('language_option_icon')} />
                             </div>
                         </HeadlessTippy>

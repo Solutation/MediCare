@@ -12,6 +12,7 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { httpRequest, handleDateResponse } from '~/utils';
 
 import styles from './ArticleDetail.module.scss';
+import './ArticleDetail.scss';
 import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
@@ -58,9 +59,9 @@ const ArticleDetail = () => {
             {article && articleRelated && consultantRelated && (
                 <>
                     <Navigator title={t('news')} page={pageItem} bgPrimaryBold />
-                    <div className={cx('container', 'flex-wrap')}>
-                        <div className={cx('row', 'mx-auto', 'd-flex')}>
-                            <div className={cx('col-7', 'offset-1', 'article-content')}>
+                    <div className={cx('page-wrapper', 'flex-wrap')}>
+                        <div className={cx('row', 'd-flex')}>
+                            <div className={cx('col-lg-8', 'article-content')}>
                                 <div className={cx('leftside-wrapper')}>
                                     <div className={cx('article-wrapper')}>
                                         <h1 className={cx('article-title')}>{article[0].title}</h1>
@@ -81,7 +82,7 @@ const ArticleDetail = () => {
                                     <CarouselContainer consultantRelated={consultantRelated} />
                                 </div>
                             </div>
-                            <div className={cx('col-3')}>
+                            <div className={cx('col-lg-4', 'side-content')}>
                                 <SidebarContainer articleRelated={articleRelated} article={article} />
                             </div>
                         </div>

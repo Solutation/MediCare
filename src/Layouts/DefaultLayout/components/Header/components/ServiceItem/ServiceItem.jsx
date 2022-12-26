@@ -28,7 +28,7 @@ const ServiceItem = ({ setPopupService, setServicePrimary, hideService, setHideS
         const serviceList = [
             { id: 1, name: `${t('toolItemName1')}`, image: ToolIcon1, type: 'ovulation' },
             { id: 2, name: `${t('toolItemName2')}`, image: ToolIcon2, type: 'ovulation' },
-            { id: 3, name: `${t('toolItemName3')}`, image: ToolIcon3, type: 'bmr' },
+            { id: 3, name: `${t('toolItemName3')}`, image: ToolIcon3, type: 'bmi' },
             { id: 4, name: `${t('toolItemName4')}`, image: ToolIcon4, type: 'bmr' },
             { id: 5, name: `${t('toolItemName5')}`, image: ToolIcon5, type: 'bmr' },
             { id: 6, name: `${t('toolItemName6')}`, image: ToolIcon6, type: 'bmr' }
@@ -68,7 +68,14 @@ const ServiceItem = ({ setPopupService, setServicePrimary, hideService, setHideS
                                 <img src={ToolsIcon} alt="" className={cx('service_image')} />
                                 <span className={cx('service_text', 'primary')}>{t('healthy_tool')}</span>
                             </div>
-                            <div className={cx('d-flex', 'align-items-center', 'py-4', 'service_item_wrapper')}>
+                            <div
+                                className={cx('d-flex', 'align-items-center', 'py-4', 'service_item_wrapper')}
+                                onClick={() => {
+                                    navigate('/findhospitals');
+                                    setHideService(true);
+                                    setServicePrimary(false);
+                                }}
+                            >
                                 <img src={HospitalIcon} alt="" className={cx('service_image')} />
                                 <span className={cx('service_text')}>{t('findingHospital')}</span>
                             </div>

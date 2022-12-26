@@ -1,10 +1,9 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '~/components/Button';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 
+import './CarouselContainer.scss';
 import styles from './CarouselContainer.module.scss';
 const cx = classNames.bind(styles);
 
@@ -45,23 +44,17 @@ const CarouselContainer = ({ consultantRelated }) => {
                                         <div className={cx('professor-info')}>
                                             <div className={cx('professor-detail')}>
                                                 <div className={cx('about-professor')}>{t('professor')}</div>
-                                                <h3>
+                                                <h3 className={cx('professor-content')}>
                                                     {t('name')}: {`${consultant.first_name} ${consultant.last_name}`}
                                                 </h3>
-                                                <h3>
+                                                <h3 className={cx('professor-content')}>
                                                     {t('specialist')}: {consultant.category_name}
                                                 </h3>
-                                                <h3>
+                                                <h3 className={cx('professor-content')}>
                                                     {t('phone')}: {consultant.phone_number}
                                                 </h3>
                                             </div>
-                                            <Button
-                                                primary
-                                                rounded
-                                                rightIcon={
-                                                    <FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />
-                                                }
-                                            >
+                                            <Button primary rounded className={cx('btn-custom')}>
                                                 {t('info')}
                                             </Button>
                                         </div>
@@ -80,23 +73,17 @@ const CarouselContainer = ({ consultantRelated }) => {
                                         <div className={cx('professor-info')}>
                                             <div className={cx('professor-detail')}>
                                                 <div className={cx('about-professor')}>{t('professor')}</div>
-                                                <h3>
+                                                <h3 className={cx('professor-content')}>
                                                     {t('name')}: {`${consultant.first_name} ${consultant.last_name}`}
                                                 </h3>
-                                                <h3>
+                                                <h3 className={cx('professor-content')}>
                                                     {t('specialist')}: {consultant.category_name}
                                                 </h3>
-                                                <h3>
+                                                <h3 className={cx('professor-content')}>
                                                     {t('phone')}: {consultant.phone_number}
                                                 </h3>
                                             </div>
-                                            <Button
-                                                primary
-                                                rounded
-                                                rightIcon={
-                                                    <FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />
-                                                }
-                                            >
+                                            <Button primary rounded className={cx('btn-custom')}>
                                                 {t('info')}
                                             </Button>
                                         </div>
