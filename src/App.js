@@ -12,7 +12,7 @@ InternationalizeConfig();
 const App = () => {
     return (
         <Provider store={store}>
-            <div className="App">
+            <div className="App" style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page = route.component;

@@ -46,7 +46,7 @@ const SidebarContainer = ({ article, articleRelated }) => {
                     </div>
                 ))}
             </div>
-            <div className={cx('tags', 'd-block')}>
+            <div className={cx('tags', 'd-lg-block', 'd-none')}>
                 <div className={cx('block-heading')}>
                     <h3 className={cx('primary', 'mt-4', 'sidebar-title', 'text-capitalize')}>{t('tags')}</h3>
                 </div>

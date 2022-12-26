@@ -1,0 +1,10 @@
+{
+    "description": "Chỉ số BMI (Body Mass Index) hay còn gọi là chỉ số khối cơ thể, chỉ số thể trọng, là một công cụ thường được sử dụng để đo lượng mỡ trong cơ thể. Chỉ số BMI chuẩn được tính dựa trên chiều cao và cân nặng, áp dụng cho nam và nữ trưởng thành.",
+    "tools": "công cụ",
+    "tool-bmi": "Tính chỉ số BMI",
+    "height": "Bạn cao bao nhiêu? (cm)",
+    "input-height": "Nhập chiều cao",
+    "weight": "Cân nặng của bạn? (kg)",
+    "input-weight": "Nhập cân nặng",
+    "result": "Tính ngay"
+}

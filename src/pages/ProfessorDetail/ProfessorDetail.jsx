@@ -16,6 +16,7 @@ import { Alert } from '~/components/Alert';
 import SadIcon from '~/assets/sad.png';
 import { store } from '~/redux';
 import { getConsultantContactId } from '~/redux/action';
+import './ProfessorDetail.scss';
 
 const cx = classNames.bind(styles);
 
@@ -62,50 +63,46 @@ const ProfessorDetail = () => {
             {consultantInfo && (
                 <>
                     <Navigator title={consultantInfo.fullName} page={pageItem} bgPrimaryBold />
-                    <div className={cx('container', 'flex-wrap')}>
-                        <div className={cx('row', 'mx-auto', 'd-flex')}>
-                            <div className={cx('col-7', 'offset-1', 'professor-info')}>
-                                <div className={cx('professor-wrapper')}>
-                                    <h1 className={cx('biography')}>{t('biography')}</h1>
-                                    <p>{consultantInfo.descriptions}</p>
-                                    <div className={cx('more-info')}>
-                                        <ul className={cx('insurance-list')}>
-                                            <li>
-                                                <b>Email:</b>
-                                                <span>{consultantInfo.email}</span>
-                                            </li>
-                                            <li>
-                                                <b>{t('phone')}:</b>
-                                                <span>{consultantInfo.phone_number}</span>
-                                            </li>
-                                            <li>
-                                                <b>{t('score')}:</b>
-                                                <span>{consultantInfo.average_score}</span>
-                                            </li>
-                                            <li>
-                                                <b>{t('certification')}:</b>{' '}
-                                                <span>{consultantInfo.certificate_name}</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                    <div className={cx('row', 'd-flex', 'page-wrapper')}>
+                        <div className={cx('col-12', 'col-sm-8', 'col-md-8', 'col-lg-8')}>
+                            <h1 className={cx('biography')}>{t('biography')}</h1>
+                            <p>{consultantInfo.descriptions}</p>
+                            <div className={cx('more-info')}>
+                                <ul className={cx('insurance-list')}>
+                                    <li>
+                                        <b>Email:</b>
+                                        <span>{consultantInfo.email}</span>
+                                    </li>
+                                    <li>
+                                        <b>{t('phone')}:</b>
+                                        <span>{consultantInfo.phone_number}</span>
+                                    </li>
+                                    <li>
+                                        <b>{t('score')}:</b>
+                                        <span>{consultantInfo.average_score}</span>
+                                    </li>
+                                    <li>
+                                        <b>{t('certification')}:</b> <span>{consultantInfo.certificate_name}</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <div className={cx('col-3')}>
-                                <div className={cx('sidebar-wrapper')}>
-                                    <img src={consultantInfo.avatar} alt="Anh" className={cx('professor-image')}></img>
-                                    <div className={cx('mt-2')} onClick={() => handleContactClick(consultantInfo.id)}>
-                                        <Button
-                                            className={cx('contact-btn')}
-                                            primary
-                                            leftIcon={<FontAwesomeIcon icon={faContactBook} />}
-                                        >
-                                            {t('contact')}
-                                        </Button>
-                                    </div>
+                        </div>
+                        <div className={cx('col-12', 'col-sm-4', 'col-md-4', 'col-lg-4')}>
+                            <div className={cx('sidebar-wrapper')}>
+                                <img src={consultantInfo.avatar} alt="Anh" className={cx('professor-image')}></img>
+                                <div className={cx('mt-2')} onClick={() => handleContactClick(consultantInfo.id)}>
+                                    <Button
+                                        className={cx('contact-btn')}
+                                        primary
+                                        leftIcon={<FontAwesomeIcon icon={faContactBook} />}
+                                    >
+                                        {t('contact')}
+                                    </Button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     {alertPopup && (
                         <Alert
                             iconImage={SadIcon}

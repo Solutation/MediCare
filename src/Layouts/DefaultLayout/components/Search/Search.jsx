@@ -78,7 +78,7 @@ const Search = () => {
                 onClickOutside={handleHideResult}
                 onShow={(instance) => setTippyInstance(instance)}
             >
-                <div className={cx('search')}>
+                <div className={cx('search', 'd-none', 'd-lg-block')}>
                     <input
                         type="text"
                         placeholder={t('searchHeader')}

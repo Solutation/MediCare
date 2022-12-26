@@ -1,45 +1,42 @@
-.container {
-    padding-bottom: 8rem;
-    .tool-wrapper {
-        .introduction {
-            font-size: 2rem;
-            line-height: 2.4rem;
-            font-weight: 500;
-            color: var(--color-secondary);
-        }
-        .description {
-            margin-top: 28px;
-            margin-bottom: 8px;
-        }
-        .form-input {
-            max-width: 750px;
-            font-size: 1.8rem;
-            line-height: 1.2rem;
-            padding: 12px 16px;
-            border-radius: 6px;
-            margin-top: 5px;
-            margin-bottom: 4px;
-        }
-        .custom-btn {
-            border-radius: 6px;
-            margin-top: 25px;
-        }
-        .radio-wrapper {
-            margin-bottom: 0px;
-            .radio {
-                margin: 0 5px 0 0;
-            }
-            .male {
-                margin-right: 10px;
-            }
-        }
+.page-wrapper {
+    max-width: 1160px;
+    margin: 40px auto auto auto;
+    padding: 0;
+    .introduction {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        font-weight: 500;
+        color: var(--color-secondary);
     }
-    .tool-img {
-        max-width: 100%;
-        min-height: 300px;
-        margin-left: 10px;
+    .description {
+        margin-top: 28px;
+        margin-bottom: 8px;
+    }
+    .form-input {
+        max-width: 750px;
+        font-size: 1.8rem;
+        line-height: 1.2rem;
+        padding: 12px 16px;
+        border-radius: 6px;
+        margin-top: 5px;
+        margin-bottom: 4px;
+    }
+    .custom-btn {
+        border-radius: 6px;
+        margin-top: 25px;
+    }
+    .radio-wrapper {
+        margin-bottom: 0px;
+        .radio {
+            margin: 0 5px 0 0;
+        }
+        .male {
+            margin-right: 10px;
+        }
     }
 }
-.modal-caculator {
-    margin-top: 10%;
+.tool-img {
+    width: 100%;
+    min-height: 300px;
+    margin-left: 10px;
 }

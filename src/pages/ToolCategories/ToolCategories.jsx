@@ -4,6 +4,7 @@ import { Navigator } from '~/components/Navigator';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import born from '~/assets/newborn.png';
 import bmi from '~/assets/bmi.png';
 import bmr from '~/assets/bmr.png';
 import ovulation from '~/assets/ovulation.png';
@@ -11,10 +12,10 @@ import heartrate from '~/assets/heartrate.png';
 import menopause from '~/assets/menopause.png';
 import vaccination from '~/assets/vaccination.png';
 import covid from '~/assets/covid.png';
-import stroke from '~/assets/stroke.png';
 import breastcancer from '~/assets/breastcancer.png';
 
 import styles from './ToolCategories.module.scss';
+import './ToolCategories.scss';
 
 const cx = classNames.bind(styles);
 
@@ -28,7 +29,7 @@ const ToolCategories = () => {
         {
             id: 1,
             image: bmi,
-            type: 'bmr',
+            type: 'bmi',
             name: t('bmi')
         },
         {
@@ -51,9 +52,9 @@ const ToolCategories = () => {
         },
         {
             id: 5,
-            image: menopause,
-            type: 'ovulation',
-            name: t('menopause')
+            image: born,
+            type: 'pdd',
+            name: t('born')
         },
         {
             id: 6,
@@ -69,9 +70,9 @@ const ToolCategories = () => {
         },
         {
             id: 8,
-            image: stroke,
-            type: 'bmr',
-            name: t('stroke')
+            image: menopause,
+            type: 'ovulation',
+            name: t('menopause')
         },
         {
             id: 9,
@@ -85,29 +86,22 @@ const ToolCategories = () => {
         <>
             <>
                 <Navigator title={t('health-tool')} page={pageItem} bgPrimaryBold />
+                <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
                 <div className={cx('tools-wrapper')}>
-                    <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
-                    <div className={cx('container')}>
-                        <div className={cx('row', 'd-flex', 'flex-wrap')}>
-                            <div className={cx('tools', 'd-flex', 'flex-wrap')}>
-                                {result.map((item) => (
-                                    <div
-                                        className={cx('col-4', 'tool-item')}
-                                        key={item.id}
-                                        onClick={() => navigate(`/tools/calculator?type=${item.type}`)}
-                                    >
-                                        <div style={{ cursor: 'pointer' }}>
-                                            <div className={cx('tool-wrapper')}>
-                                                <img src={item.image} alt="Anh" className={cx('tool-img')}></img>
-                                                <div className={cx('content-wrapper')}>
-                                                    <h3 className={cx('tool-content')}>{item.name}</h3>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div className={cx('row', 'd-flex', 'flex-wrap')}>
+                        {result.map((item) => (
+                            <div className={cx('col-sm-6', 'col-md-6', 'col-lg-4', 'tool-item')} key={item.id}>
+                                <div
+                                    className={cx('tool-wrapper')}
+                                    onClick={() => navigate(`/tools/calculator?type=${item.type}`)}
+                                >
+                                    <img src={item.image} alt="Anh" className={cx('tool-img')}></img>
+                                    <div className={cx('content-wrapper')}>
+                                        <h3 className={cx('tool-content')}>{item.name}</h3>
                                     </div>
-                                ))}
+                                </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </>

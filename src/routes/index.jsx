@@ -13,6 +13,7 @@ import { Categories } from '~/pages/Categories';
 import { ToolCategories } from '~/pages/ToolCategories';
 import { ArticleList } from '~/pages/ArticleList';
 import { ToolCaculator } from '~/pages/ToolCaculator';
+import { FindHospitals } from '~/pages/FindHospitals';
 
 const publicRoutes = [
     { path: '/', component: Home },
@@ -28,7 +29,8 @@ const publicRoutes = [
     { path: '/tools', component: ToolCategories },
     { path: '/community', component: Community },
     { path: '/article', component: ArticleList },
-    { path: 'tools/calculator', component: ToolCaculator }
+    { path: 'tools/calculator', component: ToolCaculator },
+    { path: '/findhospitals', component: FindHospitals }
 ];
 
 const privateRoutes = {};

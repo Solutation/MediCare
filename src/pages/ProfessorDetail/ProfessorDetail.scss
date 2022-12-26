@@ -1,0 +1,36 @@
+.page-wrapper {
+    max-width: 1160px;
+    margin: auto;
+}
+.sidebar-wrapper {
+    padding: 0 5px;
+}
+@media (max-width: 575px) {
+    .sidebar-wrapper {
+        padding: 0 35px;
+    }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+    .sidebar-wrapper {
+        padding: 0px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+}
+@media (min-width: 992px) and (max-width: 1399px) {
+    .page-wrapper {
+        margin: 40px auto auto auto;
+    }
+    .sidebar-wrapper {
+        padding: 0 0 45px 45px;
+    }
+}
+@media (min-width: 1400px) {
+    .page-wrapper {
+        max-width: 1380px;
+        margin: 40px auto auto auto;
+    }
+    .sidebar-wrapper {
+        padding: 0 45px;
+    }
+}
