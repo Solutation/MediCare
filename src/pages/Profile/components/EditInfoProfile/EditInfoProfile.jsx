@@ -12,19 +12,23 @@ import { Alert } from '~/components/Alert';
 import SmileIcon from '~/assets/smile.png';
 import SadIcon from '~/assets/sad.png';
 import { ProfileContext } from '~/context/ProfileContext';
+import { GlobalContext } from '~/context/GlobalContext';
+import { Loading } from '~/components/Loading';
 
 const cx = classNames.bind(styles);
 
 const cookies = new Cookies();
 
-const EditInfoProfile = ({ setFlagState }) => {
+const EditInfoProfile = () => {
     const userInfo = cookies.get('userAccess').split(',');
-    const [fileUpload, setFileUpload] = useState();
+    const [fileUpload, setFileUpload] = useState('');
     const [alertPopup, setAlertPopup] = useState(false);
     const [flag, setFlag] = useState(0);
     const [message, setMessage] = useState('');
     const [initialValues, setInitialValues] = useState();
-    const { patientInfoProfile, setPatientInfoProfile } = useContext(ProfileContext);
+    const { patientInfoProfile, setPatientInfoProfile, avatarResult, setAvatarResult } = useContext(ProfileContext);
+    const { resetPage, setResetPage } = useContext(GlobalContext);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setInitialValues(patientInfoProfile);
@@ -70,40 +74,57 @@ const EditInfoProfile = ({ setFlagState }) => {
     };
 
     const handleSubmit = async (formData, { setSubmitting }) => {
-        setSubmitting(false);
-        if (fileUpload) {
-            try {
+        try {
+            setLoading(true);
+            let urlResult = '';
+            if (fileUpload !== '') {
                 const imageRef = await uploadImage(fileUpload);
-                const url = await getImageUrl(imageRef);
-                const dataResult = {
-                    first_name: formData.first_name,
-                    last_name: formData.last_name,
-                    phone_number: formData.phone_number,
-                    address: formData.address,
-                    birth_day: formData.birth_day,
-                    avatar: url
-                };
+                urlResult = await getImageUrl(imageRef);
+            } else urlResult = avatarResult;
+            const dataResult = {
+                first_name: formData.first_name,
+                last_name: formData.last_name,
+                phone_number: formData.phone_number,
+                address: formData.address,
+                birth_day: formData.birth_day,
+                avatar: urlResult
+            };
+            let newUserName = '';
+            if (userInfo[5] === 'Bệnh nhân') {
                 const {
                     data: { patientInfo }
                 } = await httpRequest.put(`/profile/patient/update/${userInfo[0]}`, dataResult);
-                const newUserName = `${patientInfo.first_name} ${patientInfo.last_name}`;
+                newUserName = `${patientInfo.first_name} ${patientInfo.last_name}`;
                 cookies.set(
                     'userAccess',
                     `${userInfo[0]},${userInfo[1]},${userInfo[2]},${patientInfo.email},${newUserName},${userInfo[5]},${patientInfo.avatar}`
                 );
                 if (patientInfo) setPatientInfoProfile(patientInfo);
-                setMessage('Cập nhật thông tin thành công!');
-                setFlag(1);
-                setAlertPopup(true);
-            } catch (err) {
-                console.log(err);
+            } else {
+                const {
+                    data: { patientInfo }
+                } = await httpRequest.put(`/profile/consultant/update/${userInfo[0]}`, dataResult);
+                newUserName = `${patientInfo.first_name} ${patientInfo.last_name}`;
+                cookies.set(
+                    'userAccess',
+                    `${userInfo[0]},${userInfo[1]},${userInfo[2]},${patientInfo.email},${newUserName},${userInfo[5]},${patientInfo.avatar}`
+                );
+                if (patientInfo) setPatientInfoProfile(patientInfo);
             }
+            setLoading(false);
+            setResetPage(!resetPage);
+            setMessage('Cập nhật thông tin thành công!');
+            setAvatarResult(urlResult);
+            setFlag(1);
+            setAlertPopup(true);
+        } catch (err) {
+            console.log(err);
         }
     };
 
     return (
         <>
-            {initialValues && (
+            {initialValues && avatarResult && (
                 <div className={cx('col-10', 'wrapper')}>
                     <div className={cx('px-3', 'h-100')}>
                         <h2 className={cx('text-black', 'fw-bold', 'mt-3')}>Hồ sơ của tôi</h2>
@@ -204,11 +225,7 @@ const EditInfoProfile = ({ setFlagState }) => {
                                             )}
                                         >
                                             <img
-                                                src={
-                                                    fileUpload
-                                                        ? URL.createObjectURL(fileUpload)
-                                                        : patientInfoProfile.avatar
-                                                }
+                                                src={fileUpload === '' ? avatarResult : URL.createObjectURL(fileUpload)}
                                                 alt=""
                                                 className={cx('avatar')}
                                             />
@@ -240,6 +257,7 @@ const EditInfoProfile = ({ setFlagState }) => {
                 <Alert iconImage={SmileIcon} content={message} setAlertPopup={setAlertPopup} />
             )}
             {alertPopup && flag === 2 && <Alert iconImage={SadIcon} content={message} setAlertPopup={setAlertPopup} />}
+            {loading && <Loading messageLoading="Đang tiến hành cập nhật" />}
         </>
     );
 };

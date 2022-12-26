@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '~/components/Button';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './CarouselContainer.module.scss';
 const cx = classNames.bind(styles);
 
 const CarouselContainer = ({ consultantRelated }) => {
     const { t } = useTranslation('article');
+    const navigate = useNavigate();
 
     return (
         <>
@@ -23,6 +25,7 @@ const CarouselContainer = ({ consultantRelated }) => {
                                 data-bs-slide-to={index}
                                 className={cx('active')}
                                 aria-label={`Slide ${index + 1}`}
+                                key={consultant.id}
                             ></button>
                         ))}
                     </div>
@@ -61,6 +64,7 @@ const CarouselContainer = ({ consultantRelated }) => {
                                                 rightIcon={
                                                     <FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />
                                                 }
+                                                onClick={() => navigate(`/consultant?consultantId=${consultant.id}`)}
                                             >
                                                 {t('info')}
                                             </Button>
@@ -96,6 +100,7 @@ const CarouselContainer = ({ consultantRelated }) => {
                                                 rightIcon={
                                                     <FontAwesomeIcon icon={faArrowRight} className={cx('px-2')} />
                                                 }
+                                                onClick={() => navigate(`/consultant?consultantId=${consultant.id}`)}
                                             >
                                                 {t('info')}
                                             </Button>

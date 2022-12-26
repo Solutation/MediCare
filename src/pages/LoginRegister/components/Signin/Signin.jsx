@@ -139,9 +139,9 @@ const Signin = () => {
                                     </label>
                                 </div>
                             </div>
-                            <Link to="" className={cx('form-forget-password', 'fs-3')}>
+                            {/* <Link to="" className={cx('form-forget-password', 'fs-3')}>
                                 Quên mật khẩu?
-                            </Link>
+                            </Link> */}
                         </div>
                         <Button rounded warning className={cx('custom-btn', 'fs-3')} type="submit">
                             Đăng nhập

@@ -117,7 +117,7 @@ const Certificate = ({ setCertificate, consultantId }) => {
         return () => {
             cancelToken.cancel();
         };
-    }, [pageNumber, checkUpdate]);
+    }, [pageNumber, checkUpdate, consultantId]);
 
     const handleClickPagination = (pageIndex) => {
         setPageNumber(pageIndex);
@@ -236,16 +236,14 @@ const Certificate = ({ setCertificate, consultantId }) => {
                                     'py-3'
                                 )}
                             >
-                                <div style={{ marginRight: '3rem' }}>
-                                    <Button warning>Lưu</Button>
-                                </div>
                                 <div
                                     onClick={() => {
                                         setCertificate(false);
-                                        serial = 0;
                                     }}
                                 >
-                                    <Button secondary>Hủy</Button>
+                                    <Button secondary type="button">
+                                        Hủy
+                                    </Button>
                                 </div>
                             </div>
                         </div>

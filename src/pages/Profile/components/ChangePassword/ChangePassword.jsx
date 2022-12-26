@@ -70,18 +70,24 @@ const ChangePassword = () => {
             new_password
         };
         try {
-            const {
-                data: { message }
-            } = await httpRequest.put(`/profile/patient/password/update/${userInfo[0]}`, dataResult);
-            setResponseMessage(message);
+            if (userInfo[5] === 'Bệnh nhân') {
+                const {
+                    data: { message }
+                } = await httpRequest.put(`/profile/patient/password/update/${userInfo[0]}`, dataResult);
+                setResponseMessage(message);
+            } else {
+                const {
+                    data: { message }
+                } = await httpRequest.put(`/profile/consultant/password/update/${userInfo[0]}`, dataResult);
+                setResponseMessage(message);
+            }
+            setInitialValues(dataReset);
             setFlagPassword(1);
             setAlertPopup(true);
-            setInitialValues(dataReset);
         } catch ({ response }) {
             setResponseMessage(response.data.message);
             setFlagPassword(2);
             setAlertPopup(true);
-            setInitialValues(dataReset);
         }
     };
 
@@ -99,7 +105,7 @@ const ChangePassword = () => {
                             initialValues={initialValues}
                             validationSchema={validationSchema}
                             onSubmit={handleSubmit}
-                            enableReinitialize={true}
+                            enableReinitialize="true"
                         >
                             <Form action="" className={cx('px-2')}>
                                 <div className={cx('row')}>

@@ -10,15 +10,27 @@ export const ProfileContext = React.createContext();
 
 const ProfileProvider = ({ children }) => {
     const [patientInfoProfile, setPatientInfoProfile] = useState();
+    const [avatarResult, setAvatarResult] = useState();
     const userInfo = cookies.get('userAccess').split(',');
 
     useEffect(() => {
         const cancelToken = axios.CancelToken.source();
         const fetchAPI = async () => {
-            const {
-                data: { patientInfo }
-            } = await httpRequest.get(`/profile/patient/info/${userInfo[0]}`, { cancelToken: cancelToken.token });
-            setPatientInfoProfile(patientInfo);
+            if (userInfo[5] === 'Bệnh nhân') {
+                const {
+                    data: { patientInfo }
+                } = await httpRequest.get(`/profile/patient/info/${userInfo[0]}`, { cancelToken: cancelToken.token });
+                setPatientInfoProfile(patientInfo);
+                setAvatarResult(patientInfo.avatar);
+            } else {
+                const {
+                    data: { patientInfo }
+                } = await httpRequest.get(`/profile/consultant/info/${userInfo[0]}`, {
+                    cancelToken: cancelToken.token
+                });
+                setPatientInfoProfile(patientInfo);
+                setAvatarResult(patientInfo.avatar);
+            }
         };
         fetchAPI();
 
@@ -26,9 +38,9 @@ const ProfileProvider = ({ children }) => {
             cancelToken.cancel();
         };
         //eslint-disable-next-line
-    }, []);
+    }, [avatarResult]);
 
-    const passValues = { patientInfoProfile, setPatientInfoProfile };
+    const passValues = { patientInfoProfile, setPatientInfoProfile, avatarResult, setAvatarResult };
 
     return (
         <>{patientInfoProfile && <ProfileContext.Provider value={passValues}>{children}</ProfileContext.Provider>}</>
