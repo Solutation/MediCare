@@ -208,7 +208,7 @@ class CommunityController {
             res.status(400).json(new ResponseDTO(400, 'Vui lòng nhập nội dung bài đăng của bạn'));
             return;
         }
-        const addPostSql = `CALL AddPostByUserIdAndCategoryId(${userId}, ${categoryId}, '${content}')`;
+        const addPostSql = `CALL AddPostByUserIdAndCategoryId(${categoryId}, ${userId}, N'${content}')`;
         db.query(addPostSql, (err, result) => {
             if (err) {
                 res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
@@ -219,6 +219,10 @@ class CommunityController {
                 imageListResult.forEach((imageItem, index) => {
                     const imageSql = `CALL AddImagePostByPostId(${postId}, '${imageItem.name}')`;
                     db.query(imageSql, (err, result) => {
+                        if (err) {
+                            res.status(500).json(new ResponseDTO(500, 'Lỗi trong quá trình xử lý'));
+                            return;
+                        }
                         if (index == imageListResult.length - 1) {
                             res.status(200).json(new ResponseDTO(200, 'Thêm bài đăng và ảnh thành công'));
                             return;
@@ -226,7 +230,6 @@ class CommunityController {
                     });
                 });
             } else {
-                console.log(2);
                 res.status(200).json(new ResponseDTO(200, 'Thêm bài đăng thành công'));
                 return;
             }
