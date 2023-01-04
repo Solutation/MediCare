@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import { Button } from '~/components/Button';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import './CarouselContainer.scss';
 import styles from './CarouselContainer.module.scss';
@@ -9,6 +10,7 @@ const cx = classNames.bind(styles);
 
 const CarouselContainer = ({ consultantRelated }) => {
     const { t } = useTranslation('article');
+    const navigate = useNavigate();
 
     return (
         <>
@@ -22,6 +24,7 @@ const CarouselContainer = ({ consultantRelated }) => {
                                 data-bs-slide-to={index}
                                 className={cx('active')}
                                 aria-label={`Slide ${index + 1}`}
+                                key={consultant.id}
                             ></button>
                         ))}
                     </div>
@@ -54,7 +57,12 @@ const CarouselContainer = ({ consultantRelated }) => {
                                                     {t('phone')}: {consultant.phone_number}
                                                 </h3>
                                             </div>
-                                            <Button primary rounded className={cx('btn-custom')}>
+                                            <Button
+                                                className={cx('btn-custom')}
+                                                primary
+                                                rounded
+                                                onClick={() => navigate(`/consultant?consultantId=${consultant.id}`)}
+                                            >
                                                 {t('info')}
                                             </Button>
                                         </div>
@@ -83,7 +91,12 @@ const CarouselContainer = ({ consultantRelated }) => {
                                                     {t('phone')}: {consultant.phone_number}
                                                 </h3>
                                             </div>
-                                            <Button primary rounded className={cx('btn-custom')}>
+                                            <Button
+                                                className={cx('btn-custom')}
+                                                primary
+                                                rounded
+                                                onClick={() => navigate(`/consultant?consultantId=${consultant.id}`)}
+                                            >
                                                 {t('info')}
                                             </Button>
                                         </div>

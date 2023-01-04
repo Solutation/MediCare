@@ -17,12 +17,11 @@ import axios from 'axios';
 import { Alert } from '~/components/Alert';
 import SadIcon from '~/assets/sad.png';
 import { uploadImage, getImageUrl } from '~/utils/fileUtils';
+import { Loading } from '~/components/Loading';
 
 const cx = classNames.bind(styles);
 
 const cookies = new Cookies();
-
-let imageResult = [];
 
 const CreatePost = () => {
     const [imageListUI, setImageListUI] = useState([]);
@@ -32,6 +31,12 @@ const CreatePost = () => {
     const userInfo = cookies.get('userAccess').split(',');
     const { categoryId, setPostList } = useContext(CommunityContext);
     const [textValue, setTextValue] = useState();
+    const [loading, setLoading] = useState(false);
+    const [categoryIdResult, setCategoryIdResult] = useState('');
+
+    useEffect(() => {
+        setCategoryIdResult(categoryId);
+    }, [categoryId]);
 
     const handleChooseImage = (e) => {
         const file = e.target.files[0];
@@ -58,39 +63,45 @@ const CreatePost = () => {
         setImageList(result);
     };
 
+    useEffect(() => {
+        console.log(imageListUI);
+    }, [imageListUI]);
+
     const handleSubmitPost = async (e) => {
         e.preventDefault();
+        let imageResult = [];
         if (imageList.length >= 1) {
             imageList.forEach(async (imageItem, index) => {
                 try {
+                    console.log(categoryIdResult);
+                    setLoading(true);
                     const imageRef = await uploadImage(imageItem, 'image-ui');
                     const url = await getImageUrl(imageRef);
                     await imageResult.push({ name: url });
                     if (index === imageList.length - 1) {
                         const formData = {
                             userId: userInfo[0],
-                            categoryId,
+                            categoryId: categoryIdResult,
                             content: textValue,
                             imageListResult: imageResult
                         };
                         try {
                             await httpRequest.post('/community/post/add', formData);
                             //prettier-ignore
-                            const { data: { postList } } = await httpRequest.get('/community/post', { params: { categoryId, userId: userInfo[0] } });
-                            setImageList([]);
-                            setImageListUI([]);
+                            const { data: { postList } } = await httpRequest.get('/community/post', { params: { categoryId: categoryIdResult, userId: userInfo[0] } });
                             setTextValue(''.trim());
                             setPostList(postList);
+                            setImageList([]);
+                            setImageListUI([]);
                         } catch ({ response }) {
                             setImageList([]);
                             setImageListUI([]);
                             setTextValue(''.trim());
                             setErrorPostMessage(response.data.message);
                             setAlertPopup(true);
-                        } finally {
-                            imageResult = [];
                         }
                     }
+                    setLoading(false);
                 } catch (err) {
                     console.log(err);
                 }
@@ -161,6 +172,7 @@ const CreatePost = () => {
                 </div>
             </form>
             {alertPopup && <Alert iconImage={SadIcon} content={errorPostMessage} setAlertPopup={setAlertPopup} />}
+            {loading && <Loading messageLoading="Đang thêm bài đăng" />}
         </>
     );
 };
@@ -168,8 +180,7 @@ const CreatePost = () => {
 const Post = () => {
     const userInfo = cookies.get('userAccess').split(',');
     const [tippyInstance, setTippyInstance] = useState();
-    // const [postList, setPostList] = useState([]);
-    const { categoryId, postList, setPostList, loading } = useContext(CommunityContext);
+    const { categoryId, postList, setPostList } = useContext(CommunityContext);
     const [reaction, setReaction] = useState([]);
 
     useEffect(() => {
@@ -211,13 +222,13 @@ const Post = () => {
             };
         }
         // eslint-disable-next-line
-    }, [categoryId, userInfo]);
+    }, [categoryId, userInfo, postList]);
 
     return (
-        <div id="postLoading">
-            {loading ? (
-                <span>Đang đăng</span>
-            ) : (
+        <>
+            <CreatePost />
+            <h3 className={cx('text-black', 'fw-bold', 'my-5')}>Bài viết</h3>
+            <div id="postLoading">
                 <>
                     {postList.length >= 1 &&
                         reaction.length >= 1 &&
@@ -352,16 +363,14 @@ const Post = () => {
                             )
                         )}
                 </>
-            )}
-        </div>
+            </div>
+        </>
     );
 };
 
 const CommunityBody = () => {
     return (
         <div className={cx('col-7', 'wrapper', 'offset-2', 'ps-5')}>
-            <CreatePost />
-            <h3 className={cx('text-black', 'fw-bold', 'my-5')}>Bài viết</h3>
             <Post />
         </div>
     );

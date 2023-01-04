@@ -7,9 +7,9 @@ import axios from 'axios';
 import { Navigator } from '~/components/Navigator';
 import { httpRequest } from '~/utils';
 import { getTotalPageList } from '~/utils/PaginationUtils';
-import './Categories.scss';
 
 import styles from './Categories.module.scss';
+import './Categories.scss';
 
 const cx = classNames.bind(styles);
 
@@ -66,16 +66,19 @@ const Categories = () => {
             {categoryList && totalPages && (
                 <>
                     <Navigator title={t('categories')} page={pageItem} bgPrimaryBold />
-
                     <h3 className={cx('header', 'text-center')}>{t('title')}</h3>
-                    <div className={cx('categories-wrapper', 'd-flex', 'flex-wrap')}>
+                    <div className={cx('categories-wrapper')}>
                         <div className={cx('row')}>
                             {categoryList.map((categoryItem) => (
                                 <div
                                     className={cx('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'category-item')}
                                     key={categoryItem.id}
                                 >
-                                    <div onClick={() => navigate(`/article?categoryId=${categoryItem.id}`)}>
+                                    <div
+                                        to=""
+                                        onClick={() => navigate(`/article?categoryId=${categoryItem.id}`)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         <div className={cx('category-wrapper')}>
                                             <img
                                                 src={categoryItem.image}

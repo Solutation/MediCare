@@ -54,18 +54,17 @@ const UserItem = ({ setCheckLogin, tippyUserItemInstance }) => {
                 </div>
             </div>
             <div className={cx('d-flex', 'flex-column', 'body_wrapper')}>
-                {userInfo[5] === 'Bệnh nhân' && (
-                    <Link
-                        className={cx('d-flex', 'align-items-center', 'justify-content-start', 'body_item_profile')}
-                        to="/profile"
-                        onClick={() => tippyUserItemInstance.hide()}
-                    >
-                        <FontAwesomeIcon icon={faUser} className={cx('option_icon')} />
-                        <span className={cx('option_text')} style={{ marginLeft: '0.2rem' }}>
-                            {t('profile')}
-                        </span>
-                    </Link>
-                )}
+                <Link
+                    className={cx('d-flex', 'align-items-center', 'justify-content-start', 'body_item_profile')}
+                    to="/profile"
+                    onClick={() => tippyUserItemInstance.hide()}
+                >
+                    <FontAwesomeIcon icon={faUser} className={cx('option_icon')} />
+                    <span className={cx('option_text')} style={{ marginLeft: '0.2rem' }}>
+                        {t('profile')}
+                    </span>
+                </Link>
+
                 <div className={cx('accordion', 'accordion-flush', 'accordion_wrapper')} id="accordionLanguage">
                     <div className={cx('body_separate')}></div>
                     <div className={cx('accordion-item')} style={{ padding: '0.8rem 0' }}>

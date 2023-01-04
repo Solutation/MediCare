@@ -27,18 +27,19 @@ const Search = () => {
             setSearchResult([]);
             return;
         }
-
+        setLoading(true);
         //call API
-        const fetchAPI = async () => {
-            setLoading(true);
-            const categoryId = checkSearch(searchValue);
-            const {
-                data: { articleData }
-            } = await httpRequest.get('/article/search', { params: { categoryId, pageSize: 5, pageNumber: 1 } });
-            setSearchResult(articleData);
-            setLoading(false);
-        };
-        fetchAPI();
+        setTimeout(() => {
+            const fetchAPI = async () => {
+                const categoryId = checkSearch(searchValue);
+                const {
+                    data: { articleData }
+                } = await httpRequest.get('/article/search', { params: { categoryId, pageSize: 5, pageNumber: 1 } });
+                setSearchResult(articleData);
+                setLoading(false);
+            };
+            fetchAPI();
+        }, 3);
 
         //eslint-disable-next-line
     }, [searchValue]);

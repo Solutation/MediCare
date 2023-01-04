@@ -6,12 +6,12 @@ export function checkSearch(value) {
     const Digestive = ['tieu hoa'];
     const ENT = ['tai', 'mui', 'hong'];
     const Eye = ['mat', 'vong mac'];
-    const Sport = ['van dong', 'the duc', 'the thao', 'tap gym', 'chay bo', 'squad'];
+    const Sport = ['the thao'];
     const Mentality = ['tam ly', 'tam than'];
-    const HeartRespi = ['tuc nguc', 'kho tho', 'nguc'];
-    const Medicine = ['cay thuoc', 'la', 'ca'];
+    const HeartRespi = ['tuc nguc', 'kho tho'];
+    const Medicine = ['cay thuoc'];
     const Dental = ['rang', 'mieng', 'nuou'];
-    const Respiratory = ['ho', 'mui', 'hong', 'hat xi', 'ho hap', 'phoi', 'hen suyen', 'lao'];
+    const Respiratory = ['ho hap', 'so mui'];
     const Skin = ['da'];
 
     if (Allergy.some((obj) => obj.indexOf(removeVietnameseTones(value).toLowerCase().trim()) !== -1)) return 1;

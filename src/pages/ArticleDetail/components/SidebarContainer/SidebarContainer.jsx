@@ -20,7 +20,7 @@ const SidebarContainer = ({ article, articleRelated }) => {
                     <h3 className={cx('primary', 'mt-2', 'sidebar-title', 'text-capitalize')}>{t('related-news')}</h3>
                 </div>
                 {articleRelated.map((articleRelatedItem) => (
-                    <div className={cx('news-wrapper')}>
+                    <div className={cx('news-wrapper')} key={articleRelatedItem.id}>
                         <div
                             className={cx('news', 'd-flex')}
                             style={{ cursor: 'pointer' }}

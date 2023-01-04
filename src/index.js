@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import App from '~/App';
 import { GlobalStyles } from '~/components/GlobalStyles';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { GlobalProvider } from './context/GlobalContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router>
-        <GlobalStyles>
-            <App />
-        </GlobalStyles>
+        <GlobalProvider>
+            <GlobalStyles>
+                <App />
+            </GlobalStyles>
+        </GlobalProvider>
     </Router>
 );
 
