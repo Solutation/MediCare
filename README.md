@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Medicare
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project that provides utilities to make it easy to take care of health in the online environment.
 
-## Available Scripts
+### Typical Feature
 
-In the project directory, you can run:
+- [Login/Register](#Login/Register)
+- [Health advice](#HealthAdvice)
+- [Reading News](#ReadingNews)
+- [Community](#Community)
+- [Admin](#Admin)
 
-### `npm start`
+### Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is a few of images about our project.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Home 1](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FHome1.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-### `npm test`
+![Home 2](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FHome2.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Home 3](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FHome3.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-### `npm run build`
+![Home 4](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FHome5.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Home 5](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FHome6.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Feature Details
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Login/Register
 
-### `npm run eject`
+This feature help patient register as well as login in our website. Advisor can only login, they will not be allowed to register directly like patient.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Login 1](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FLogin1.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Login 2](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FLogin2.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### HealthAdvice
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This feature help patients request consultant for health advice for themselves.
 
-## Learn More
+![Advise 1](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FAdvise1.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Advise 2](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FAdvise2.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### ReadingNews
 
-### Code Splitting
+This feature help patient read latest health news.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![News 1](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FNews1.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-### Analyzing the Bundle Size
+![News 2](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FNews2.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Community
 
-### Making a Progressive Web App
+This feature help patient share their health issues with each others.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Community 1](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FCommunity1.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-### Advanced Configuration
+### Admin
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This feature help admin manage their website.
 
-### Deployment
+![Admin 1](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FAdmin1.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![Admin 2](https://firebasestorage.googleapis.com/v0/b/medicare-d0b4b.appspot.com/o/image-ui%2FAdmin2.png?alt=media&token=4236657a-cada-4b74-8599-2c9c2cbd9281)
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This code is under the [MIT License](https://opensource.org/licenses/MIT).
+
+See the [LICENSE](LICENSE) file for required notices and attributions.
